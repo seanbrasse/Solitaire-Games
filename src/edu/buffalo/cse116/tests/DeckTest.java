@@ -1,0 +1,54 @@
+package edu.buffalo.cse116.tests;
+
+import static org.junit.Assert.*;
+
+import java.util.HashSet;
+
+import org.junit.Test;
+
+import edu.buffalo.cse116.code.Card;
+import edu.buffalo.cse116.code.Deck;
+
+/**
+ * This tester class will ensure there
+ * are 52 unique cards in a deck 
+ * 
+ * @author Willshady
+ *
+ */
+public class DeckTest 
+{
+	/**
+	 * Method will test if the Deck class
+	 * constructor creates an ArrayList
+	 */
+	@Test
+	public void testDeckConstructor()
+	{
+		Deck testDeck = new Deck();
+		
+		assertNotNull(testDeck);
+		assertNotNull(testDeck.getDeck());
+	}
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void testDeckHasUniqueCards()
+	{
+		Deck testDeck = new Deck();
+		HashSet<Card> uniqueCards = new HashSet<Card>();
+		
+		for(Card card : testDeck.getDeck())
+		{
+			uniqueCards.add(card);
+		}
+		
+		if(uniqueCards.size() != 52)
+		{
+			fail();
+		}
+		
+	}
+}

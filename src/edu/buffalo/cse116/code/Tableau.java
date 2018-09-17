@@ -30,6 +30,74 @@ public class Tableau
 	 */
 	public Tableau(boolean isTheGameGolf, Deck deck)
 	{
+		this.pile = new ArrayList<Card>();
+		this.topCard = null;
 		
+		if(isTheGameGolf == true)
+		{
+			deckSize = 5;
+			this.isGolfFlag = true;
+			this.isLittleSpiderFlag = false;
+		}
+		else
+		{
+			deckSize = 6;
+			this.isLittleSpiderFlag = true;
+			this.isGolfFlag = false;
+		}
+		
+		for(int i=0; i<deck.getDeck().size(); i++)
+		{
+			if(pile.size() < deckSize)
+			{
+				pile.add(deck.getDeck().get(i));
+				deck.getDeck().remove(i);
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		this.topCard = pile.get(0);
+	}
+	
+	public boolean isAddingCardLegal()
+	{
+		if(this.isGolfFlag == true)
+		{
+			return false;
+		}
+		
+		if(this.isLittleSpiderFlag == true)
+		{
+			/**
+			 * Andrew, your logic goes here!
+			 */
+		}
+		
+		return false;
+	}
+	
+	public boolean isRemovingCardLegal()
+	{
+		if(this.pile.size() <= 0)
+		{
+			return false;
+		}
+		
+		if(this.isGolfFlag == true)
+		{
+			
+		}
+		
+		if(this.isLittleSpiderFlag == true)
+		{
+			/**
+			 * Andrew, your logic goes here!
+			 */
+		}
+		
+		return false;
 	}
 }

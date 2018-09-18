@@ -20,7 +20,7 @@ public class LittleSpiderHomecell
 		pile2.add(d.getDeck().get(26));
 		pile3.add(d.getDeck().get(12));
 		pile4.add(d.getDeck().get(51));
-
+ 
 	}
 
 	//Get Pile

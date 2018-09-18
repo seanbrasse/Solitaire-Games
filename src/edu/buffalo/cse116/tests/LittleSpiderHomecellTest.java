@@ -46,7 +46,7 @@ public class LittleSpiderHomecellTest {
 	}
 	
 	@Test
-	public void p3Initial() {
+	public void p3Initial() { 
 		ArrayList<Card> a = new ArrayList<Card>();
 		ArrayList<Card> b = new ArrayList<Card>();
 		ArrayList<Card> c = new ArrayList<Card>();

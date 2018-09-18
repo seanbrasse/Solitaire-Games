@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import edu.buffalo.cse116.code.Deck;
+import edu.buffalo.cse116.code.Tableau;
+
 /**
  * 
  * @author Willshady
@@ -17,6 +20,25 @@ public class TableauTest
 	@Test
 	public void testConstructor()
 	{
-		assertEquals(0, 0, 0);
+		Deck deckForLittleSpider = new Deck();
+		Deck deckForGolf = new Deck();
+		Tableau testPileInLittleSpiderGame = new Tableau(false, deckForLittleSpider);
+		Tableau testPileInGolfGame = new Tableau(true, deckForGolf);
+		
+		assertEquals(5, testPileInGolfGame.getPileSize());
+		assertEquals(6, testPileInLittleSpiderGame.getPileSize());
+	}
+	
+	@Test
+	public void testGolfAddCardLogic()
+	{
+		/**
+		 * One cannot add cards to piles in Golf, and as such this
+		 * method when tested should always return false.
+		 */
+		Deck deckForGolf = new Deck();
+		Tableau testPileInGolfGame = new Tableau(true, deckForGolf);
+		
+		assertFalse(testPileInGolfGame.isAddingCardLegal());
 	}
 }

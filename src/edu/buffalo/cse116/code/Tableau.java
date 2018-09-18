@@ -17,7 +17,7 @@ public class Tableau
 	Card topCard;
 	boolean isGolfFlag;
 	boolean isLittleSpiderFlag;
-	int deckSize;
+	int pileSize;
 	
 	/**
 	 * Constructor will check for game type, ask for a
@@ -35,20 +35,20 @@ public class Tableau
 		
 		if(isTheGameGolf == true)
 		{
-			deckSize = 5;
+			pileSize = 5;
 			this.isGolfFlag = true;
 			this.isLittleSpiderFlag = false;
 		}
 		else
 		{
-			deckSize = 6;
+			pileSize = 6;
 			this.isLittleSpiderFlag = true;
 			this.isGolfFlag = false;
 		}
 		
 		for(int i=0; i<deck.getDeck().size(); i++)
 		{
-			if(pile.size() < deckSize)
+			if(pile.size() < pileSize)
 			{
 				pile.add(deck.getDeck().get(i));
 				deck.getDeck().remove(i);
@@ -62,14 +62,38 @@ public class Tableau
 		this.topCard = pile.get(0);
 	}
 	
+	public void removeCard()
+	{
+		if(this.isAddingCardLegal())
+		{
+			if(this.isGolfFlag)
+			{
+				this.pile.remove(0);
+				this.topCard = this.pile.get(0);
+			}
+			
+			if(this.isLittleSpiderFlag)
+			{
+				/**
+				 * Andrew, your logic goes here!
+				 */
+			}
+		}
+	}
+	
+	public void addCard()
+	{
+		
+	}
+	
 	public boolean isAddingCardLegal()
 	{
-		if(this.isGolfFlag == true)
+		if(this.isGolfFlag)
 		{
 			return false;
 		}
 		
-		if(this.isLittleSpiderFlag == true)
+		if(this.isLittleSpiderFlag)
 		{
 			/**
 			 * Andrew, your logic goes here!
@@ -86,12 +110,12 @@ public class Tableau
 			return false;
 		}
 		
-		if(this.isGolfFlag == true)
+		if(this.isGolfFlag)
 		{
-			
+			return true;
 		}
 		
-		if(this.isLittleSpiderFlag == true)
+		if(this.isLittleSpiderFlag)
 		{
 			/**
 			 * Andrew, your logic goes here!
@@ -99,5 +123,10 @@ public class Tableau
 		}
 		
 		return false;
+	}
+	
+	public int getPileSize()
+	{
+		return this.pileSize;
 	}
 }

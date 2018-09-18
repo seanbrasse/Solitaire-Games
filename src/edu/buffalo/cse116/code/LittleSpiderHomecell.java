@@ -13,7 +13,7 @@ public class LittleSpiderHomecell
 		this.pile2 = p2;
 		this.pile3 = p3;
 		this.pile4 = p4; 
-
+ 
 		//These piles start off with one of their corresponding cards ((Diamonds, Ace), (Hearts, Ace), (Clubs, King), (Spades, King))
 
 		pile1.add(d.getDeck().get(13)); 

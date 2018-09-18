@@ -45,7 +45,7 @@ public class LittleSpiderHomecellTest {
 		assertEquals(26, hc.getp2());
 	}
 	
-	@Test
+	@Test 
 	public void p3Initial() { 
 		ArrayList<Card> a = new ArrayList<Card>();
 		ArrayList<Card> b = new ArrayList<Card>();

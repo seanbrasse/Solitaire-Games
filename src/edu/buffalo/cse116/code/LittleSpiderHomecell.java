@@ -16,7 +16,7 @@ public class LittleSpiderHomecell
 
 		//These piles start off with one of their corresponding cards ((Diamonds, Ace), (Hearts, Ace), (Clubs, King), (Spades, King))
 
-		pile1.add(d.getDeck().get(13));
+		pile1.add(d.getDeck().get(13)); 
 		pile2.add(d.getDeck().get(26));
 		pile3.add(d.getDeck().get(12));
 		pile4.add(d.getDeck().get(51));

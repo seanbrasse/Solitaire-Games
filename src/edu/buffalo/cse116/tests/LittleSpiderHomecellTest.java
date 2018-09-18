@@ -29,7 +29,7 @@ public class LittleSpiderHomecellTest {
 	public void p1Initial() {
 		ArrayList<Card> a = new ArrayList<Card>();
 		ArrayList<Card> b = new ArrayList<Card>();
-		ArrayList<Card> c = new ArrayList<Card>();
+		ArrayList<Card> c = new ArrayList<Card>(); 
 		ArrayList<Card> d = new ArrayList<Card>();
 		LittleSpiderHomecell hc = new LittleSpiderHomecell(a, b, c, d);
 		assertEquals(13, hc.getp1());

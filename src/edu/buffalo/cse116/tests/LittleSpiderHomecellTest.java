@@ -17,7 +17,7 @@ public class LittleSpiderHomecellTest {
 	
 	@Test
 	//borrowed from WillShady
-	public void testConstructor() {
+	public void testConstructor() { 
 		Deck testDeck = new Deck();
 		
 		assertNotNull(testDeck);

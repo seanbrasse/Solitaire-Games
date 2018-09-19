@@ -48,6 +48,11 @@ public class LittleSpiderHomecell
 	public void removeCard() {
 		
 	}
+	
+	public static void main(String[] args)
+	{
+		//LittleSpiderHomeCell test = new 
+	}
 
 }
 

@@ -129,4 +129,14 @@ public class Tableau
 	{
 		return this.pileSize;
 	}
+	
+	public ArrayList<Card> getPile()
+	{
+		return this.pile;
+	}
+	
+	public Card getTopCard()
+	{
+		return this.topCard;
+	}
 }

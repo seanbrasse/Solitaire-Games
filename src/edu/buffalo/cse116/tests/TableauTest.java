@@ -41,4 +41,35 @@ public class TableauTest
 		
 		assertFalse(testPileInGolfGame.isAddingCardLegal());
 	}
+	
+	@Test
+	public void testGolfRemoveCardLogic()
+	{
+		/**
+		 * One may remove a card in Golf from a Tableau pile if
+		 * there are card to be removed. The method should return
+		 * true in cases where the pile size is greater than 1, and
+		 * false for all other inputs
+		 */
+		Deck deckForGolf = new Deck();
+		Tableau testPileInGolfGame = new Tableau(true, deckForGolf);
+		
+		assertTrue(testPileInGolfGame.isRemovingCardLegal());
+		testPileInGolfGame.getPile().clear();
+		assertFalse(testPileInGolfGame.isRemovingCardLegal());
+	}
+	
+	@Test
+	public void testGoldRemoveCard()
+	{
+		/**
+		 * 
+		 */
+		Deck deckForGolf = new Deck();
+		Tableau testPileInGolfGame = new Tableau(true, deckForGolf);
+		
+		testPileInGolfGame.getPileSize();
+		testPileInGolfGame.getTopCard();
+		testPileInGolfGame.removeCard();
+	}
 }

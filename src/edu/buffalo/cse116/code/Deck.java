@@ -12,6 +12,10 @@ import java.util.ArrayList;
 
 public class Deck 
 {
+	
+	/**
+	 * Create a newly allocated deck ArrayList that will contain elements to create a standardized deck of 52 cards.
+	 */
 	private ArrayList<Card> deck = new ArrayList<Card>();
 	
 	/**
@@ -30,6 +34,10 @@ public class Deck
 		}
 	}
 	
+	/**
+	 * Returns our deck.
+	 * @return the deck we created.
+	 */
 	public ArrayList<Card> getDeck()
 	{
 		return this.deck;

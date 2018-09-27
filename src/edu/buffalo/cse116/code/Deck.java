@@ -1,10 +1,12 @@
 package edu.buffalo.cse116.code;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * This class represents a deck of cards, where each
  * card in the deck is unique in its suit and rank.
+ * Decks are shuffled on creation.
  * 
  * @author Willshady
  *
@@ -22,6 +24,8 @@ public class Deck
 	 * Constructor will create unique Cards and add
 	 * them to the ArrayList of type Card by itterating
 	 * through all the suits (0 - 3), and ranks (0 - 12).
+	 * 
+	 * Then, shuffle deck once cards added.
 	 */
 	public Deck()
 	{
@@ -32,6 +36,8 @@ public class Deck
 				deck.add(new Card(cardSuit, cardRank));
 			}
 		}
+		
+		Collections.shuffle(this.deck);
 	}
 	
 	/**

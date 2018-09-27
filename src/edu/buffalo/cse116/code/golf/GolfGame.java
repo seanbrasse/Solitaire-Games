@@ -16,12 +16,12 @@ public class GolfGame
 {
 	/**
 	 * REMINDER: rename classes to [game name, functionality]
-	 * 			 create stock pile classes
+	 * 			 
 	 */
 	private Deck gameDeck;
 	private ArrayList<GolfTableau> gameTableauPiles;
 	private GolfHomecell gameHomecellPile;
-	//private GolfStockPile gameStockPile;
+	private GolfStock gameStockPile;
 	
 	public GolfGame()
 	{
@@ -31,7 +31,12 @@ public class GolfGame
 		 * 
 		 */
 		this.gameDeck = new Deck();
-		Collections.shuffle(this.gameDeck.getDeck());
+		
+		for(int itterator=0; itterator<8; itterator++)
+		{
+			GolfTableau newTableauPile = new GolfTableau(this.gameDeck);
+			this.gameTableauPiles.add(newTableauPile);
+		}
 		
 	}
 }

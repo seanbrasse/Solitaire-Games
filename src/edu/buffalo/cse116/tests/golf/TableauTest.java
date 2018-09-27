@@ -15,7 +15,8 @@ import edu.buffalo.cse116.code.golf.GolfTableau;
 public class TableauTest 
 {
 	/**
-	 * 
+	 * TODO: Test cases are outdated. Seperate into two different classes seperated by package
+	 * 		 and apply test cases where applicable.
 	 */
 	@Test
 	public void testConstructor()

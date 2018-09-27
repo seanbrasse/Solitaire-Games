@@ -7,12 +7,12 @@ import edu.buffalo.cse116.code.Card;
 public class GolfHomecell {
 	
 	// an ArrayList to keep track of the pile
-	private GolfTableau top;
+	private GolfStock top;
 	private ArrayList<Card> cardPile;
 	
-	public GolfHomecell(GolfTableau tableau, ArrayList<Card> array) {
+	public GolfHomecell(GolfStock stock, ArrayList<Card> array) {
 		
-		this.top = tableau;
+		this.top = stock;
 		this.cardPile = array;
 		
 	}

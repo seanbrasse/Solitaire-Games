@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 import edu.buffalo.cse116.code.Card;
 
-public abstract class LittleSpiderStock {
+public abstract class LittleSpiderHomecellAbstract {
 
 	public ArrayList<Card> pile1;
 	public ArrayList<Card> pile2;
 	public ArrayList<Card> pile3;
 	public ArrayList<Card> pile4;
 	
-	public LittleSpiderStock(ArrayList<Card> p1, ArrayList<Card> p2, ArrayList<Card> p3, ArrayList<Card> p4) {
+	public LittleSpiderHomecellAbstract(ArrayList<Card> p1, ArrayList<Card> p2, ArrayList<Card> p3, ArrayList<Card> p4) {
 		this.pile1 = p1;
 		this.pile2 = p2;
 		this.pile3 = p3;

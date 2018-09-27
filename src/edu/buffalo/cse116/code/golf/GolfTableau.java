@@ -53,23 +53,23 @@ public class GolfTableau
 	 * @param Golf
 	 * @param LittleSpider
 	 */
-	public GolfTableau(boolean isTheGameGolf, Deck deck)
+	public GolfTableau(Deck deck)
 	{
 		this.pile = new ArrayList<Card>();
 		this.topCard = null;
 		
-		if(isTheGameGolf == true)
-		{
-			pileSize = 5;
-			this.isGolfFlag = true;
-			this.isLittleSpiderFlag = false;
-		}
-		else
+		pileSize = 5;
+		this.isGolfFlag = true;
+		this.isLittleSpiderFlag = false;
+
+		/*********************************************
+		 * code applicable for little spider tableau pile
 		{
 			pileSize = 6;
 			this.isLittleSpiderFlag = true;
 			this.isGolfFlag = false;
 		} //Checks out for both so far (CFB) - Andrew
+		**********************************************/
 		
 		//We get our deck of 52 cards with 'deck.getDeck(), returns ArrayList<Card>deck. - Andrew
 		for(int i=0; i<deck.getDeck().size(); i++)

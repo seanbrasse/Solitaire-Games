@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.Deck;
 
-public class LittleSpiderHomecell extends LittleSpiderStock {
+public class LittleSpiderHomecell extends LittleSpiderHomecellAbstract {
 
 	Deck d = new Deck();
 	LittleSpiderTableau TLS = new LittleSpiderTableau(d);

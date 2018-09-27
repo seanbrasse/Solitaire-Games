@@ -1,4 +1,4 @@
-package edu.buffalo.cse116.tests;
+package edu.buffalo.cse116.tests.littleSpider;
 
 import static org.junit.Assert.assertEquals;
 
@@ -11,8 +11,8 @@ import org.junit.Test;
 
 import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.Deck;
-import edu.buffalo.cse116.code.HomecellLS;
-import edu.buffalo.cse116.code.TableauLS;
+import edu.buffalo.cse116.code.littleSpider.LittleSpiderHomecell;
+import edu.buffalo.cse116.code.littleSpider.LittleSpiderTableau;
 
 public class HomecellLSTest {
 
@@ -39,7 +39,7 @@ public class HomecellLSTest {
 		ArrayList<Card> b = new ArrayList<Card>();
 		ArrayList<Card> c = new ArrayList<Card>(); 
 		ArrayList<Card> d = new ArrayList<Card>();
-		HomecellLS hc = new HomecellLS(a, b, c, d);
+		LittleSpiderHomecell hc = new LittleSpiderHomecell(a, b, c, d);
 		assertEquals(0, hc.getp1().getRank());
 		assertEquals(1, hc.getp1().getSuit());
 	}
@@ -51,7 +51,7 @@ public class HomecellLSTest {
 		ArrayList<Card> b = new ArrayList<Card>();
 		ArrayList<Card> c = new ArrayList<Card>();
 		ArrayList<Card> d = new ArrayList<Card>();
-		HomecellLS hc = new HomecellLS(a, b, c, d);
+		LittleSpiderHomecell hc = new LittleSpiderHomecell(a, b, c, d);
 		assertEquals(0, hc.getp2().getRank());
 		assertEquals(2, hc.getp2().getSuit());
 	}
@@ -62,7 +62,7 @@ public class HomecellLSTest {
 		ArrayList<Card> b = new ArrayList<Card>();
 		ArrayList<Card> c = new ArrayList<Card>();
 		ArrayList<Card> d = new ArrayList<Card>();
-		HomecellLS hc = new HomecellLS(a, b, c, d);
+		LittleSpiderHomecell hc = new LittleSpiderHomecell(a, b, c, d);
 		assertEquals(12, hc.getp3().getRank());
 		assertEquals(0, hc.getp3().getSuit());
 	}
@@ -73,7 +73,7 @@ public class HomecellLSTest {
 		ArrayList<Card> b = new ArrayList<Card>();
 		ArrayList<Card> c = new ArrayList<Card>();
 		ArrayList<Card> d = new ArrayList<Card>();
-		HomecellLS hc = new HomecellLS(a, b, c, d);
+		LittleSpiderHomecell hc = new LittleSpiderHomecell(a, b, c, d);
 		assertEquals(12, hc.getp4().getRank());
 		assertEquals(3, hc.getp4().getSuit());
 	}
@@ -95,7 +95,7 @@ public class HomecellLSTest {
 		ArrayList<Card> b = new ArrayList<Card>();
 		ArrayList<Card> c = new ArrayList<Card>();
 		ArrayList<Card> d = new ArrayList<Card>();
-		HomecellLS hc = new HomecellLS(a, b, c, d);
+		LittleSpiderHomecell hc = new LittleSpiderHomecell(a, b, c, d);
 		Deck deck = new Deck();
 		hc.pile1.add(deck.getDeck().get(12));
 		assertNotNull(hc.getTC(1));
@@ -108,7 +108,7 @@ public class HomecellLSTest {
 		ArrayList<Card> b = new ArrayList<Card>();
 		ArrayList<Card> c = new ArrayList<Card>();
 		ArrayList<Card> d = new ArrayList<Card>();
-		HomecellLS hc = new HomecellLS(a, b, c, d);
+		LittleSpiderHomecell hc = new LittleSpiderHomecell(a, b, c, d);
 		Deck deck = new Deck();
 		hc.pile2.add(deck.getDeck().get(12));
 		assertNotNull(hc.getTC(2));
@@ -121,7 +121,7 @@ public class HomecellLSTest {
 		ArrayList<Card> b = new ArrayList<Card>();
 		ArrayList<Card> c = new ArrayList<Card>();
 		ArrayList<Card> d = new ArrayList<Card>();
-		HomecellLS hc = new HomecellLS(a, b, c, d);
+		LittleSpiderHomecell hc = new LittleSpiderHomecell(a, b, c, d);
 		Deck deck = new Deck();
 		hc.pile3.add(deck.getDeck().get(12));
 		assertNotNull(hc.getTC(3));
@@ -134,7 +134,7 @@ public class HomecellLSTest {
 		ArrayList<Card> b = new ArrayList<Card>();
 		ArrayList<Card> c = new ArrayList<Card>();
 		ArrayList<Card> d = new ArrayList<Card>();
-		HomecellLS hc = new HomecellLS(a, b, c, d);
+		LittleSpiderHomecell hc = new LittleSpiderHomecell(a, b, c, d);
 		Deck deck = new Deck();
 		hc.pile4.add(deck.getDeck().get(12));
 		assertNotNull(hc.getTC(4));
@@ -153,7 +153,7 @@ public class HomecellLSTest {
 		ArrayList<Card> b = new ArrayList<Card>();
 		ArrayList<Card> c = new ArrayList<Card>();
 		ArrayList<Card> d = new ArrayList<Card>();
-		HomecellLS hc = new HomecellLS(a, b, c, d);
+		LittleSpiderHomecell hc = new LittleSpiderHomecell(a, b, c, d);
 		Deck deck = new Deck();
 		hc.pile1.add(deck.getDeck().get(12));
 		//assertNotNull(hc.getTCR(1));
@@ -167,7 +167,7 @@ public class HomecellLSTest {
 		ArrayList<Card> b = new ArrayList<Card>();
 		ArrayList<Card> c = new ArrayList<Card>();
 		ArrayList<Card> d = new ArrayList<Card>();
-		HomecellLS hc = new HomecellLS(a, b, c, d);
+		LittleSpiderHomecell hc = new LittleSpiderHomecell(a, b, c, d);
 		Deck deck = new Deck();
 		hc.pile2.add(deck.getDeck().get(12));
 		//assertNotNull(hc.getTCR(1));
@@ -181,7 +181,7 @@ public class HomecellLSTest {
 		ArrayList<Card> b = new ArrayList<Card>();
 		ArrayList<Card> c = new ArrayList<Card>();
 		ArrayList<Card> d = new ArrayList<Card>();
-		HomecellLS hc = new HomecellLS(a, b, c, d);
+		LittleSpiderHomecell hc = new LittleSpiderHomecell(a, b, c, d);
 		Deck deck = new Deck();
 		hc.pile3.add(deck.getDeck().get(12));
 		//assertNotNull(hc.getTCR(1));
@@ -194,7 +194,7 @@ public class HomecellLSTest {
 		ArrayList<Card> b = new ArrayList<Card>();
 		ArrayList<Card> c = new ArrayList<Card>();
 		ArrayList<Card> d = new ArrayList<Card>();
-		HomecellLS hc = new HomecellLS(a, b, c, d);
+		LittleSpiderHomecell hc = new LittleSpiderHomecell(a, b, c, d);
 		Deck deck = new Deck();
 		hc.pile4.add(deck.getDeck().get(12));
 		//assertNotNull(hc.getTCR(1));
@@ -212,9 +212,9 @@ public class HomecellLSTest {
 		ArrayList<Card> b = new ArrayList<Card>();
 		ArrayList<Card> c = new ArrayList<Card>();
 		ArrayList<Card> d = new ArrayList<Card>();
-		HomecellLS hc = new HomecellLS(a, b, c, d);
+		LittleSpiderHomecell hc = new LittleSpiderHomecell(a, b, c, d);
 		Deck deck = new Deck();
-		TableauLS TLS = new TableauLS(deck);
+		LittleSpiderTableau TLS = new LittleSpiderTableau(deck);
 		b.add(deck.getDeck().get(1));
 		b.add(deck.getDeck().get(2)); 
 		b.add(deck.getDeck().get(3));

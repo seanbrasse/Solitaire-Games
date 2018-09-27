@@ -1,14 +1,16 @@
-package edu.buffalo.cse116.code;
+package edu.buffalo.cse116.code.golf;
 
 import java.util.ArrayList;
 
-public class HomecellGolf {
+import edu.buffalo.cse116.code.Card;
+
+public class GolfHomecell {
 	
 	// an ArrayList to keep track of the pile
-	private Tableau top;
+	private GolfTableau top;
 	private ArrayList<Card> cardPile;
 	
-	public HomecellGolf(Tableau tableau, ArrayList<Card> array) {
+	public GolfHomecell(GolfTableau tableau, ArrayList<Card> array) {
 		
 		this.top = tableau;
 		this.cardPile = array;

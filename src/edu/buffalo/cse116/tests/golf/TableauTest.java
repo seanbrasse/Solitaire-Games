@@ -1,11 +1,11 @@
-package edu.buffalo.cse116.tests;
+package edu.buffalo.cse116.tests.golf;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
 import edu.buffalo.cse116.code.Deck;
-import edu.buffalo.cse116.code.Tableau;
+import edu.buffalo.cse116.code.golf.GolfTableau;
 
 /**
  * 
@@ -22,8 +22,8 @@ public class TableauTest
 	{
 		Deck deckForLittleSpider = new Deck();
 		Deck deckForGolf = new Deck();
-		Tableau testPileInLittleSpiderGame = new Tableau(false, deckForLittleSpider);
-		Tableau testPileInGolfGame = new Tableau(true, deckForGolf);
+		GolfTableau testPileInLittleSpiderGame = new GolfTableau(false, deckForLittleSpider);
+		GolfTableau testPileInGolfGame = new GolfTableau(true, deckForGolf);
 		
 		assertEquals(5, testPileInGolfGame.getPileSize());
 		assertEquals(6, testPileInLittleSpiderGame.getPileSize());
@@ -37,7 +37,7 @@ public class TableauTest
 		 * method when tested should always return false.
 		 */
 		Deck deckForGolf = new Deck();
-		Tableau testPileInGolfGame = new Tableau(true, deckForGolf);
+		GolfTableau testPileInGolfGame = new GolfTableau(true, deckForGolf);
 		
 		assertFalse(testPileInGolfGame.isAddingCardLegal());
 	}
@@ -52,7 +52,7 @@ public class TableauTest
 		 * false for all other inputs
 		 */
 		Deck deckForGolf = new Deck();
-		Tableau testPileInGolfGame = new Tableau(true, deckForGolf);
+		GolfTableau testPileInGolfGame = new GolfTableau(true, deckForGolf);
 		
 		assertTrue(testPileInGolfGame.isRemovingCardLegal());
 		testPileInGolfGame.getPile().clear();
@@ -66,7 +66,7 @@ public class TableauTest
 		 * 
 		 */
 		Deck deckForGolf = new Deck();
-		Tableau testPileInGolfGame = new Tableau(true, deckForGolf);
+		GolfTableau testPileInGolfGame = new GolfTableau(true, deckForGolf);
 		
 		testPileInGolfGame.getPileSize();
 		testPileInGolfGame.getTopCard();

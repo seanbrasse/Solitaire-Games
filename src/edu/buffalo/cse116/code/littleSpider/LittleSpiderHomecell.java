@@ -1,13 +1,16 @@
-package edu.buffalo.cse116.code;
+package edu.buffalo.cse116.code.littleSpider;
 
 import java.util.ArrayList;
 
-public class HomecellLS extends PilesLS {
+import edu.buffalo.cse116.code.Card;
+import edu.buffalo.cse116.code.Deck;
+
+public class LittleSpiderHomecell extends LittleSpiderStock {
 
 	Deck d = new Deck();
-	TableauLS TLS = new TableauLS(d);
+	LittleSpiderTableau TLS = new LittleSpiderTableau(d);
 
-	public HomecellLS(ArrayList<Card> p1, ArrayList<Card> p2, ArrayList<Card> p3, ArrayList<Card> p4) {
+	public LittleSpiderHomecell(ArrayList<Card> p1, ArrayList<Card> p2, ArrayList<Card> p3, ArrayList<Card> p4) {
 		super(p1, p2, p3, p4);
 
 

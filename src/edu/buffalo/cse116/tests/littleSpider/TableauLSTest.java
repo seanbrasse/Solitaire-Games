@@ -1,4 +1,4 @@
-package edu.buffalo.cse116.tests;
+package edu.buffalo.cse116.tests.littleSpider;
 
 import static org.junit.Assert.*;
 
@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.Deck;
-import edu.buffalo.cse116.code.TableauLS;
+import edu.buffalo.cse116.code.littleSpider.LittleSpiderTableau;
 
 /*
  * Suit is a number from 0 to 3, in order of: Clubs, Diamonds, Hearts, and Spades.
@@ -44,7 +44,7 @@ public class TableauLSTest {
 	@Test
 	public void testForNumberOfTableauPiles() {
 		
-		TableauLS tls = new TableauLS(deck);
+		LittleSpiderTableau tls = new LittleSpiderTableau(deck);
 		tls.instantiatePiles();
 		
 		assertEquals("There should be 8 tableau piles for Little spider.", 8, tls.getTableauPiles().length);
@@ -55,7 +55,7 @@ public class TableauLSTest {
 	 */
 	@Test
 	public void testForNumberOfCardsOnPile() {
-		TableauLS tls = new TableauLS(deck);
+		LittleSpiderTableau tls = new LittleSpiderTableau(deck);
 		tls.instantiatePiles();
 		
 		//Test for pile 1
@@ -82,7 +82,7 @@ public class TableauLSTest {
 	 */
 	@Test
 	public void testForLegalAddToTableau() {
-		TableauLS tls = new TableauLS(deck);
+		LittleSpiderTableau tls = new LittleSpiderTableau(deck);
 		tls.instantiatePiles();
 		
 		Card currentTopcard = new Card(3, 12);
@@ -129,7 +129,7 @@ public class TableauLSTest {
 	@Test
 	public void testForLegalRemoveCard() {
 		
-		TableauLS tls = new TableauLS(deck);
+		LittleSpiderTableau tls = new LittleSpiderTableau(deck);
 		
 		ArrayList<Card> mockPile = new ArrayList<Card>();
 		ArrayList<Card> mockPile2 = new ArrayList<Card>(); //Will be left empty to test with.
@@ -151,7 +151,7 @@ public class TableauLSTest {
 	 */
 	@Test
 	public void testForRemovedCard() {
-		TableauLS tls = new TableauLS(deck);
+		LittleSpiderTableau tls = new LittleSpiderTableau(deck);
 		
 		ArrayList<Card> mockPile = new ArrayList<Card>();
 		mockPile.add(new Card(0,0));
@@ -180,7 +180,7 @@ public class TableauLSTest {
 	 */
 	@Test
 	public void testForCardIncreaseOnTableauPile() {
-		TableauLS tls = new TableauLS(deck);
+		LittleSpiderTableau tls = new LittleSpiderTableau(deck);
 		//The mock cards in the pile will only contain one card each
 		ArrayList<Card> mockPile = new ArrayList<Card>(); //This pile will start with a king of diamonds
 		ArrayList<Card> mockPile2 = new ArrayList<Card>(); //This pile will start with an ace of spades.

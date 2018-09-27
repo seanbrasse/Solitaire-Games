@@ -1,8 +1,11 @@
-package edu.buffalo.cse116.code;
+package edu.buffalo.cse116.code.littleSpider;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.ThreadLocalRandom;
+
+import edu.buffalo.cse116.code.Card;
+import edu.buffalo.cse116.code.Deck;
 
 
 /**
@@ -12,7 +15,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author AndrewQuinonez
  *
  */
-public class TableauLS {
+public class LittleSpiderTableau {
 	
 	/**
 	 * Will be an alias for the deck object being used between Tableau and Homecell for Little Spider. The deck
@@ -30,7 +33,7 @@ public class TableauLS {
 	
 	
 	@SuppressWarnings("unchecked")
-	public TableauLS(Deck deck) {
+	public LittleSpiderTableau(Deck deck) {
 		this.deck = deck;		
 		tableauPiles = new ArrayList[8];
 	}

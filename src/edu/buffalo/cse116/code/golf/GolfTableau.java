@@ -1,6 +1,9 @@
-package edu.buffalo.cse116.code;
+package edu.buffalo.cse116.code.golf;
 
 import java.util.ArrayList;
+
+import edu.buffalo.cse116.code.Card;
+import edu.buffalo.cse116.code.Deck;
 
 /**
  * This class represents a tableau pile in either
@@ -15,7 +18,7 @@ import java.util.ArrayList;
  * NOTE for team: This Tableau class should be for Golf and I'll create a Tableau class for little spider. - Andrew.
  */
 
-public class Tableau 
+public class GolfTableau 
 {
 	/**
 	 * An Arraylist for a tableau pile.
@@ -50,7 +53,7 @@ public class Tableau
 	 * @param Golf
 	 * @param LittleSpider
 	 */
-	public Tableau(boolean isTheGameGolf, Deck deck)
+	public GolfTableau(boolean isTheGameGolf, Deck deck)
 	{
 		this.pile = new ArrayList<Card>();
 		this.topCard = null;

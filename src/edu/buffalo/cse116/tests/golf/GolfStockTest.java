@@ -1,4 +1,4 @@
-package edu.buffalo.cse116.tests;
+package edu.buffalo.cse116.tests.golf;
 
 import static org.junit.Assert.*;
 

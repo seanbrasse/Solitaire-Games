@@ -84,7 +84,7 @@ public class Card
 				return true;
 			}
 			
-			if(this.rank == 12 && card.rank == 12)
+			if(this.rank == 12 && card.rank == 0)
 			{
 				return true;
 			}

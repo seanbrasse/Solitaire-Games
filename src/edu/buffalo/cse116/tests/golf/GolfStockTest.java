@@ -45,7 +45,7 @@ public class GolfStockTest {
 	/*
 	 * does the number of cards get decreased after removing a card, and does the next card become the topCard
 	 */
-	//not to sure how to write this one.
+	//not to sure how to write this one....
 	
 	
 	

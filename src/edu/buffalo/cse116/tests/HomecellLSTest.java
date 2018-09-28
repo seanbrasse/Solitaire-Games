@@ -202,31 +202,70 @@ public class HomecellLSTest {
 		assertEquals(0, hc.getTCR(4).getSuit());
 	}
 
-
-	/*Check findTC to see if TableauLS has a card from the homecell pile
-	 */
-
 	@Test
-	public void foundTC() {
+	public void removeCard() {
+		Deck deck = new Deck();
 		ArrayList<Card> a = new ArrayList<Card>();
 		ArrayList<Card> b = new ArrayList<Card>();
 		ArrayList<Card> c = new ArrayList<Card>();
 		ArrayList<Card> d = new ArrayList<Card>();
 		HomecellLS hc = new HomecellLS(a, b, c, d);
-		Deck deck = new Deck();
 		TableauLS TLS = new TableauLS(deck);
-		b.add(deck.getDeck().get(1));
-		b.add(deck.getDeck().get(2)); 
-		b.add(deck.getDeck().get(3));
-		System.out.println(b.get(0));
-		//System.out.print(TLS.getTableauPiles()[2]);
 		TLS.instantiatePiles();
-		System.out.println(TLS.getTableauPiles()[2]);
-		System.out.println(TLS.getTableauPiles()[2].get(0));
-		System.out.println(TLS.getTableauPiles()[2].add(b.get(0)));
-		assertTrue(hc.findTC());
+		System.out.println(a + "initial");
+		System.out.println(TLS.getTableauPiles()[1] + "Before");
+		System.out.println(TLS.getTableauPiles()[1].get(0).getSuit());
+		System.out.println(TLS.getTableauPiles()[1].get(0).getRank());
+		a.add(deck.getDeck().get(43));
+		a.add(deck.getDeck().get(2));
+		a.add(deck.getDeck().get(44));
+		System.out.println(a.size() + "before");
+		System.out.println(a+ "before");
+		TLS.addHomecellCardToPile(hc.getTC(1), 1);
+		System.out.println(TLS.getTableauPiles()[1] + "After");
+		System.out.println(a.size() + "after");
+		System.out.println(a + "after");
+
+		assertEquals(3, a.size());
+		
+		
+		
 	}
- 
+
+	/*Check findTC to see if TableauLS has a card from the homecell pile
+	 */
+
+//	@Test
+//	public void foundTC() {
+//		ArrayList<Card> a = new ArrayList<Card>();
+//		ArrayList<Card> b = new ArrayList<Card>();
+//		ArrayList<Card> c = new ArrayList<Card>();
+//		ArrayList<Card> d = new ArrayList<Card>();
+//		Deck deck = new Deck();
+//		
+//		b.add(deck.getDeck().get(1));
+//		b.add(deck.getDeck().get(0));
+//		b.add(deck.getDeck().get(2)); 
+//		b.add(deck.getDeck().get(3));
+//		
+//System.out.println(b);
+//		HomecellLS hc = new HomecellLS(a, b, c, d);
+//		
+//		TableauLS TLS = new TableauLS(deck);
+//		System.out.println(b.get(3));
+////		System.out.println(b.get(0));
+//		//System.out.print(TLS.getTableauPiles()[2]);
+//		TLS.instantiatePiles();
+////		System.out.println(TLS.getTableauPiles()[2]);
+////		System.out.println(TLS.getTableauPiles()[2].get(0));
+//		TLS.addCardToPile(deck.getDeck().get(3), 2);;
+//		hc.setTableau(TLS);
+//		System.out.println(TLS.getTableauPiles()[2].get(TLS.getTableauPiles()[2].size()-1));
+//		System.out.println(hc.getTableau().getTableauPiles()[2].get(TLS.getTableauPiles()[2].size()-1));
+//	System.out.println(hc.findTC());
+//		assertTrue(hc.findTC());
+//	}
+// 
 	/*
 	 * Checks if top card of a pile has been removed and a new top card is in place (size adjusted). (tests removeTC and getTC))
 	 *  

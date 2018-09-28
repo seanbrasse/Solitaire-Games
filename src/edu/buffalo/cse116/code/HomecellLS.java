@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class HomecellLS extends PilesLS {
 
 	Deck d = new Deck();
-	TableauLS TLS = new TableauLS(d);
+	TableauLS TLS= new TableauLS(d);
 
 	public HomecellLS(ArrayList<Card> p1, ArrayList<Card> p2, ArrayList<Card> p3, ArrayList<Card> p4) {
 		super(p1, p2, p3, p4);
@@ -20,6 +20,12 @@ public class HomecellLS extends PilesLS {
 		pile3.add(d.getDeck().get(12));
 		pile4.add(d.getDeck().get(51));
 
+	}
+	public void setTableau(TableauLS a) {
+		TLS=a;
+	}
+	public TableauLS getTableau() {
+		return TLS;
 	}
 
 	/*Get Pile- Gets the initial card from each pile
@@ -84,14 +90,24 @@ public class HomecellLS extends PilesLS {
 	}
 
 	public boolean findTC() {
-		TLS.instantiatePiles();
-		System.out.println(TLS.getTableauPiles()[1].add(d.getDeck().get(7)));
+		//TLS.instantiatePiles();
+//		System.out.println(TLS.getTableauPiles()[1].add(d.getDeck().get(7)));
 		for(int i=0;i < 4; i++) {
+		/*	for(int d=0;i<1;d++) {
+				Card topBoi=TLS.getTableauPiles()[d].get(TLS.getTableauPiles()[d].size()-1);
+				if(topBoi.equals(getTC(i))) {
+					return true;
+				}
+			}
+			*/
+		//	System.out.println(TLS.getTableauPiles()[0]);
+		//	System.out.println(TLS.getTableauPiles()[1]);
+		//	System.out.println(TLS.getTableauPiles()[2]);
 			if(TLS.getTableauPiles()[0].contains(getTC(i))) {
 				return true;
 			} if(TLS.getTableauPiles()[1].contains(getTC(i))){
 				return true;
-			} if(TLS.getTableauPiles()[2].contains(getTC(i))){
+			} if((TLS.getTableauPiles()[2].contains(getTC(i)) )) {
 				return true;
 			} if(TLS.getTableauPiles()[3].contains(getTC(i))){
 				return true;
@@ -104,6 +120,7 @@ public class HomecellLS extends PilesLS {
 			} if(TLS.getTableauPiles()[7].contains(getTC(i))){
 				return true;
 			}
+			
 		}
 		return false;
 	}
@@ -117,19 +134,17 @@ public class HomecellLS extends PilesLS {
 	 *  Returns nothing, Void
 	 */
 
-	public void removeTC(int homecellP) {
-		if(findTC()) {
-			if(homecellP==1) {
+	public void removeTC(Card rCard) {
+			if(pile1.contains(rCard)) {
 				pile1.remove(pile1.size()-1);
-			} if(homecellP == 2) {
-				pile2.remove(pile1.size()-1);
-			} if(homecellP ==3) {
+			} if(pile2.contains(rCard)) {
+				pile2.remove(pile2.size()-1);
+			} if(pile3.contains(rCard)) {
 				pile3.remove(pile3.size()-1);
-			} if(homecellP==4) {
-				pile4.remove(pile3.size());
+			} if(pile4.contains(rCard)) {
+				pile4.remove(pile4.size()-1);
 			}
 		}
-	}
 
 /*Finds the size of  array
  * 
@@ -146,6 +161,12 @@ public class HomecellLS extends PilesLS {
 		}
 		return 0;
 	}
+	
+	/*
+	 * Adds the top card from a homecell pile to a tableau pile
+	 */
+	
+	
 
 	public static void main(String[] args) {
 

@@ -13,28 +13,38 @@ import java.util.concurrent.ThreadLocalRandom;
  *
  */
 public class TableauLS {
-	
+
 	/**
 	 * Will be an alias for the deck object being used between Tableau and Homecell for Little Spider. The deck
 	 * will only contain 48 cards upon instantiation of the class due to game rules.
 	 * 
 	 * 
 	 */
+	//	ArrayList<Card> pile1 = new ArrayList<Card>();
+	//	ArrayList<Card> pile2 = new ArrayList<Card>();
+	//	ArrayList<Card> pile3 = new ArrayList<Card>();
+	//	ArrayList<Card> pile4 = new ArrayList<Card>();
+	HomecellLS hc ;
+	//
+	public void setHc(HomecellLS param) {
+		hc = param;
+	}
+
 	private Deck deck;
-	
+
 	/**
 	 * Instantiate an ArrayList of Card type
 	 */
 	private ArrayList<Card>[] tableauPiles;
-	
-	
-	
+
+
+
 	@SuppressWarnings("unchecked")
 	public TableauLS(Deck deck) {
 		this.deck = deck;		
 		tableauPiles = new ArrayList[8];
 	}
-	
+
 	/**
 	 * Instantiates the tableauPiles by creating 8 piles with 6 cards on each pile.
 	 */
@@ -42,7 +52,7 @@ public class TableauLS {
 		Collections.shuffle(this.deck.getDeck());
 		int minIndex = 0;
 		int maxIndex = 6;
-		
+
 		ArrayList<Card> pile;
 		for(int i =0; i < tableauPiles.length; i++) {
 			pile = new ArrayList<Card>();
@@ -52,26 +62,26 @@ public class TableauLS {
 			tableauPiles[i] = pile;
 		}	
 	}
-	
+
 	/**
 	 * Instantiates a tableauPile where you can manipulate the piles for testing purposes.
 	 */
 	public void instantiateTestingPiles(int testingPileNumber, ArrayList<Card> testingPile, int testingPileNumber2, ArrayList<Card> testingPile2) {
-		
+
 		tableauPiles[testingPileNumber] = new ArrayList<Card>();
 		tableauPiles[testingPileNumber2] = new ArrayList<Card>();
-	
+
 		for(int i = 0; i < testingPile.size(); i++) {
-			
+
 			tableauPiles[testingPileNumber].add(testingPile.get(i));
 		}
-		
+
 		for(int i = 0; i < testingPile2.size(); i++) {
 			tableauPiles[testingPileNumber2].add(testingPile2.get(i));
 		}
-	
+
 	}
-	
+
 	/**
 	 * Takes the top card and the new (potential) top card and checks if it's a legal move to add to the pile.
 	 * @param currentTopCard is the card on top of the current pile at that moment.
@@ -79,9 +89,9 @@ public class TableauLS {
 	 * @return
 	 */
 	public boolean checkLegalAddToPile(Card currentTopCard , Card newTopcard) {
-		
+
 		if(newTopcard.getRank() >= 1 && newTopcard.getRank() <= 11) {
-			
+
 			if((newTopcard.getRank() == currentTopCard.getRank() + 1) || (newTopcard.getRank() == currentTopCard.getRank() - 1)) {
 				return true;
 			} 
@@ -93,8 +103,30 @@ public class TableauLS {
 		return false;		
 	}
 
-	
-	
+	/*
+	 *Adds a homecell card to a tableau pile if it is legal	and removes it from the homecell pile
+	 */
+
+	public void addHomecellCardToPile(Card newPotentialTopcard, int pileNumber) {
+		Card topPileCard = new Card( -1 , -1);
+
+		if(tableauPiles[pileNumber].size() != 0) {
+			topPileCard = tableauPiles[pileNumber].get(tableauPiles[pileNumber].size() - 1);	
+		} 
+
+		if(checkLegalAddToPile(topPileCard, newPotentialTopcard)) {
+
+			tableauPiles[pileNumber].add(newPotentialTopcard);
+
+			hc.removeTC(newPotentialTopcard);
+		}
+
+
+
+		//If it doesn't pass the check then this method won't do anything.	
+	}	
+
+
 	/**
 	 * Removes the top card of a pile and returns it.
 	 * @param pileNumber is the pile from which the top card will be removed.
@@ -110,8 +142,8 @@ public class TableauLS {
 			return removedCard; //Otherwise no card is removed and returns a null card.
 		}
 	}
-	
-	
+
+
 	/**
 	 * Will check the pile to see if the top card can be removed.
 	 * @param pileNumber is the number for the pile we are going to check (0-7 because there's 8 piles).
@@ -124,9 +156,9 @@ public class TableauLS {
 			return false;
 		}
 	}
-	
-	
-	
+
+
+
 	/**
 	 * Will add a card to a pile if it can be proven to be a legal move.
 	 * @param the card you want to add to the top of a pile.
@@ -134,20 +166,20 @@ public class TableauLS {
 	 */
 	public void addCardToPile(Card newPotentialTopcard, int pileNumber) {
 		Card topPileCard = new Card( -1 , -1);
-		
+
 		if(tableauPiles[pileNumber].size() != 0) {
 			topPileCard = tableauPiles[pileNumber].get(tableauPiles[pileNumber].size() - 1);	
 		} 
-		
+
 		if(checkLegalAddToPile(topPileCard, newPotentialTopcard)) {
-			
+
 			tableauPiles[pileNumber].add(newPotentialTopcard);
 		} 
-			//If it doesn't pass the check then this method won't do anything.	
+		//If it doesn't pass the check then this method won't do anything.	
 	}
-	
-	
-	
+
+
+
 	/**
 	 * Gets a top card from the given pile
 	 * @param pileNumber is the pile which to get the top card from.
@@ -158,10 +190,10 @@ public class TableauLS {
 		if(tableauPiles[pileNumber].size() - 1 >= 0) {
 			topCard = tableauPiles[pileNumber].get(tableauPiles[pileNumber].size() - 1);
 		}
-		
+
 		return topCard;
 	}
-	
+
 	/**
 	 * Returns the tableau piles.
 	 * @return

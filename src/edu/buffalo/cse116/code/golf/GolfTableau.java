@@ -52,7 +52,7 @@ public class GolfTableau extends Tableau
 	
 	public Card removeCard()
 	{
-		if(this.isAddingCardLegal())
+		if(this.isRemovingCardLegal())
 		{
 			Card removedCard = this.pile.remove(0);
 			this.topCard = this.pile.get(0);
@@ -65,7 +65,7 @@ public class GolfTableau extends Tableau
 	
 	public void addCard(Card card)
 	{
-		if(isRemovingCardLegal())
+		if(this.isAddingCardLegal(card))
 		{
 			this.pile.push(card);
 		}
@@ -77,7 +77,7 @@ public class GolfTableau extends Tableau
 		return false;
 	}
 	
-	public boolean isRemovingCardLegal(Card card)
+	public boolean isRemovingCardLegal()
 	{
 		//as long as the pile is not empty, a card may be removed from the pile.
 		if(this.pile.size() <= 0)

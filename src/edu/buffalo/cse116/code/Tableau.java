@@ -1,6 +1,6 @@
 package edu.buffalo.cse116.code;
 
-import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  * Class represents Tableau piles, with pile size,
@@ -17,9 +17,9 @@ public abstract class Tableau
 	 * topCard is used to manage game logic.
 	 * pileSize varies per game, used to determine draw size.
 	 */
-	ArrayList<Card> pile;
-	Card topCard;
-	int pileSize;
+	protected Stack<Card> pile;
+	protected Card topCard;
+	protected int pileSize;
 	
 	/**
 	 * Constructor requires setPileSize() to be defined by subclass.
@@ -30,7 +30,7 @@ public abstract class Tableau
 	 */
 	public Tableau(Deck deck)
 	{
-		this.pile = new ArrayList<Card>();
+		this.pile = new Stack<Card>();
 		this.topCard = null;
 		this.pileSize = setPileSize();
 		
@@ -62,7 +62,7 @@ public abstract class Tableau
 		return this.pileSize;
 	}
 	
-	public ArrayList<Card> getPile()
+	public Stack<Card> getPile()
 	{
 		return this.pile;
 	}

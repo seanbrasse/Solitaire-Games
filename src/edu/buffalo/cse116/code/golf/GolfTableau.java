@@ -1,6 +1,6 @@
 package edu.buffalo.cse116.code.golf;
 
-import java.util.ArrayList;
+import java.util.Stack;
 
 import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.Deck;
@@ -18,19 +18,12 @@ public class GolfTableau extends Tableau
 {
 	/**
 	 * 
-	 */
-	ArrayList<Card> pile;
-	Card topCard;
-	int pileSize;
-	
-	/**
-	 * 
 	 * @param deck
 	 */
 	public GolfTableau(Deck deck)
 	{
 		super(deck);
-		this.pile = new ArrayList<Card>();
+		this.pile = new Stack<Card>();
 		this.topCard = null;
 		
 		/*********************************************
@@ -45,7 +38,7 @@ public class GolfTableau extends Tableau
 		{
 			if(pile.size() < pileSize)
 			{
-				pile.add(deck.getDeck().get(i));
+				pile.push(deck.getDeck().get(i));
 				deck.getDeck().remove(i);
 			}
 			else
@@ -74,7 +67,7 @@ public class GolfTableau extends Tableau
 	{
 		if(isRemovingCardLegal())
 		{
-			this.pile.add(card);
+			this.pile.push(card);
 		}
 	}
 	

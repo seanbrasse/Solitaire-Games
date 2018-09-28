@@ -25,7 +25,7 @@ public class LittleSpiderTableau extends Tableau
 		super(deck);
 		this.pile = new Stack<Card>();
 		this.topCard = null;
-		
+
 		for(int i=0; i<deck.getDeck().size(); i++)
 		{
 			if(pile.size() < pileSize)
@@ -38,7 +38,7 @@ public class LittleSpiderTableau extends Tableau
 				break;
 			}
 		}
-		
+
 		this.topCard = pile.get(0);
 	}
 
@@ -49,7 +49,7 @@ public class LittleSpiderTableau extends Tableau
 		{
 			return this.pile.pop();
 		}
-		
+
 		return null;
 	}
 
@@ -72,10 +72,14 @@ public class LittleSpiderTableau extends Tableau
 	}
 
 	@Override
-	public boolean isRemovingCardLegal(Card card) 
+	public boolean isRemovingCardLegal() 
 	{
-		
-		return false;
+		if(this.pile.size() <= 0)
+		{
+			return false;
+		}
+
+		return true;
 	}
 
 	@Override
@@ -83,4 +87,6 @@ public class LittleSpiderTableau extends Tableau
 		//Pile size in little spider is 8.
 		return 8;
 	}
+
+
 }

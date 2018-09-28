@@ -3,6 +3,7 @@ package edu.buffalo.cse116.code.golf;
 import java.util.Stack;
 
 import edu.buffalo.cse116.code.Card;
+import edu.buffalo.cse116.code.Homecell;
 
 /**
  * Class to represent a homecell pile in a
@@ -12,7 +13,7 @@ import edu.buffalo.cse116.code.Card;
  * @author Willshady
  * 
  */
-public class GolfHomecell 
+public class GolfHomecell extends Homecell
 {
 	
 	/**
@@ -21,11 +22,10 @@ public class GolfHomecell
 	 * pop push access.
 	 */
 	private GolfStock stockPile;
-	private Stack<Card> homecellPile;
 	
 	public GolfHomecell(GolfStock stockPile)
 	{		
-		this.homecellPile = new Stack<Card>();
+		super();
 		this.stockPile = stockPile;
 	}
 		
@@ -36,7 +36,7 @@ public class GolfHomecell
 	 * 
 	 * @param card from Tableau pile
 	 */
-	public boolean addCard(Card card, boolean is) 
+	public boolean addCard(Card card) 
 	{	
 		/**
 		 * An empty stock pile permits any card to be added

@@ -15,7 +15,7 @@ import edu.buffalo.cse116.code.Deck;
 public class GolfGame 
 {
 	/**
-	 * REMINDER: rename classes to [game name, functionality]
+	 * Each game has an instance of a Deck
 	 * 			 
 	 */
 	private Deck gameDeck;

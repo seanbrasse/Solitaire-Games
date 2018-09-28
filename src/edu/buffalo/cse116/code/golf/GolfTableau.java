@@ -6,42 +6,20 @@ import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.Deck;
 
 /**
- * This class represents a tableau pile in either
- * solitare game of golf or little spider, with logic
- * for pile functionality.
+ * Class represents a tableau pile in  golf,
+ * with logic for pile functionality.
  * 
  * @author Willshady
  *
  */
 
-/*
- * NOTE for team: This Tableau class should be for Golf and I'll create a Tableau class for little spider. - Andrew.
- */
-
 public class GolfTableau 
 {
 	/**
-	 * An Arraylist for a tableau pile.
+	 * 
 	 */
 	ArrayList<Card> pile;
-	
-	/**
-	 * The topcard on the pile.
-	 */
 	Card topCard;
-	
-	//Since there'll be a Tableau class for LS and Golf, guess we won't need the flags - Andrew.
-	/**
-	 * Flag to inform the class if the game is a golf
-	 */
-	boolean isGolfFlag;
-	boolean isLittleSpiderFlag;
-	
-	
-	
-	/**
-	 * The number of cards on each Tableau pile, 5 for Golf solitaire and 6 for Little Spider solitaire.
-	 */
 	int pileSize;
 	
 	/**
@@ -57,11 +35,8 @@ public class GolfTableau
 	{
 		this.pile = new ArrayList<Card>();
 		this.topCard = null;
+		this.pileSize = 5;
 		
-		pileSize = 5;
-		this.isGolfFlag = true;
-		this.isLittleSpiderFlag = false;
-
 		/*********************************************
 		 * code applicable for little spider tableau pile
 		{
@@ -70,12 +45,8 @@ public class GolfTableau
 			this.isGolfFlag = false;
 		} //Checks out for both so far (CFB) - Andrew
 		**********************************************/
-		
-		//We get our deck of 52 cards with 'deck.getDeck(), returns ArrayList<Card>deck. - Andrew
 		for(int i=0; i<deck.getDeck().size(); i++)
 		{
-			
-			
 			if(pile.size() < pileSize)
 			{
 				pile.add(deck.getDeck().get(i));
@@ -94,18 +65,8 @@ public class GolfTableau
 	{
 		if(this.isAddingCardLegal())
 		{
-			if(this.isGolfFlag)
-			{
-				this.pile.remove(0);
-				this.topCard = this.pile.get(0);
-			}
-			
-			if(this.isLittleSpiderFlag)
-			{
-				/**
-				 * Andrew, your logic goes here!
-				 */
-			}
+			this.pile.remove(0);
+			this.topCard = this.pile.get(0);
 		}
 	}
 	
@@ -116,18 +77,6 @@ public class GolfTableau
 	
 	public boolean isAddingCardLegal()
 	{
-		if(this.isGolfFlag)
-		{
-			return false;
-		}
-		
-		if(this.isLittleSpiderFlag)
-		{
-			/**
-			 * Andrew, your logic goes here!
-			 */
-		}
-		
 		return false;
 	}
 	
@@ -138,19 +87,7 @@ public class GolfTableau
 			return false;
 		}
 		
-		if(this.isGolfFlag)
-		{
-			return true;
-		}
-		
-		if(this.isLittleSpiderFlag)
-		{
-			/**
-			 * Andrew, your logic goes here!
-			 */
-		}
-		
-		return false;
+		return true;
 	}
 	
 	public int getPileSize()

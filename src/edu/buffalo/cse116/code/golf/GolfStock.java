@@ -14,8 +14,8 @@ import edu.buffalo.cse116.code.Deck;
  *
  */
 
-public class GolfStock {
-	
+public class GolfStock 
+{	
 	ArrayList<Card> stockPile;
 	
 	/**
@@ -39,6 +39,40 @@ public class GolfStock {
 		 * ArrayList in which it resides.
 		 */
 		return this.stockPile.size();
+	}
+	
+	public boolean addCard(Card card)
+	{
+		if(isAddCardLegal(card))
+		{
+			//add card to stock.
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public boolean removeTopCard(Card card)
+	{
+		if(isRemoveCardLegal(card))
+		{
+			//remove card from stock.
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public boolean isRemoveCardLegal(Card card)
+	{
+		//logic to remove card.
+		return true;
+	}
+	
+	public boolean isAddCardLegal(Card card)
+	{
+		//logic to add card.
+		return true;
 	}
 
 }

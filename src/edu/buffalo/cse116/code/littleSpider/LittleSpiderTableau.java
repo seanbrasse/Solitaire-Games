@@ -45,7 +45,7 @@ public class LittleSpiderTableau extends Tableau
 	@Override
 	public Card removeCard() 
 	{
-		if(isRemovingCardLegal(getTopCard()))
+		if(isRemovingCardLegal())
 		{
 			return this.pile.pop();
 		}

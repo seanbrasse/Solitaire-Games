@@ -1,55 +1,64 @@
 package edu.buffalo.cse116.code.golf;
 
-import java.util.ArrayList;
+import java.util.Stack;
 
 import edu.buffalo.cse116.code.Card;
 
-public class GolfHomecell {
+/**
+ * Class to represent a homecell pile in a
+ * game of golf. Representing the class pile
+ * as a stack of type card.
+ * 
+ * @author Willshady
+ * 
+ */
+public class GolfHomecell 
+{
 	
-	// an ArrayList to keep track of the pile
-	private GolfStock top;
-	private ArrayList<Card> cardPile;
+	/**
+	 * Creating a Stack to keep track of pile and
+	 * prioritize access to index 0 Card and permit
+	 * pop push access.
+	 */
+	private GolfStock stockPile;
+	private Stack<Card> homecellPile;
 	
-	public GolfHomecell(GolfStock stock, ArrayList<Card> array) {
-		
-		this.top = stock;
-		this.cardPile = array;
-		
+	public GolfHomecell(GolfStock stockPile)
+	{		
+		this.homecellPile = new Stack<Card>();
+		this.stockPile = stockPile;
 	}
-	
-	public void addingCards() {
 		
-		// Adding cards into the Home cell pile when it's legal
-		for(int i = 0; i < cardPile.size(); i++) {
-			
-			if(cardPile.size() == 0) {
-				
-				// the Home cell pile start out empty, so any card is legal
-				cardPile.add(top.topCard);
-				
-				// checking if the card is legal
-			} else if(top.topCard.getRank() >= 1 && top.topCard.getRank() <= 11) {
-				
-				if(cardPile.get(i).getRank() == top.topCard.getRank() + 1 || cardPile.get(i).getRank() == top.topCard.getRank() - 1) {
-					cardPile.add(top.topCard);
-				}
-				
-			} else if(top.topCard.getRank() == 0) {
-
-				if(cardPile.get(i).getRank() == 12 || cardPile.get(i).getRank() == 1){
-					cardPile.add(top.topCard);
-				}
-				
-			} else if(top.topCard.getRank() == 12) {
-				
-				if(cardPile.get(i).getRank() == 0 || cardPile.get(i).getRank() == 11) {
-					cardPile.add(top.topCard);
-				}
-				
-			} else {
-				break;
+	/**
+	 * Method to add a card to the homecell pile.
+	 * If @return true, push to stack, else @return
+	 * false.
+	 * 
+	 * @param card from Tableau pile
+	 */
+	public boolean addCard(Card card, boolean is) 
+	{	
+		/**
+		 * An empty stock pile permits any card to be added
+		 */
+		if(stockPile.size() == 0)
+		{
+			homecellPile.push(card);
+			return true;
+		}
+		
+		/**
+		 * Check if top card of stack can build or wrap with parameter card
+		 */
+		else
+		{
+			if(homecellPile.firstElement().canBuild(card) || homecellPile.firstElement().canWrap(card))
+			{
+				homecellPile.push(card);
+				return true;
 			}
+			
+			return false;
 		}
 	}
-	
 }

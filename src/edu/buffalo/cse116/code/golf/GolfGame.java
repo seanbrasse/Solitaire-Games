@@ -31,6 +31,7 @@ public class GolfGame
 		 * 
 		 */
 		this.gameDeck = new Deck();
+		this.gameTableauPiles = new ArrayList<GolfTableau>();
 		
 		for(int itterator=0; itterator<8; itterator++)
 		{
@@ -38,5 +39,7 @@ public class GolfGame
 			this.gameTableauPiles.add(newTableauPile);
 		}
 		
+		this.gameStockPile = new GolfStock(this.gameDeck);
+		this.gameHomecellPile = new GolfHomecell(this.gameStockPile);
 	}
 }

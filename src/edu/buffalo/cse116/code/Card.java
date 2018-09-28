@@ -48,4 +48,48 @@ public class Card
 	{
 		return this.rank;
 	}
+	
+	/**
+	 * Returns whether one can build their homecell pile.
+	 * This method DOES NOT return true if the card
+	 * parameters wrap around each other.
+	 * 
+	 * @param card
+	 * @return
+	 */
+	public boolean canBuild(Card card)
+	{
+		if(Math.abs(card.rank - this.rank) == 1)
+		{
+			return true;
+		}
+		
+		return false;
+	}
+	
+	/**
+	 * Returns whether one can build their homecell pile
+	 * with wrapping cards. This method DOES NOT return
+	 * true if cards build in any other instance.
+	 * 
+	 * @param card
+	 * @return
+	 */
+	public boolean canWrap(Card card)
+	{
+		if(this.rank == 0 || this.rank == 12)
+		{
+			if(this.rank == 0 && card.rank == 12)
+			{
+				return true;
+			}
+			
+			if(this.rank == 12 && card.rank == 12)
+			{
+				return true;
+			}
+		}
+		
+		return false;
+	}
 }

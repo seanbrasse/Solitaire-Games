@@ -35,13 +35,13 @@ public class LittleSpiderTableau extends Tableau
 	}
 
 	@Override
-	public boolean isAddingCardLegal() 
+	public boolean isAddingCardLegal(Card card) 
 	{
 		return false;
 	}
 
 	@Override
-	public boolean isRemovingCardLegal() 
+	public boolean isRemovingCardLegal(Card card) 
 	{
 		return false;
 	}

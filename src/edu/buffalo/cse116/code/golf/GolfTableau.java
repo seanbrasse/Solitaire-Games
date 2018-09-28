@@ -77,7 +77,7 @@ public class GolfTableau extends Tableau
 		return false;
 	}
 	
-	public boolean isRemovingCardLegal()
+	public boolean isRemovingCardLegal(Card card)
 	{
 		//as long as the pile is not empty, a card may be removed from the pile.
 		if(this.pile.size() <= 0)

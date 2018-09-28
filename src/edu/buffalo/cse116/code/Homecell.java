@@ -16,5 +16,8 @@ public abstract class Homecell
 		this.homecellPile = new Stack<Card>();
 	}
 	
-	
+	public abstract Card removeCard();
+	public abstract void addCard(Card card);
+	public abstract boolean isAddingCardLegal(Card card);
+	public abstract boolean isRemovingCardLegal();
 }

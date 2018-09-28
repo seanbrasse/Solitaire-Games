@@ -1,7 +1,5 @@
 package edu.buffalo.cse116.code.golf;
 
-import java.util.Stack;
-
 import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.Homecell;
 
@@ -28,22 +26,32 @@ public class GolfHomecell extends Homecell
 		super();
 		this.stockPile = stockPile;
 	}
-		
-	/**
-	 * Method to add a card to the homecell pile.
-	 * If @return true, push to stack, else @return
-	 * false.
-	 * 
-	 * @param card from Tableau pile
-	 */
-	public boolean addCard(Card card) 
+	
+	@Override
+	public void addCard(Card card) 
 	{	
-		/**
-		 * An empty stock pile permits any card to be added
-		 */
-		if(stockPile.size() == 0)
+		if(isAddingCardLegal(card))
 		{
 			homecellPile.push(card);
+		}
+	}
+
+	@Override
+	public Card removeCard() 
+	{
+		if(isRemovingCardLegal())
+		{
+			return homecellPile.pop();
+		}
+		
+		return null;
+	}
+
+	@Override
+	public boolean isAddingCardLegal(Card card) 
+	{
+		if(stockPile.size() == 0)
+		{
 			return true;
 		}
 		
@@ -60,5 +68,12 @@ public class GolfHomecell extends Homecell
 			
 			return false;
 		}
+	}
+
+	@Override
+	public boolean isRemovingCardLegal() 
+	{
+		//Cannot remove cards from homecell pile in golf.
+		return false;
 	}
 }

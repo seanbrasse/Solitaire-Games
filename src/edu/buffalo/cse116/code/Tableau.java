@@ -51,8 +51,8 @@ public abstract class Tableau
 		this.topCard = pile.get(0);
 	}
 	
-	public abstract void removeCard();
-	public abstract void addCard();
+	public abstract Card removeCard();
+	public abstract void addCard(Card card);
 	public abstract boolean isAddingCardLegal();
 	public abstract boolean isRemovingCardLegal();
 	public abstract int setPileSize();

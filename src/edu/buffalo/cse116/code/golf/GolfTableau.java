@@ -4,16 +4,17 @@ import java.util.ArrayList;
 
 import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.Deck;
+import edu.buffalo.cse116.code.Tableau;
 
 /**
  * Class represents a tableau pile in  golf,
  * with logic for pile functionality.
  * 
- * @author Willshady
+ * @author William F. Nicholson
  *
  */
 
-public class GolfTableau 
+public class GolfTableau extends Tableau
 {
 	/**
 	 * 
@@ -23,19 +24,14 @@ public class GolfTableau
 	int pileSize;
 	
 	/**
-	 * Constructor will check for game type, ask for a
-	 * pre-built deck of cards. The constructor will
-	 * draw from the deck of cards to form its pile
-	 * and apply the grounds for logic.
-	 *  
-	 * @param Golf
-	 * @param LittleSpider
+	 * 
+	 * @param deck
 	 */
 	public GolfTableau(Deck deck)
 	{
+		super(deck);
 		this.pile = new ArrayList<Card>();
 		this.topCard = null;
-		this.pileSize = 5;
 		
 		/*********************************************
 		 * code applicable for little spider tableau pile
@@ -61,18 +57,25 @@ public class GolfTableau
 		this.topCard = pile.get(0);
 	}
 	
-	public void removeCard()
+	public Card removeCard()
 	{
 		if(this.isAddingCardLegal())
 		{
-			this.pile.remove(0);
+			Card removedCard = this.pile.remove(0);
 			this.topCard = this.pile.get(0);
+			
+			return removedCard;
 		}
+		
+		return null;
 	}
 	
-	public void addCard()
+	public void addCard(Card card)
 	{
-		
+		if(isRemovingCardLegal())
+		{
+			this.pile.add(card);
+		}
 	}
 	
 	public boolean isAddingCardLegal()
@@ -89,19 +92,11 @@ public class GolfTableau
 		
 		return true;
 	}
-	
-	public int getPileSize()
+
+	@Override
+	public int setPileSize() 
 	{
-		return this.pileSize;
-	}
-	
-	public ArrayList<Card> getPile()
-	{
-		return this.pile;
-	}
-	
-	public Card getTopCard()
-	{
-		return this.topCard;
+		//Pile in golf is 5.
+		return 5;
 	}
 }

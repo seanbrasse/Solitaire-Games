@@ -8,7 +8,7 @@ import edu.buffalo.cse116.code.Homecell;
  * game of golf. Representing the class pile
  * as a stack of type card.
  * 
- * @author Willshady
+ * @author William F. Nicholson
  * 
  */
 public class GolfHomecell extends Homecell

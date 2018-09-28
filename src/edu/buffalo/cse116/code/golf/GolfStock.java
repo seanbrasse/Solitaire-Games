@@ -10,7 +10,7 @@ import edu.buffalo.cse116.code.Deck;
  * cards from the deck, setup once the tableau
  * piles have been drawn.
  * 
- * @author Willshady
+ * @author William F. Nicholson
  *
  */
 
@@ -71,8 +71,8 @@ public class GolfStock
 	
 	public boolean isAddCardLegal(Card card)
 	{
-		//logic to add card.
-		return true;
+		//Cards cannot be added to stock pile in golf.
+		return false;
 	}
 
 }

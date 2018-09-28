@@ -53,7 +53,7 @@ public abstract class Tableau
 	
 	public abstract Card removeCard();
 	public abstract void addCard(Card card);
-	public abstract boolean isAddingCardLegal();
+	public abstract boolean isAddingCardLegal(Card card);
 	public abstract boolean isRemovingCardLegal();
 	public abstract int setPileSize();
 	

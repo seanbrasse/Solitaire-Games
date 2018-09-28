@@ -71,13 +71,15 @@ public class GolfTableau extends Tableau
 		}
 	}
 	
-	public boolean isAddingCardLegal()
+	public boolean isAddingCardLegal(Card card)
 	{
+		//Adding cards to tablaeu piles in golf is always illegal.
 		return false;
 	}
 	
 	public boolean isRemovingCardLegal()
 	{
+		//as long as the pile is not empty, a card may be removed from the pile.
 		if(this.pile.size() <= 0)
 		{
 			return false;

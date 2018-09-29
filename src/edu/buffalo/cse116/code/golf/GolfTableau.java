@@ -26,14 +26,6 @@ public class GolfTableau extends Tableau
 		this.pile = new Stack<Card>();
 		this.topCard = null;
 		
-		/*********************************************
-		 * code applicable for little spider tableau pile
-		{
-			pileSize = 6;
-			this.isLittleSpiderFlag = true;
-			this.isGolfFlag = false;
-		} //Checks out for both so far (CFB) - Andrew
-		**********************************************/
 		for(int i=0; i<deck.getDeck().size(); i++)
 		{
 			if(pile.size() < pileSize)
@@ -47,28 +39,22 @@ public class GolfTableau extends Tableau
 			}
 		}
 		
-		this.topCard = pile.get(0);
+		this.topCard = pile.peek();
 	}
 	
 	public Card removeCard()
 	{
-		if(this.isRemovingCardLegal())
-		{
-			Card removedCard = this.pile.remove(0);
-			this.topCard = this.pile.get(0);
-			
-			return removedCard;
-		}
+		Card removedCard = this.pile.remove(0);
+		this.topCard = this.pile.get(0);
+		this.pileSize --;
 		
-		return null;
+		return removedCard;
 	}
 	
 	public void addCard(Card card)
 	{
-		if(this.isAddingCardLegal(card))
-		{
-			this.pile.push(card);
-		}
+		this.pile.push(card);
+		this.pileSize++;
 	}
 	
 	public boolean isAddingCardLegal(Card card)

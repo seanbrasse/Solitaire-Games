@@ -43,31 +43,27 @@ public class LittleSpiderTableau extends Tableau
 	}
 
 	@Override
-	public Card removeCard() 
+	public Card removeCard()
 	{
-		if(isRemovingCardLegal())
-		{
+			this.pileSize--;
 			return this.pile.pop();
-		}
-
-		return null;
 	}
 
 	@Override
 	public void addCard(Card card) 
 	{
-		if(isAddingCardLegal(card)) {
-			this.pile.push(card);
-		}
+		this.pile.push(card);
+		this.pileSize = this.pileSize + 1;
 	}
 
 	@Override
 	public boolean isAddingCardLegal(Card card) 
 	{
-		if(this.pile.firstElement().canWrap(card)) {
-			this.pile.push(card);
+		if(this.pile.peek().canWrap(card) || this.pile.peek().canBuild(card))
+		{
 			return true;
 		}
+		
 		return false;
 	}
 
@@ -83,7 +79,8 @@ public class LittleSpiderTableau extends Tableau
 	}
 
 	@Override
-	public int setPileSize() {
+	public int setPileSize()
+	{
 		//Pile size in little spider is 6.
 		return 6;
 	}

@@ -48,7 +48,7 @@ public abstract class Tableau
 			}
 		}
 		
-		this.topCard = pile.get(0);
+		this.topCard = pile.peek();
 	}
 	
 	public abstract Card removeCard();

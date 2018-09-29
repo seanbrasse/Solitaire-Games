@@ -58,7 +58,7 @@ public class Card
 	 * @return
 	 */
 	public boolean canBuild(Card card)
-	{
+	{		
 		if(Math.abs(card.rank - this.rank) == 1)
 		{
 			return true;
@@ -93,6 +93,9 @@ public class Card
 		return false;
 	}
 	
+	/**
+	 * Check if two cards have the same suit
+	 */
 	public boolean isSameSuit(Card card)
 	{
 		if(this.suit == card.suit)

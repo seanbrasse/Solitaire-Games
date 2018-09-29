@@ -29,7 +29,7 @@ public class GolfTableauTest
 	
 	/**
 	 * Golf tableau pile correctly determines if adding a specific card is legal or illegal
-	 * (e.g., the method should always return false)
+	 * (e.g. the method should always return false)
 	 */
 	@Test
 	public void testGolfAddCardLogic()
@@ -43,7 +43,7 @@ public class GolfTableauTest
 	
 	/**
 	 * Golf tableau pile correctly returns if removing top card is legal or illegal
-	 * (e.g., if the tableau pile is NOT empty)
+	 * (e.g. if the tableau pile is NOT empty)
 	 */
 	@Test
 	public void testGolfRemoveCardLogic()
@@ -66,8 +66,13 @@ public class GolfTableauTest
 		Deck deckForGolf = new Deck();
 		GolfTableau testPileInGolfGame = new GolfTableau(deckForGolf);
 		
-		testPileInGolfGame.getPileSize();
-		testPileInGolfGame.getTopCard();
+		assertEquals(5, testPileInGolfGame.getPileSize());
 		testPileInGolfGame.removeCard();
+		assertEquals(4, testPileInGolfGame.getPileSize());
+		testPileInGolfGame.addCard(new Card(0,0));
+		testPileInGolfGame.addCard(new Card(0,0));
+		assertEquals(6, testPileInGolfGame.getPileSize());
+		testPileInGolfGame.removeCard();
+		assertEquals(5, testPileInGolfGame.getPileSize());		
 	}
 }

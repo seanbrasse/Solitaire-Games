@@ -19,7 +19,7 @@ public abstract class Homecell
 	public abstract Card removeCard();
 	public abstract void addCard(Card card);
 	public abstract boolean isAddingCardLegal(Card card);
-	public abstract boolean isRemovingCardLegal(Card card);
+	public abstract boolean isRemovingCardLegal();
 	
 	/*
 	 * Do we need a getTopcard method to make our parameters?

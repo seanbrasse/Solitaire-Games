@@ -84,8 +84,8 @@ public class LittleSpiderTableau extends Tableau
 
 	@Override
 	public int setPileSize() {
-		//Pile size in little spider is 8.
-		return 8;
+		//Pile size in little spider is 6.
+		return 6;
 	}
 
 

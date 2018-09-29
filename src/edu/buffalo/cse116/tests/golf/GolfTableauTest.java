@@ -16,8 +16,7 @@ import edu.buffalo.cse116.code.golf.GolfTableau;
 public class GolfTableauTest 
 {
 	/**
-	 * TODO: Test cases are outdated. Seperate into two different classes seperated by package
-	 * 		 and apply test cases where applicable.
+	 * Tableau piles in Golf initially hold 5 cards
 	 */
 	@Test
 	public void testConstructor()
@@ -28,13 +27,13 @@ public class GolfTableauTest
 		assertEquals(5, testPileInGolfGame.getPileSize());
 	}
 	
+	/**
+	 * Golf tableau pile correctly determines if adding a specific card is legal or illegal
+	 * (e.g., the method should always return false)
+	 */
 	@Test
 	public void testGolfAddCardLogic()
 	{
-		/**
-		 * One cannot add cards to piles in Golf, and as such this
-		 * method when tested should always return false.
-		 */
 		Deck deckForGolf = new Deck();
 		GolfTableau testPileInGolfGame = new GolfTableau(deckForGolf);
 		
@@ -42,15 +41,13 @@ public class GolfTableauTest
 		assertFalse(testPileInGolfGame.isAddingCardLegal(new Card(0,0)));
 	}
 	
+	/**
+	 * Golf tableau pile correctly returns if removing top card is legal or illegal
+	 * (e.g., if the tableau pile is NOT empty)
+	 */
 	@Test
 	public void testGolfRemoveCardLogic()
 	{
-		/**
-		 * One may remove a card in Golf from a Tableau pile if
-		 * there are card to be removed. The method should return
-		 * true in cases where the pile size is greater than 1, and
-		 * false for all other inputs
-		 */
 		Deck deckForGolf = new Deck();
 		GolfTableau testPileInGolfGame = new GolfTableau(deckForGolf);
 		
@@ -59,12 +56,13 @@ public class GolfTableauTest
 		assertFalse(testPileInGolfGame.isRemovingCardLegal());
 	}
 	
+	/**
+	 * Removing card from Golf tableau pile decreases its number of cards
+	 * and results in following card being the new top card
+	 */
 	@Test
-	public void testGoldRemoveCard()
+	public void testGolfRemoveCard()
 	{
-		/**
-		 * 
-		 */
 		Deck deckForGolf = new Deck();
 		GolfTableau testPileInGolfGame = new GolfTableau(deckForGolf);
 		

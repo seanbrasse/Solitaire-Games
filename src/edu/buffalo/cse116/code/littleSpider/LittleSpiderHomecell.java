@@ -20,7 +20,7 @@ public class LittleSpiderHomecell extends Homecell {
 		if(isRemovingCardLegal())
 		{
 			//POP WILL REMOVE CARD FROM PILE.
-			//WE ARE RETURNING THIS.
+			//WE ARE RETURNING THIS IF LEGAL.
 			return this.homecellPile.pop();
 		}
 		
@@ -28,7 +28,15 @@ public class LittleSpiderHomecell extends Homecell {
 	}
 
 	/**
-	 * 
+	 * A card whose suit is Hearts or Diamonds can be added to a homecell pile if
+	 * it has the identical suit as the top card AND a rank one ABOVE the homecell 
+	 * pile's top card. For example, the Queen of Diamonds can only be added to a 
+	 * homecell pile whose current top card is the Jack of Diamonds.A card whose suit
+	 * is Clubs or Spades can be added to a homecell pile if it has the identical suit
+	 * as the top card AND a rank one BELOW the homecell pile's top card. For example,
+	 * the Queen of Spades can only be added to a homecell pile whose current top card 
+	 * is the King of Spades. No matter its suit, the added card becomes the homecell's
+	 * new top card.
 	 */
 	@Override
 	public void addCard(Card card)
@@ -40,16 +48,22 @@ public class LittleSpiderHomecell extends Homecell {
 	}
 
 	/**
-	 * 
+	 * Hearts or Diamonds can be added to a homecell pile if it has the identical suit as
+	 * the top card AND a rank one ABOVE the homecell pile's top card.
 	 */
 	@Override
 	public boolean isAddingCardLegal(Card card)
 	{
-		if(homecellPile.peek().canBuild(card) && homecellPile.peek().canWrap(card))
+		//WE ARE CHECKING TOP CARD AND COMPARING IT TO @PARAM CARD TO SEE IF IT WRAPS.
+		if(homecellPile.peek().canBuild(card) || homecellPile.peek().canWrap(card))
 		{
-			return true;
+			//WE ARE CHECKING TOP CARD AND COMPARING IT TO @PARAM CARD TO SEE IF ITS SAME SUIT.
+			if(homecellPile.peek().isSameSuit(card))
+			{
+				return true;
+			}
 		}
-
+		//IF THE CARDS DO NOT WRAP OR ARE NOT THE SAME SUIT, CAN'T ADD THE CARD.
 		return false;
 	}
 	

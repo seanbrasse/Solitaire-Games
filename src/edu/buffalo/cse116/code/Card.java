@@ -92,4 +92,14 @@ public class Card
 		
 		return false;
 	}
+	
+	public boolean isSameSuit(Card card)
+	{
+		if(this.suit == card.suit)
+		{
+			return true;
+		}
+		
+		return false;
+	}
 }

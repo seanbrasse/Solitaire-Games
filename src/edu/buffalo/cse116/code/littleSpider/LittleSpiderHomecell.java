@@ -1,5 +1,7 @@
 package edu.buffalo.cse116.code.littleSpider;
 
+import java.util.Stack;
+
 import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.Homecell;
 
@@ -49,23 +51,41 @@ public class LittleSpiderHomecell extends Homecell {
 
 	/**
 	 * Hearts or Diamonds can be added to a homecell pile if it has the identical suit as
-	 * the top card AND a rank one ABOVE the homecell pile's top card.
+	 * the top card AND a rank one ABOVE the homecell pile's top card. Clubs or Spades can 
+	 * be added to a homecell pile if it has the identical suit as the top card AND a rank 
+	 * one BELOW the homecell pile's top card. Cards CANNOT wrap when adding to a homecell pile.
 	 */
+	
 	@Override
-	public boolean isAddingCardLegal(Card card)
-	{
-		//WE ARE CHECKING TOP CARD AND COMPARING IT TO @PARAM CARD TO SEE IF IT WRAPS.
-		if(homecellPile.peek().canBuild(card) || homecellPile.peek().canWrap(card))
-		{
-			//WE ARE CHECKING TOP CARD AND COMPARING IT TO @PARAM CARD TO SEE IF ITS SAME SUIT.
-			if(homecellPile.peek().isSameSuit(card))
-			{
+	public boolean isAddingCardLegal(Card card) {
+		if(this.homecellPile.lastElement().getSuit() == 1  && card.getSuit() == 1 || this.homecellPile.lastElement().getSuit() == 2 && card.getSuit() == 2) {
+			if(card.getRank() - this.homecellPile.lastElement().getRank() == 1) {
+				return true;
+		} else if(this.homecellPile.lastElement().getSuit() == 0  && card.getSuit() == 0 || this.homecellPile.lastElement().getSuit() == 3 && card.getSuit() == 3) {
+			if(card.getRank() - this.homecellPile.lastElement().getRank() == -1){
 				return true;
 			}
 		}
-		//IF THE CARDS DO NOT WRAP OR ARE NOT THE SAME SUIT, CAN'T ADD THE CARD.
-		return false;
 	}
+	// TODO Auto-generated method stub
+	return false;
+}
+	
+//	@Override
+//	public boolean isAddingCardLegal(Card card)
+//	{
+//		//WE ARE CHECKING TOP CARD AND COMPARING IT TO @PARAM CARD TO SEE IF IT WRAPS.
+//		if(homecellPile.peek().canBuild(card) || homecellPile.peek().canWrap(card))
+//		{
+//			//WE ARE CHECKING TOP CARD AND COMPARING IT TO @PARAM CARD TO SEE IF ITS SAME SUIT.
+//			if(homecellPile.peek().isSameSuit(card))
+//			{
+//				return true;
+//			}
+//		}
+//		//IF THE CARDS DO NOT WRAP OR ARE NOT THE SAME SUIT, CAN'T ADD THE CARD.
+//		return false;
+//	}
 	
 	/**
 	 * Only the card which is currently at the top of the homecell pile can be removed.
@@ -81,6 +101,16 @@ public class LittleSpiderHomecell extends Homecell {
 		
 		return false;
 	}
+	
+	/*
+	 * Gets a homecellPile, allows for testing
+	 * 
+	 * @return a homecellPile
+	 */
+	public Stack<Card> getHomecellPile(){
+		return this.homecellPile;
+	}
+
 }
 
 

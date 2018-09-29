@@ -58,4 +58,23 @@ public class LittleSpiderGame
 			}
 		}
 	}
+	
+	/*
+	 * Returns the current deck
+	 * Used for testing
+	 */
+	public Deck getCurrentDeck() {
+		return this.gameDeck;
+	}
+	
+	/*
+	 * Returns the ArrayList of LittleSpiderHomecell
+	 * Used for testing
+	 */
+
+	public ArrayList<LittleSpiderHomecell> getHomecellPiles(){
+		return this.gameHomecellPiles;
+	}
+
+	
 }

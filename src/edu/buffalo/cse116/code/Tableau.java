@@ -18,7 +18,6 @@ public abstract class Tableau
 	 * pileSize varies per game, used to determine draw size.
 	 */
 	protected Stack<Card> pile;
-	protected Card topCard;
 	protected int pileSize;
 	
 	/**
@@ -31,7 +30,6 @@ public abstract class Tableau
 	public Tableau(Deck deck)
 	{
 		this.pile = new Stack<Card>();
-		this.topCard = null;
 		this.pileSize = setPileSize();
 		
 		for(int i=0; i<deck.getDeck().size(); i++)
@@ -47,8 +45,6 @@ public abstract class Tableau
 				break;
 			}
 		}
-		
-		this.topCard = pile.peek();
 	}
 	
 	public abstract Card removeCard();
@@ -65,10 +61,5 @@ public abstract class Tableau
 	public Stack<Card> getPile()
 	{
 		return this.pile;
-	}
-	
-	public Card getTopCard()
-	{
-		return this.topCard;
 	}
 }

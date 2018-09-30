@@ -23,30 +23,13 @@ public class LittleSpiderTableau extends Tableau
 	public LittleSpiderTableau(Deck deck) 
 	{
 		super(deck);
-		this.pile = new Stack<Card>();
-		this.topCard = null;
-
-		for(int i=0; i<deck.getDeck().size(); i++)
-		{
-			if(pile.size() < pileSize)
-			{
-				pile.push(deck.getDeck().get(i));
-				deck.getDeck().remove(i);
-			}
-			else
-			{
-				break;
-			}
-		}
-
-		this.topCard = pile.get(0);
 	}
 
 	@Override
 	public Card removeCard()
 	{
-			this.pileSize--;
-			return this.pile.pop();
+		this.pileSize--;
+		return this.pile.pop();
 	}
 
 	@Override

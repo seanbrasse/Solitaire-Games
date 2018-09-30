@@ -1,7 +1,5 @@
 package edu.buffalo.cse116.code.golf;
 
-import java.util.Stack;
-
 import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.Deck;
 import edu.buffalo.cse116.code.Tableau;
@@ -23,32 +21,12 @@ public class GolfTableau extends Tableau
 	public GolfTableau(Deck deck)
 	{
 		super(deck);
-		this.pile = new Stack<Card>();
-		this.topCard = null;
-		
-		for(int i=0; i<deck.getDeck().size(); i++)
-		{
-			if(pile.size() < pileSize)
-			{
-				pile.push(deck.getDeck().get(i));
-				deck.getDeck().remove(i);
-			}
-			else
-			{
-				break;
-			}
-		}
-		
-		this.topCard = pile.peek();
 	}
 	
 	public Card removeCard()
 	{
-		Card removedCard = this.pile.remove(0);
-		this.topCard = this.pile.get(0);
 		this.pileSize --;
-		
-		return removedCard;
+		return this.pile.pop();
 	}
 	
 	public void addCard(Card card)

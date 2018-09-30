@@ -69,22 +69,6 @@ public class LittleSpiderHomecell extends Homecell {
 
 	}
 
-	//	@Override
-	//	public boolean isAddingCardLegal(Card card)
-	//	{
-	//		//WE ARE CHECKING TOP CARD AND COMPARING IT TO @PARAM CARD TO SEE IF IT WRAPS.
-	//		if(homecellPile.peek().canBuild(card) || homecellPile.peek().canWrap(card))
-	//		{
-	//			//WE ARE CHECKING TOP CARD AND COMPARING IT TO @PARAM CARD TO SEE IF ITS SAME SUIT.
-	//			if(homecellPile.peek().isSameSuit(card))
-	//			{
-	//				return true;
-	//			}
-	//		}
-	//		//IF THE CARDS DO NOT WRAP OR ARE NOT THE SAME SUIT, CAN'T ADD THE CARD.
-	//		return false;
-	//	}
-
 	/**
 	 * Only the card which is currently at the top of the homecell pile can be removed.
 	 * You cannot remove the last card in the homecell pile.

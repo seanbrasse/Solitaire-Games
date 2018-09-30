@@ -39,9 +39,9 @@ public class LittleSpiderGame
 			{
 				if(currentCard.getSuit() == 1 || currentCard.getSuit() == 2)
 				{
-					//LittleSpiderHomecell newHomecellPile = new LittleSpiderHomecell();
-					//newHomecellPile.add(currentCard);
-					//this.gameHomecellPiles.add(newHomecellPile);
+					LittleSpiderHomecell newHomecellPile = new LittleSpiderHomecell();
+					newHomecellPile.getHomecellPile().add(currentCard);
+					this.gameHomecellPiles.add(newHomecellPile);
 					this.gameDeck.getDeck().remove(i);
 				}
 			}
@@ -50,9 +50,9 @@ public class LittleSpiderGame
 			{
 				if(currentCard.getSuit() == 0 || currentCard.getSuit() == 3)
 				{
-					//LittleSpiderHomecell newHomecellPile = new LittleSpiderHomecell();
-					//newHomecellPile.add(currentCard);
-					//this.gameHomecellPiles.add(newHomecellPile);
+					LittleSpiderHomecell newHomecellPile = new LittleSpiderHomecell();
+					newHomecellPile.getHomecellPile().add(currentCard);
+					this.gameHomecellPiles.add(newHomecellPile);
 					this.gameDeck.getDeck().remove(i);
 				}
 			}

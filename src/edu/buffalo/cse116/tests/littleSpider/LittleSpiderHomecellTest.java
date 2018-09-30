@@ -122,12 +122,14 @@ public class LittleSpiderHomecellTest {
 		System.out.println(LHS.getHomecellPile().size() + " is the size before");
 		LHS.addCard(new Card(2, 1));
 		System.out.println(LHS.getHomecellPile().size() + " is the size after");
-		assertEquals(0, LHS.getHomecellPile().size());
+		assertEquals(0, LHS.getHomecellPile().size()); 
 	}
 
 	/*
 	 * Tests if removing cards from the homecell piles is legal. 
+	 * 
 	 * Also tests if ifRemovingCardIsLegal works.
+	 * Makes sure a the next card in the stack becomes the top card
 	 * 
 	 * Removing is only legal if there is MORE than 1 card in the homecell pile
 	 */
@@ -147,14 +149,24 @@ public class LittleSpiderHomecellTest {
 		System.out.println(LSH.getHomecellPile().lastElement().getSuit() + " " + LSH.getHomecellPile().lastElement().getRank());
 		LSH.removeCard();
 		assertEquals(4, LSH.getHomecellPile().size());
+		assertEquals(1, LSH.getHomecellPile().lastElement().getSuit());		
+		assertEquals(8, LSH.getHomecellPile().lastElement().getRank());
 		LSH.removeCard();
 		assertEquals(3, LSH.getHomecellPile().size());
+		assertEquals(3, LSH.getHomecellPile().lastElement().getSuit());
+		assertEquals(12, LSH.getHomecellPile().lastElement().getRank());
 		LSH.removeCard();
 		assertEquals(2, LSH.getHomecellPile().size());
+		assertEquals(2, LSH.getHomecellPile().lastElement().getSuit());
+		assertEquals(5, LSH.getHomecellPile().lastElement().getRank());
 		LSH.removeCard();
 		assertEquals(1, LSH.getHomecellPile().size());
+		assertEquals(2, LSH.getHomecellPile().lastElement().getSuit());
+		assertEquals(3, LSH.getHomecellPile().lastElement().getRank());
 		LSH.removeCard();
 		assertEquals(1, LSH.getHomecellPile().size());
+		assertEquals(2, LSH.getHomecellPile().lastElement().getSuit());
+		assertEquals(3, LSH.getHomecellPile().lastElement().getRank());
 		System.out.println(LSH.getHomecellPile().lastElement().getSuit() + " " + LSH.getHomecellPile().lastElement().getRank());
 		System.out.println(LSH.getHomecellPile().size() + " size after");
 	}

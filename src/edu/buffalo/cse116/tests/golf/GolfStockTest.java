@@ -83,7 +83,7 @@ public class GolfStockTest
 		}
 		
 		GolfStock deckTest = new GolfStock(testDeck);
-		deckTest.removeTopCard();
+		deckTest.removeTopCard(); 
 		
 		assertEquals(16, deckTest.size());
 	}

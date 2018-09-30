@@ -11,26 +11,15 @@ import edu.buffalo.cse116.code.Homecell;
  * as a stack of type card.
  * 
  * @author William F. Nicholson
- * 
  */
+
 public class GolfHomecell extends Homecell
-{
-	
+{	
 	/**
-	 * Creating a Stack to keep track of pile and
-	 * prioritize access to index 0 Card and permit
-	 * pop push access.
+	 * this method push a card on top of the homecell pile, if adding the card is legal.
+	 * 
+	 * @param card
 	 */
-	
-	//Don't think we need this because we using the homecellpile
-	
-	//private GolfStock stockPile;
-	
-	/*public GolfHomecell(GolfStock stockPile){		
-		super();
-		//this.stockPile = stockPile;
-	}*/
-	
 	@Override
 	public void addCard(Card card) 
 	{	
@@ -40,6 +29,9 @@ public class GolfHomecell extends Homecell
 		}
 	}
 
+	/**
+	 * this method removes a card from the homecell pile only if removing card is legal, which is always false
+	 */
 	@Override
 	public Card removeCard() 
 	{
@@ -63,15 +55,16 @@ public class GolfHomecell extends Homecell
 		if(this.homecellPile.size() == 0){
 			return true;
 		}
-		//Instead of using the firstElement(), I used the lastElement() because the top card is the last element
 		else if(homecellPile.lastElement().canBuild(card) || homecellPile.lastElement().canWrap(card)){
-//				homecellPile.push(card);
 				return true;
 			}
 			
 			return false;
 	}
 
+	/**
+	 * Return false when it tries to remove cards from homecell pile in golf, use for testing
+	 */
 	@Override
 	public boolean isRemovingCardLegal() 
 	{

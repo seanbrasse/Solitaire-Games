@@ -32,15 +32,19 @@ public class GolfStock
 		}
 	}
 	
+	/**
+	 * Return size of stock pile, the size of the
+	 * ArrayList in which it resides.
+	 */
 	public int size()
 	{
-		/**
-		 * Return size of stock pile, the size of the
-		 * ArrayList in which it resides.
-		 */
 		return this.stockPile.size();
 	}
 	
+	/**
+	 * Removes the top card and returns it. Otherwise returns null.
+	 * @return
+	 */
 	public Card removeTopCard()
 	{
 		if(isRemoveCardLegal())
@@ -52,6 +56,10 @@ public class GolfStock
 		return null;
 	}
 	
+	/**
+	 * Checks if you can remove a card from the Stock pile, if there's at least one card on the Stock pile.
+	 * @return
+	 */
 	public boolean isRemoveCardLegal()
 	{
 		//logic to remove card.
@@ -63,6 +71,11 @@ public class GolfStock
 		return false;
 	}
 	
+	/**
+	 * Checks to see if the card can be added to the Stock, it won't be able to.
+	 * @param card we want to add to the Stock
+	 * @return false because no cards can be added to the Stock.
+	 */
 	public boolean isAddCardLegal(Card card)
 	{
 		//Cards cannot be added to stock pile in golf.

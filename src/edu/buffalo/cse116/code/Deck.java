@@ -36,8 +36,6 @@ public class Deck
 				deck.add(new Card(cardSuit, cardRank));
 			}
 		}
-		
-		Collections.shuffle(this.deck);
 	}
 	
 	/**

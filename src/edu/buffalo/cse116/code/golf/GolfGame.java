@@ -33,7 +33,7 @@ public class GolfGame
 		this.gameDeck = new Deck();
 		this.gameTableauPiles = new ArrayList<GolfTableau>();
 		
-		for(int itterator=0; itterator<8; itterator++)
+		for(int itterator=0; itterator<7; itterator++)
 		{
 			GolfTableau newTableauPile = new GolfTableau(this.gameDeck);
 			this.gameTableauPiles.add(newTableauPile);

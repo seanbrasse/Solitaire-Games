@@ -41,32 +41,26 @@ public class GolfStock
 		return this.stockPile.size();
 	}
 	
-	public boolean addCard(Card card)
+	public Card removeTopCard()
 	{
-		if(isAddCardLegal(card))
-		{
-			//add card to stock.
-			return true;
-		}
-		
-		return false;
-	}
-	
-	public boolean removeTopCard(Card card)
-	{
-		if(isRemoveCardLegal(card))
+		if(isRemoveCardLegal())
 		{
 			//remove card from stock.
+			return this.stockPile.remove(0);
+		}
+		
+		return null;
+	}
+	
+	public boolean isRemoveCardLegal()
+	{
+		//logic to remove card.
+		if(this.stockPile.size() > 1)
+		{
 			return true;
 		}
 		
 		return false;
-	}
-	
-	public boolean isRemoveCardLegal(Card card)
-	{
-		//logic to remove card.
-		return true;
 	}
 	
 	public boolean isAddCardLegal(Card card)

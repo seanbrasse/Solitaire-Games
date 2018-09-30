@@ -32,7 +32,7 @@ public abstract class Tableau
 		this.pile = new Stack<Card>();
 		this.pileSize = setPileSize();
 		
-		for(int i=0; i<deck.getDeck().size(); i++)
+		for(int i=0; i<deck.getDeck().size() - 1; i++)
 		{
 			if(pile.size() < pileSize)
 			{

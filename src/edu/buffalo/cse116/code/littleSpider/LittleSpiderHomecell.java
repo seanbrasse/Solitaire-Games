@@ -15,6 +15,16 @@ public class LittleSpiderHomecell extends Homecell {
 	 * LOGIC:
 	 * Stacks have pop and push features,so we don't need
 	 * a seperate variable to keep track of the top card.
+	 * 
+	 * @author Seanb 
+	 * @author Willshady 
+	 * 
+	 * 
+	 */
+	
+	/**
+	 * This method removes a card from the homecell pile
+	 * @return the removed card
 	 */
 	@Override
 	public Card removeCard()
@@ -54,6 +64,7 @@ public class LittleSpiderHomecell extends Homecell {
 	 * the top card AND a rank one ABOVE the homecell pile's top card. Clubs or Spades can 
 	 * be added to a homecell pile if it has the identical suit as the top card AND a rank 
 	 * one BELOW the homecell pile's top card. Cards CANNOT wrap when adding to a homecell pile.
+	 * @return true if the card can be legally added
 	 */
 
 	@Override
@@ -72,6 +83,7 @@ public class LittleSpiderHomecell extends Homecell {
 	/**
 	 * Only the card which is currently at the top of the homecell pile can be removed.
 	 * You cannot remove the last card in the homecell pile.
+	 * @return true if a card can be legally removed
 	 */
 	@Override
 	public boolean isRemovingCardLegal()
@@ -84,8 +96,8 @@ public class LittleSpiderHomecell extends Homecell {
 		return false;
 	}
 
-	/*
-	 * Gets a homecellPile, allows for testing
+	/**
+	 * Gets the homecellPile, allows for testing
 	 * 
 	 * @return a homecellPile
 	 */
@@ -94,7 +106,7 @@ public class LittleSpiderHomecell extends Homecell {
 	}
 
 } 
-
+ 
  
 
 

@@ -59,35 +59,15 @@ public class LittleSpiderHomecell extends Homecell {
 	@Override
 	public boolean isAddingCardLegal(Card card) {
 		if(this.homecellPile.size() > 0) {
-			if(this.homecellPile.lastElement().getSuit() == 1  && card.getSuit() == 1 || this.homecellPile.lastElement().getSuit() == 2 && card.getSuit() == 2) {
-				if(card.getRank() - this.homecellPile.lastElement().getRank() == 1) {
-					return true;
-				}
-			} else if(this.homecellPile.lastElement().getSuit() == 0  && card.getSuit() == 0 || this.homecellPile.lastElement().getSuit() == 3 && card.getSuit() == 3) {
-				if(card.getRank() - this.homecellPile.lastElement().getRank() == -1){
-					return true;
-				}
+			if(this.homecellPile.lastElement().canBuildUp(card)) {
+				return true;
+			} else if(this.homecellPile.lastElement().canBuildDown(card)) {
+				return true;
 			}
-		}
-		// TODO Auto-generated method stub
+		} 
 		return false;
-	}
 
-	//	@Override
-	//	public boolean isAddingCardLegal(Card card)
-	//	{
-	//		//WE ARE CHECKING TOP CARD AND COMPARING IT TO @PARAM CARD TO SEE IF IT WRAPS.
-	//		if(homecellPile.peek().canBuild(card) || homecellPile.peek().canWrap(card))
-	//		{
-	//			//WE ARE CHECKING TOP CARD AND COMPARING IT TO @PARAM CARD TO SEE IF ITS SAME SUIT.
-	//			if(homecellPile.peek().isSameSuit(card))
-	//			{
-	//				return true;
-	//			}
-	//		}
-	//		//IF THE CARDS DO NOT WRAP OR ARE NOT THE SAME SUIT, CAN'T ADD THE CARD.
-	//		return false;
-	//	}
+	}
 
 	/**
 	 * Only the card which is currently at the top of the homecell pile can be removed.

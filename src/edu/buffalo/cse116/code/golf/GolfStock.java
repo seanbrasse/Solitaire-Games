@@ -55,7 +55,7 @@ public class GolfStock
 	public boolean isRemoveCardLegal()
 	{
 		//logic to remove card.
-		if(this.stockPile.size() > 1)
+		if(this.stockPile.size() > 0)
 		{
 			return true;
 		}

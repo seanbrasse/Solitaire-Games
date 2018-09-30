@@ -42,4 +42,8 @@ public class GolfGame
 		this.gameStockPile = new GolfStock(this.gameDeck);
 		this.gameHomecellPile = new GolfHomecell();
 	}
+	
+	public ArrayList<GolfTableau> getGameTableauPiles(){
+		return gameTableauPiles;
+	}
 }

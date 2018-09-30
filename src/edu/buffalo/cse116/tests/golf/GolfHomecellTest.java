@@ -12,6 +12,9 @@ import edu.buffalo.cse116.code.golf.GolfHomecell;
 
 
 public class GolfHomecellTest {
+	/**
+	 * @author Wilmer Liang Feng
+	 */
 	
 	/**
 	 * This is testing the initial deck size if it starts with 0 card

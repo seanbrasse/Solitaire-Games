@@ -33,7 +33,7 @@ public class GolfStockTest
 	}
 	
 	/*
-	 * this should always return fasle
+	 * this should always return false
 	 */
 	@Test
 	public void testIsAddingCardLegal() 

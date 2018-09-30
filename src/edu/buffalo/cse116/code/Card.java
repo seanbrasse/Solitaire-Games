@@ -47,7 +47,7 @@ public class Card
 	}
 	
 	/**
-	 * @return whether one can build @param card
+	 * @return whether one can build @param card to the
 	 * homecell pile. This method DOES NOT return
 	 * true if the card parameters wrap around each other.
 	 */

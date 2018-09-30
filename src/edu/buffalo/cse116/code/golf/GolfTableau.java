@@ -71,6 +71,7 @@ public class GolfTableau extends Tableau
 	
 	/**
 	 * setting the tableau pile size to 5
+	 * @return the pile size
 	 */
 	@Override
 	public int setPileSize() 

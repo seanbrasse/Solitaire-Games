@@ -5,7 +5,7 @@ import java.util.Stack;
 /**
  * Class represents abstraction of tableau piles,
  * with pile size, adding logic, and removing logic
- * to be implemented in extending game varients.
+ * to be implemented in extending game variants.
  * 
  * @author William F. Nicholson
  */
@@ -52,7 +52,7 @@ public abstract class Tableau
 	
 	/**
 	 * Abstract method that should add the
-	 * @param card to the pile upon implmentation.
+	 * @param card to the pile upon implementation.
 	 */
 	public abstract void addCard(Card card);
 	
@@ -76,7 +76,7 @@ public abstract class Tableau
 	 * Method required to be implemented in order for
 	 * constructor to compile. @return the desired size
 	 * of the pile which will be instantiated in the
-	 * constuctor.
+	 * Constructor.
 	 */
 	public abstract int setPileSize();
 	

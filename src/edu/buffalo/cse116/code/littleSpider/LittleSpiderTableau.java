@@ -25,13 +25,19 @@ public class LittleSpiderTableau extends Tableau
 		super(deck);
 	}
 
+	/**
+	 * Removes a card from the tableau
+	 */
 	@Override
 	public Card removeCard()
 	{
 		this.pileSize--;
 		return this.pile.pop();
 	}
-
+	/**
+	 * Adds a card to the tableau
+	 * @param the card we want to add
+	 */
 	@Override
 	public void addCard(Card card) 
 	{
@@ -39,6 +45,10 @@ public class LittleSpiderTableau extends Tableau
 		this.pileSize = this.pileSize + 1;
 	}
 
+	/**
+	 * Checks if it is legal to add a card. A card can be added if it builds in either direction or can wrap
+	 * @param the card we want to add
+	 */
 	@Override
 	public boolean isAddingCardLegal(Card card) 
 	{
@@ -49,7 +59,10 @@ public class LittleSpiderTableau extends Tableau
 		
 		return false;
 	}
-
+	
+	/**
+	 * Checks if it is legal to remove a card. Cards can always be removed from a tableau as long as its not empty.
+	 */
 	@Override
 	public boolean isRemovingCardLegal() 
 	{
@@ -60,7 +73,11 @@ public class LittleSpiderTableau extends Tableau
 
 		return true;
 	}
-
+	
+	/**
+	 * Initializes a pile size of 6.
+	 * @return the pile size
+	 */
 	@Override
 	public int setPileSize()
 	{

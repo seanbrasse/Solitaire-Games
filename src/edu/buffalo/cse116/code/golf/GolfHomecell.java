@@ -11,6 +11,7 @@ import edu.buffalo.cse116.code.Homecell;
  * as a stack of type card.
  * 
  * @author William F. Nicholson
+ * @author Wilmer Liang Feng
  */
 
 public class GolfHomecell extends Homecell
@@ -47,6 +48,8 @@ public class GolfHomecell extends Homecell
 	 * Check if top card of stack can build or wrap with parameter card
 	 * 
 	 * If homecell pile is empty, any card can be added
+	 * @return true if the card can be legally added
+	 * 
 	 */
 	
 	@Override
@@ -63,7 +66,8 @@ public class GolfHomecell extends Homecell
 	}
 
 	/**
-	 * Return false when it tries to remove cards from homecell pile in golf, use for testing
+	 * Checks if it is legal to remove a card from the homecell, it should always be false
+	 * @return false when it tries to remove cards from homecell pile in golf, use for testing
 	 */
 	@Override
 	public boolean isRemovingCardLegal() 
@@ -73,7 +77,8 @@ public class GolfHomecell extends Homecell
 	}
 	
 	/**
-	 * Returns the homecellpile, for testing
+	 * Returns the homecell pile, for testing
+	 * @return a homecell pile
 	 */
 	public Stack<Card> getGolfHomecellPile(){
 		return this.homecellPile;

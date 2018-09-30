@@ -54,7 +54,9 @@ public class LittleSpiderGame
 		gameDeck.getDeck().remove(13);
 		gameDeck.getDeck().remove(12);
 				
-		 
+		/**
+		 * Makes 4 instances of LittleSpiderHomecell
+		 */
 		LittleSpiderHomecell hcp1 = new LittleSpiderHomecell();		
 		LittleSpiderHomecell hcp2 = new LittleSpiderHomecell();		
 		LittleSpiderHomecell hcp3 = new LittleSpiderHomecell();		

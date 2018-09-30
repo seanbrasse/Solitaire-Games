@@ -1,5 +1,7 @@
 package edu.buffalo.cse116.code.golf;
 
+import java.util.Stack;
+
 import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.Homecell;
 
@@ -19,13 +21,15 @@ public class GolfHomecell extends Homecell
 	 * prioritize access to index 0 Card and permit
 	 * pop push access.
 	 */
-	private GolfStock stockPile;
 	
-	public GolfHomecell(GolfStock stockPile)
-	{		
+	//Don't think we need this because we using the homecellpile
+	
+	//private GolfStock stockPile;
+	
+	/*public GolfHomecell(GolfStock stockPile){		
 		super();
-		this.stockPile = stockPile;
-	}
+		//this.stockPile = stockPile;
+	}*/
 	
 	@Override
 	public void addCard(Card card) 
@@ -47,27 +51,25 @@ public class GolfHomecell extends Homecell
 		return null;
 	}
 
+	/**
+	 * Check if top card of stack can build or wrap with parameter card
+	 * 
+	 * If homecell pile is empty, any card can be added
+	 */
+	
 	@Override
 	public boolean isAddingCardLegal(Card card) 
 	{
-		if(stockPile.size() == 0)
-		{
+		if(this.homecellPile.size() == 0){
 			return true;
 		}
-		
-		/**
-		 * Check if top card of stack can build or wrap with parameter card
-		 */
-		else
-		{
-			if(homecellPile.firstElement().canBuild(card) || homecellPile.firstElement().canWrap(card))
-			{
-				homecellPile.push(card);
+		//Instead of using the firstElement(), I used the lastElement() because the top card is the last element
+		else if(homecellPile.lastElement().canBuild(card) || homecellPile.lastElement().canWrap(card)){
+//				homecellPile.push(card);
 				return true;
 			}
 			
 			return false;
-		}
 	}
 
 	@Override
@@ -75,5 +77,12 @@ public class GolfHomecell extends Homecell
 	{
 		//Cannot remove cards from homecell pile in golf.
 		return false;
+	}
+	
+	/**
+	 * Returns the homecellpile, for testing
+	 */
+	public Stack<Card> getGolfHomecellPile(){
+		return this.homecellPile;
 	}
 }

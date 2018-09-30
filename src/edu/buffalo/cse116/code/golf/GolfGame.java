@@ -40,6 +40,6 @@ public class GolfGame
 		}
 		
 		this.gameStockPile = new GolfStock(this.gameDeck);
-		this.gameHomecellPile = new GolfHomecell(this.gameStockPile);
+		this.gameHomecellPile = new GolfHomecell();
 	}
 }

@@ -13,7 +13,7 @@ import edu.buffalo.cse116.code.Deck;
  * This tester class will ensure there
  * are 52 unique cards in a deck 
  * 
- * @author Willshady
+ * @author William F. Nicholson
  *
  */
 public class DeckTest 

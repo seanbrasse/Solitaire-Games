@@ -10,7 +10,7 @@ import edu.buffalo.cse116.code.littleSpider.LittleSpiderTableau;
 
 /**
  * 
- * @author William
+ * @author William F. Nicholson
  * @author Andrew
  *
  */

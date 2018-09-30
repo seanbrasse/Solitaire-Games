@@ -17,7 +17,7 @@ public class LittleSpiderHomecell extends Homecell {
 	 * a seperate variable to keep track of the top card.
 	 * 
 	 * @author Seanb 
-	 * @author Willshady 
+	 * @author William F. Nicholson 
 	 * 
 	 * 
 	 */

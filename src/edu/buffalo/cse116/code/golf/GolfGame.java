@@ -9,7 +9,7 @@ import edu.buffalo.cse116.code.Deck;
  * Class representing a game instance of
  * golf.
  * 
- * @author Willshady
+ * @author William F. Nicholson
  *
  */
 public class GolfGame 

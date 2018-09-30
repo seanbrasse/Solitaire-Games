@@ -10,7 +10,7 @@ import edu.buffalo.cse116.code.golf.GolfTableau;
 
 /**
  * 
- * @author Willshady
+ * @author William F. Nicholson
  *
  */
 public class GolfTableauTest 

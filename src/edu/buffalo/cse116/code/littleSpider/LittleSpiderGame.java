@@ -10,7 +10,7 @@ import edu.buffalo.cse116.code.Deck;
  * Class representing a game instance of 
  * little spider.
  * 
- * @author Willshady
+ * @author William F. Nicholson
  * @author Sean Brasse
  * @author Andrew Quinoez 
  *

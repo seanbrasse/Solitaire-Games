@@ -59,18 +59,14 @@ public class LittleSpiderHomecell extends Homecell {
 	@Override
 	public boolean isAddingCardLegal(Card card) {
 		if(this.homecellPile.size() > 0) {
-			if(this.homecellPile.lastElement().getSuit() == 1  && card.getSuit() == 1 || this.homecellPile.lastElement().getSuit() == 2 && card.getSuit() == 2) {
-				if(card.getRank() - this.homecellPile.lastElement().getRank() == 1) {
-					return true;
-				}
-			} else if(this.homecellPile.lastElement().getSuit() == 0  && card.getSuit() == 0 || this.homecellPile.lastElement().getSuit() == 3 && card.getSuit() == 3) {
-				if(card.getRank() - this.homecellPile.lastElement().getRank() == -1){
-					return true;
-				}
+			if(this.homecellPile.lastElement().canBuildUp(card)) {
+				return true;
+			} else if(this.homecellPile.lastElement().canBuildDown(card)) {
+				return true;
 			}
-		}
-		// TODO Auto-generated method stub
+		} 
 		return false;
+
 	}
 
 	//	@Override

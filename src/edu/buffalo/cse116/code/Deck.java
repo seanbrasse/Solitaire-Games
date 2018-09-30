@@ -20,7 +20,7 @@ public class Deck
 	
 	/**
 	 * Constructor will create unique Cards and add
-	 * them to the ArrayList of type Card by itterating
+	 * them to the ArrayList of type Card by iterating
 	 * through all the suits (0 - 3), and ranks (0 - 12).
 	 */
 	public Deck()

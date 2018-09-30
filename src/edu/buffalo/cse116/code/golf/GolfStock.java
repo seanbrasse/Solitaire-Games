@@ -43,7 +43,7 @@ public class GolfStock
 	
 	/**
 	 * Removes the top card and returns it. Otherwise returns null.
-	 * @return
+	 * @return the card that was removed from the top.
 	 */
 	public Card removeTopCard()
 	{
@@ -58,7 +58,7 @@ public class GolfStock
 	
 	/**
 	 * Checks if you can remove a card from the Stock pile, if there's at least one card on the Stock pile.
-	 * @return
+	 * @return true if you can legally remove a card from the Stock.
 	 */
 	public boolean isRemoveCardLegal()
 	{

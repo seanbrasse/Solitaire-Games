@@ -34,7 +34,7 @@ public abstract class Homecell
 	
 	/**
 	 * Abstract method that should add the
-	 * @param card to the pile upon implmentation.
+	 * @param card to the pile upon implementation.
 	 */
 	public abstract void addCard(Card card);
 	

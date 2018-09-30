@@ -16,7 +16,7 @@ public class LittleSpiderHomecell extends Homecell {
 	 * Stacks have pop and push features,so we don't need
 	 * a seperate variable to keep track of the top card.
 	 * 
-	 * @author Seanb 
+	 * @author Sean Brasse
 	 * @author William F. Nicholson 
 	 * 
 	 * 
@@ -31,8 +31,6 @@ public class LittleSpiderHomecell extends Homecell {
 	{
 		if(isRemovingCardLegal())
 		{
-			//POP WILL REMOVE CARD FROM PILE.
-			//WE ARE RETURNING THIS IF LEGAL.
 			return this.homecellPile.pop();
 		}
 

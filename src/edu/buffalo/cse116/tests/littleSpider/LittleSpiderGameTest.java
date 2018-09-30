@@ -9,9 +9,16 @@ import edu.buffalo.cse116.code.littleSpider.LittleSpiderGame;
 
 public class LittleSpiderGameTest {
 
-	
-	
-	
+	/**
+	 * This class tests for proper instantiation of homecell piles.
+	 * @author AndrewQuinoez
+	 */
+	 
+	/**
+	 * Tests that the four homecell piles are made. 
+	 * 
+	 * Tests that each homecell pile contains the correct initial card.
+	 */
 	
 	@Test
 	public void testForCorrectHomecell() {
@@ -41,6 +48,10 @@ public class LittleSpiderGameTest {
 		assertEquals(kSpades.getSuit(), lsg.getHomecellPiles().get(3).getHomecellPile().get(0).getSuit());
 		assertEquals(kSpades.getRank(), lsg.getHomecellPiles().get(3).getHomecellPile().get(0).getRank());
 	}
+	
+	/**
+	 * Tests that 8 initial tableau piles are made.
+	 */
 	
 	@Test
 	public void testForEightTableauPiles() {

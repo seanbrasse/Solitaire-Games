@@ -3,18 +3,17 @@ package edu.buffalo.cse116.code;
 import java.util.Stack;
 
 /**
- * Class represents Tableau piles, with pile size,
- * adding logic, and removing logic to be implemented
- * in extending game varients.
+ * Class represents abstraction of tableau piles,
+ * with pile size, adding logic, and removing logic
+ * to be implemented in extending game varients.
  * 
  * @author William F. Nicholson
- *
  */
 public abstract class Tableau 
 {
 	/**
-	 * pile is represented as an ArrayList<Card>.
-	 * topCard is used to manage game logic.
+	 * pile is represented as an Stack<Card>; Stack ensures
+	 * that top card is preserved upon data manipulation.
 	 * pileSize varies per game, used to determine draw size.
 	 */
 	protected Stack<Card> pile;
@@ -22,10 +21,7 @@ public abstract class Tableau
 	
 	/**
 	 * Constructor requires setPileSize() to be defined by subclass.
-	 * pile is instantiated, and cards are drawn from @param deck.
-	 * Once pile is set, topCard is given the 0th index of the pile.
-	 * 
-	 * @param deck
+	 * Pile is instantiated, and cards are drawn from @param deck.
 	 */
 	public Tableau(Deck deck)
 	{
@@ -36,7 +32,7 @@ public abstract class Tableau
 		{
 			if(pile.size() < pileSize)
 			{
-				pile.add(deck.getDeck().get(i));
+				pile.push(deck.getDeck().get(i));
 				deck.getDeck().remove(i);
 			}
 			
@@ -47,17 +43,54 @@ public abstract class Tableau
 		}
 	}
 	
+	/**
+	 * Abstract method that should remove the card
+	 * from the pile upon implementation.
+	 * @return the card removed from the pile.
+	 */
 	public abstract Card removeCard();
+	
+	/**
+	 * Abstract method that should add the
+	 * @param card to the pile upon implmentation.
+	 */
 	public abstract void addCard(Card card);
+	
+	/**
+	 * Abstract method that should check if the
+	 * @param card can be added to the pile according
+	 * to the rules of the game in question.
+	 * @return if card can be added to pile
+	 */
 	public abstract boolean isAddingCardLegal(Card card);
+	
+	/**
+	 * Abstract method that should check if the 
+	 * @param card can be removed from the pile
+	 * according to the rules of the game in question.
+	 * @return if a card can be removed from the pile.
+	 */
 	public abstract boolean isRemovingCardLegal();
+	
+	/**
+	 * Method required to be implemented in order for
+	 * constructor to compile. @return the desired size
+	 * of the pile which will be instantiated in the
+	 * constuctor.
+	 */
 	public abstract int setPileSize();
 	
+	/**
+	 * @return size of the pile.
+	 */
 	public int getPileSize()
 	{
 		return this.pileSize;
 	}
 	
+	/**
+	 * @return pile represented as Stack<Card>.
+	 */
 	public Stack<Card> getPile()
 	{
 		return this.pile;

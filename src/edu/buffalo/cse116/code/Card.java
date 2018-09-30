@@ -2,10 +2,9 @@ package edu.buffalo.cse116.code;
 
 /**
  * This class represents a game card with the two instance variables
- * representing the card's respective suit and rank.
+ * representing the card's suit and rank.
  * 
- * @author Willshady
- *
+ * @author William F. Nicholson
  */
 
 public class Card 
@@ -32,7 +31,6 @@ public class Card
 	}
 	
 	/**
-	 * Returns the suit of the card.
 	 * @return the suit of the card.
 	 */
 	public int getSuit()
@@ -41,7 +39,6 @@ public class Card
 	}
 	
 	/**
-	 * Returns the rank of the card.
 	 * @return the rank of the card.
 	 */
 	public int getRank()
@@ -50,12 +47,9 @@ public class Card
 	}
 	
 	/**
-	 * Returns whether one can build their homecell pile.
-	 * This method DOES NOT return true if the card
-	 * parameters wrap around each other.
-	 * 
-	 * @param card
-	 * @return
+	 * @return whether one can build @param card
+	 * homecell pile. This method DOES NOT return
+	 * true if the card parameters wrap around each other.
 	 */
 	public boolean canBuild(Card card)
 	{		
@@ -68,12 +62,9 @@ public class Card
 	}
 	
 	/**
-	 * Returns whether one can build their homecell pile
-	 * with wrapping cards. This method DOES NOT return
+	 * @return whether one can build @param card homecell
+	 * pile with wrapping cards. This method DOES NOT return
 	 * true if cards build in any other instance.
-	 * 
-	 * @param card
-	 * @return
 	 */
 	public boolean canWrap(Card card)
 	{
@@ -93,6 +84,11 @@ public class Card
 		return false;
 	}
 	
+	/**
+	 * @return true if @param card can be
+	 * 'built' up upon the current card,
+	 * i.e. rank is one more than this card.
+	 */
 	public boolean canBuildUp(Card card)
 	{
 		if(this.suit == 1  && card.getSuit() == 1 || this.suit == 2 && card.getSuit() == 2)
@@ -106,6 +102,11 @@ public class Card
 		return false;
 	}
 	
+	/**
+	 * @return true if @param card can be
+	 * 'built' down upon the current card,
+	 * i.e. rank is one less than this card.
+	 */
 	public boolean canBuildDown(Card card)
 	{
 		if(this.suit == 0  && card.getSuit() == 0 || this.suit == 3 && card.getSuit() == 3)
@@ -120,7 +121,8 @@ public class Card
 	}
 	
 	/**
-	 * Check if two cards have the same suit
+	 * @return true if @param card has
+	 * the same suit as this card.
 	 */
 	public boolean isSameSuit(Card card)
 	{

@@ -33,6 +33,11 @@ public class GameGUI {
 //		return panel;
 //	}
 	
+	/**
+	 * This method adds a JPanel (panel) that contains a JButton for Little Spider and Golf. Clicking on these buttons should (eventually) implement the chosen game. 
+	 * 
+	 * @return panel
+	 */
 	public JPanel selectGamePanel() {
 		JPanel panel = new JPanel();
 		JButton LittleSpider = new JButton("Little Spider");
@@ -74,6 +79,14 @@ public class GameGUI {
 //		return panel;
 //	} 
 	
+	
+	/**
+	 * This method creates a JMenuBar to the JFrame. The JMenuBar has a JMenu with 3 JMenu items (Little Spider, Golf and Exit). 
+	 * The JMenuBar should be accessible in-game, unlike the selectGame JPanel.
+	 * Clicking on the JMenuItems should eventually implement a new instance of the chosen game, or exit the current game (and go back to the selection panel).
+	 * 
+	 * @return menuBar
+	 */
 	public JMenuBar setGameMenu() {
 		
 	JMenuBar menuBar = new JMenuBar();

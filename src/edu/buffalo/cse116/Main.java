@@ -16,12 +16,12 @@ public class Main
 {
 	public static void runGUI()
 	{
-		JFrame frame = new JFrame("New Game");
+		JFrame frame = new JFrame("Solataire Games");
 			
 		GameGUI gui = new GameGUI();							
 		
-		frame.getContentPane().add(gui.setGameMenu(), BorderLayout.CENTER);
-		frame.getContentPane().add(gui.selectGamePanel(), BorderLayout.SOUTH);
+		frame.getContentPane().add(gui.setGameMenu(), BorderLayout.NORTH);
+		frame.getContentPane().add(gui.selectGamePanel(), BorderLayout.CENTER);
 		
 		frame.pack();
 		frame.setSize(600, 400);

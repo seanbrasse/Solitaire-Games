@@ -33,6 +33,12 @@ public class GameGUI {
 //		return panel;
 //	}
 	
+	private JFrame frame;
+	
+	public GameGUI(JFrame frame) {
+		this.frame = frame;
+	}
+	
 	/**
 	 * This method adds a JPanel (panel) that contains a JButton for Little Spider and Golf. Clicking on these buttons should (eventually) implement the chosen game. 
 	 * 
@@ -46,7 +52,7 @@ public class GameGUI {
 		LittleSpider.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent a) {
-				
+				frame.repaint();
 			}
 		});
 		
@@ -112,7 +118,7 @@ public class GameGUI {
 	exit.addActionListener(new ActionListener(){
 		@Override
 		public void actionPerformed(ActionEvent a) {
-			
+			System.exit(0);
 		}
 	});
 	

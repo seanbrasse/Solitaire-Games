@@ -18,7 +18,7 @@ public class Main
 	{
 		JFrame frame = new JFrame("Solataire Games");
 			
-		GameGUI gui = new GameGUI();							
+		GameGUI gui = new GameGUI(frame);							
 		
 		frame.getContentPane().add(gui.setGameMenu(), BorderLayout.NORTH);
 		frame.getContentPane().add(gui.selectGamePanel(), BorderLayout.CENTER);

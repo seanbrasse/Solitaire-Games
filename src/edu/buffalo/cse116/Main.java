@@ -20,8 +20,8 @@ public class Main
 			
 		GameGUI gui = new GameGUI();							
 		
-		frame.getContentPane().add(gui.selectGamePanel(), BorderLayout.CENTER);
-		frame.getContentPane().add(gui.exitPanel(), BorderLayout.SOUTH);
+		frame.getContentPane().add(gui.setGameMenu(), BorderLayout.CENTER);
+		frame.getContentPane().add(gui.selectGamePanel(), BorderLayout.SOUTH);
 		
 		frame.pack();
 		frame.setSize(600, 400);

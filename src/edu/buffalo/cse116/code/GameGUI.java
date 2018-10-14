@@ -4,6 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 /**
@@ -54,19 +58,55 @@ public class GameGUI {
 		return panel;
 	}
 	
-	public JPanel exitPanel() {
-		JPanel panel = new JPanel();
-		JButton exit = new JButton("Exit");
+//	public JPanel exitPanel() {
+//		JPanel panel = new JPanel();
+//		JButton exit = new JButton("Exit");
+//		
+//		exit.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent a) {
+//				
+//			}
+//		});
+//		
+//		panel.add(exit);
+//		
+//		return panel;
+//	} 
+	
+	public JMenuBar setGameMenu() {
 		
-		exit.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent a) {
-				
-			}
-		});
-		
-		panel.add(exit);
-		
-		return panel;
+	JMenuBar menuBar = new JMenuBar();
+	JMenu newGame = new JMenu("New Game");
+	JMenuItem littleSpider = new JMenuItem("Little Spider");
+	JMenuItem golf = new JMenuItem("Golf");
+	JMenuItem exit = new JMenuItem("Exit");
+	
+	littleSpider.addActionListener(new ActionListener(){
+		@Override
+		public void actionPerformed(ActionEvent a) {
+			
+		} 
+	});
+	
+	golf.addActionListener(new ActionListener(){
+		@Override
+		public void actionPerformed(ActionEvent a) {
+			
+		}
+	});
+	
+	exit.addActionListener(new ActionListener(){
+		@Override
+		public void actionPerformed(ActionEvent a) {
+			
+		}
+	});
+	
+	newGame.add(littleSpider);
+	newGame.add(golf);
+	newGame.add(exit);
+	menuBar.add(newGame);
+	return menuBar;
 	}
 }

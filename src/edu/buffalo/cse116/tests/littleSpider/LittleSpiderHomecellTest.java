@@ -77,7 +77,7 @@ public class LittleSpiderHomecellTest {
 		LSHClubs.getHomecellPile().push(new Card(3, 11));
 		LSHClubs.getHomecellPile().push(new Card(0, 1));
 		LSHClubs.getHomecellPile().push(new Card(0, 6));
-		System.out.println(LSHClubs.getHomecellPile().lastElement().getRank() + " -this is the last element's rank");
+		System.out.println(LSHClubs.getHomecellPile().lastElement().getRank() + " is the last element's rank");
 		System.out.println(LSHClubs.getHomecellPile().size() + " is the size of pile1 initially");
 		LSHClubs.addCard(new Card(0,5));
 		System.out.println(LSHClubs.getHomecellPile().size() + " is the size of pile1 after attempt 1");

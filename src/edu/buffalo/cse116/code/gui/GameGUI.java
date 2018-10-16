@@ -1,4 +1,4 @@
-package edu.buffalo.cse116.code;
+package edu.buffalo.cse116.code.gui;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -35,17 +35,8 @@ public class GameGUI extends JFrame {
 		setVisible(true);
 		
 	}
-	
-	/**
-	 * This method adds a JPanel (panel) that contains a JButton for Little Spider and Golf. Clicking on these buttons should (eventually) implement the chosen game. 
-	 * 
-	 * @return panel
-	 */
-	
-	
 
-	
-	
+
 	/**
 	 * This method creates a JMenuBar to the JFrame. The JMenuBar has a JMenu with 3 JMenu items (Little Spider, Golf and Exit). 
 	 * The JMenuBar should be accessible in-game, unlike the selectGame JPanel.

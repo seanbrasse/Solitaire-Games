@@ -5,7 +5,7 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-import edu.buffalo.cse116.code.GameGUI;
+import edu.buffalo.cse116.code.gui.GameGUI;
 
 /**
  * 

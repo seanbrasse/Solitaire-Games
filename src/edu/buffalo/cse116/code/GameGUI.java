@@ -1,42 +1,39 @@
 package edu.buffalo.cse116.code;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+
+import edu.buffalo.cse116.code.littleSpider.LittleSpiderGUI;
 
 /**
  * 
  * @author 
  *
  */
-public class GameGUI {
+public class GameGUI extends JFrame {
 	
-//	public JPanel newGamePanel() {
-//		JPanel panel = new JPanel();
-//		JButton newGame = new JButton("New Game");
-//		
-//		newGame.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent a) {
-//				
-//			}
-//		});
-//		
-//		panel.add(newGame);
-//		
-//		return panel;
-//	}
+
 	
-	private JFrame frame;
 	
-	public GameGUI(JFrame frame) {
-		this.frame = frame;
+	
+	
+	
+	public GameGUI() {
+		add(menuBar(), BorderLayout.NORTH);	
+		pack();
+		setSize(600, 400);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		
 	}
 	
 	/**
@@ -44,46 +41,9 @@ public class GameGUI {
 	 * 
 	 * @return panel
 	 */
-	public JPanel selectGamePanel() {
-		JPanel panel = new JPanel();
-		JButton LittleSpider = new JButton("Little Spider");
-		JButton Golf = new JButton("Golf");
-		
-		LittleSpider.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent a) {
-				frame.repaint();
-			}
-		});
-		
-		Golf.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent b) {
-				
-			}
-		});
-		
-		panel.add(LittleSpider);
-		panel.add(Golf);
-		
-		return panel;
-	}
 	
-//	public JPanel exitPanel() {
-//		JPanel panel = new JPanel();
-//		JButton exit = new JButton("Exit");
-//		
-//		exit.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent a) {
-//				
-//			}
-//		});
-//		
-//		panel.add(exit);
-//		
-//		return panel;
-//	} 
+	
+
 	
 	
 	/**
@@ -93,7 +53,7 @@ public class GameGUI {
 	 * 
 	 * @return menuBar
 	 */
-	public JMenuBar setGameMenu() {
+	public JMenuBar menuBar() {
 		
 	JMenuBar menuBar = new JMenuBar();
 	JMenu newGame = new JMenu("New Game");

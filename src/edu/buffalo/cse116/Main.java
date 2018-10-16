@@ -14,19 +14,13 @@ import edu.buffalo.cse116.code.GameGUI;
  */
 public class Main 
 {
+	/**
+	 * Creates our frame and start the game.
+	 */
 	public static void runGUI()
 	{
-		JFrame frame = new JFrame("Solataire Games");
-			
-		GameGUI gui = new GameGUI(frame);							
+			GameGUI game = new GameGUI();
 		
-		frame.getContentPane().add(gui.setGameMenu(), BorderLayout.NORTH);
-		frame.getContentPane().add(gui.selectGamePanel(), BorderLayout.CENTER);
-		
-		frame.pack();
-		frame.setSize(600, 400);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
 	}
 	
 	public static void main(String [] args)

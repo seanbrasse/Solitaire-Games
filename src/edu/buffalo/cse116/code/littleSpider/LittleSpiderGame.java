@@ -27,6 +27,13 @@ public class LittleSpiderGame
 	private ArrayList<LittleSpiderTableau> gameTableauPiles;
 	private ArrayList<LittleSpiderHomecell> gameHomecellPiles;
 	
+	/**
+	 * This will be used to reference each card to an image.
+	 */
+	private ArrayList<Card> copyGameDeck; 
+	
+	
+	
 	public LittleSpiderGame()
 	{
 		/**
@@ -37,6 +44,8 @@ public class LittleSpiderGame
 		this.gameTableauPiles = new ArrayList<LittleSpiderTableau>();
 		this.gameHomecellPiles = new ArrayList<LittleSpiderHomecell>();
 		
+		copyGameDeck = new ArrayList<Card>();
+		copyGameDeck.addAll(gameDeck.getDeck());
 			
 		/**
 		 * Holds the four cards we'll need for the homecell piles
@@ -78,6 +87,8 @@ public class LittleSpiderGame
 		gameHomecellPiles.add(hcp3);
 		gameHomecellPiles.add(hcp4);
 		
+		
+		
 		/**
 		 * Now with the remaining 48 cards, we'll shuffle
 		 */
@@ -110,6 +121,14 @@ public class LittleSpiderGame
 
 	public ArrayList<LittleSpiderHomecell> getHomecellPiles(){
 		return this.gameHomecellPiles;
+	}
+	
+	/**
+	 * Returns a copy of the deck that has all the 52 elements (cards) so pictures can be assigned to them.
+	 * @return
+	 */
+	public ArrayList<Card> getCopyGameDeck(){
+		return copyGameDeck;
 	}
 	
 

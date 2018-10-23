@@ -13,8 +13,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import com.buffalo.cse116.code.littleSpiderGui.LSTableauLayeredPane;
-import com.buffalo.cse116.code.littleSpiderGui.LittleSpiderGUI;
+import edu.buffalo.cse116.code.littleSpiderGui.LSTableauLayeredPane;
+import edu.buffalo.cse116.code.littleSpiderGui.LittleSpiderGUI;
 
 /**
  * 
@@ -79,10 +79,15 @@ private LSTableauLayeredPane lslp;
 	golf.addActionListener(new ActionListener(){
 		@Override
 		public void actionPerformed(ActionEvent a) {
-			//Will start Golf
-			remove(lslp);
-			revalidate(); 
-			repaint();
+			if(currentSession != null) {
+				remove(lslp);
+				revalidate(); 
+				repaint();
+			}
+			
+			
+			//Will start Golf here **********
+			
 		}
 	});
 	

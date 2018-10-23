@@ -1,4 +1,4 @@
-package com.buffalo.cse116.code.littleSpiderGui;
+package edu.buffalo.cse116.code.littleSpiderGui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

@@ -1,4 +1,4 @@
-package com.buffalo.cse116.code.littleSpiderGui;
+package edu.buffalo.cse116.code.littleSpiderGui;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -36,12 +36,12 @@ public class LSTableauLayeredPane extends JLayeredPane {
 	
 	public LSTableauLayeredPane() {
 		paneWidth = 600; //not final
-		paneHeight = 200; //not final
+		paneHeight = 500; //not final
 			
 		//The commented out code was used for testing purposes and are just for reference, can be deleted if you want.
-		//CardImage ci = new CardImage(new Card(2, 12), paneWidth, paneHeight);
+		CardImage ci = new CardImage(new Card(2, 12));
 		
-		//CardImage ci2 = new CardImage(new Card(0,0), paneWidth, paneHeight);
+		CardImage ci2 = new CardImage(new Card(0,0));
 		
 		
 		//ci.setBounds(500,100, ci.getCardImage().getIconWidth(), ci.getCardImage().getIconHeight());
@@ -71,7 +71,7 @@ public class LSTableauLayeredPane extends JLayeredPane {
 	
 		//jlp.setBackground(Color.cyan);
 		//jlp.setOpaque(true);
-		jlp.setBounds(700, 400, 100, 100);
+		jlp.setBounds(700, 500, 100, 100);
 		jlp.setBorder(BorderFactory.createTitledBorder("diiimelo"));
 		
 		//CardImage ci3 = new CardImage(new Card(3,5), paneWidth, paneHeight);

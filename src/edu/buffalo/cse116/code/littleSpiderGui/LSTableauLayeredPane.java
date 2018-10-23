@@ -44,18 +44,18 @@ public class LSTableauLayeredPane extends JLayeredPane {
 		CardImage ci2 = new CardImage(new Card(0,0));
 		
 		
-		//ci.setBounds(500,100, ci.getCardImage().getIconWidth(), ci.getCardImage().getIconHeight());
-		//ci.setLocation(500, 100);
-		//ci2.setBounds(500,150, ci.getCardImage().getIconWidth(), ci.getCardImage().getIconHeight());
+		ci.setBounds(300,300, ci.getCardImage().getIconWidth(), ci.getCardImage().getIconHeight());
+		ci.setLocation(300, 300);
+		ci2.setBounds(500,150, ci.getCardImage().getIconWidth(), ci.getCardImage().getIconHeight());
 		
-		//add(ci, 0);
-		//add(ci2, 1);
+		add(ci, 0);
+		add(ci2, 1);
 
 		//addLayeredPane(); //testing
 		
 		
 		this.setBorder(BorderFactory.createTitledBorder("helloooo"));
-		this.setPreferredSize(new Dimension(paneWidth/2, paneHeight/2));
+		this.setPreferredSize(new Dimension(paneWidth/2, paneHeight));
 		
 		
 		//this.setBounds(500,350, 300, 200);

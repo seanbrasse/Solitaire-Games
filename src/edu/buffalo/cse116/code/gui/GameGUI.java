@@ -79,11 +79,11 @@ private LSTableauLayeredPane lslp;
 	golf.addActionListener(new ActionListener(){
 		@Override
 		public void actionPerformed(ActionEvent a) {
-			if(currentSession != null) {
+			
 				remove(lslp);
 				revalidate(); 
 				repaint();
-			}
+			
 			
 			
 			//Will start Golf here **********

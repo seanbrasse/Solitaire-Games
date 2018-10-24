@@ -5,11 +5,11 @@ import java.awt.event.ActionListener;
 
 import edu.buffalo.cse116.code.Card;
 
-public class TableauActionListener implements ActionListener{
+public class LSActionListener implements ActionListener{
 	
 	private Card card;
 	
-	public TableauActionListener(Card card) {
+	public LSActionListener(Card card) {
 		
 	}
 

@@ -14,6 +14,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import edu.buffalo.cse116.code.littleSpiderGui.LSLPgame;
+import edu.buffalo.cse116.code.littleSpiderGui.LSLayeredPaneGame;
 import edu.buffalo.cse116.code.littleSpiderGui.LSTableauLayeredPane;
 import edu.buffalo.cse116.code.littleSpiderGui.LittleSpiderGUI;
 
@@ -32,7 +33,12 @@ private LSTableauLayeredPane lslp;
  */
 private LSLPgame lsGame;
 
-	
+	/**
+	 * An instance of the LS game
+	 */
+	private LSLayeredPaneGame ls;
+
+
 
 	/**
 	 * Creates our frame for the game with the menu bar.
@@ -69,8 +75,9 @@ private LSLPgame lsGame;
 	littleSpider.addActionListener(new ActionListener(){
 		@Override
 		public void actionPerformed(ActionEvent a) {
-			lsGame = new LSLPgame();
-			add(lsGame);
+			ls = new LSLayeredPaneGame();
+			
+			add(ls, BorderLayout.CENTER);
 			
 			//These two are necessary lines
 			revalidate(); //checks if anything has changed in the 'components' (like JLayeredPane, JPanel) such as remove

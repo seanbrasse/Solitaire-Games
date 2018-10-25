@@ -146,7 +146,7 @@ public class CardImage extends JLabel{
 		return card;
 	}
 	
-	public ImageIcon getCardImage() {
+	public ImageIcon getImageIcon() {
 		return cardImage;
 	}
 	

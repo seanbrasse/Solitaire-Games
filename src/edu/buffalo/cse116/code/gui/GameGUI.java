@@ -13,6 +13,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import edu.buffalo.cse116.code.littleSpiderGui.LSLPgame;
 import edu.buffalo.cse116.code.littleSpiderGui.LSTableauLayeredPane;
 import edu.buffalo.cse116.code.littleSpiderGui.LittleSpiderGUI;
 
@@ -24,6 +25,12 @@ import edu.buffalo.cse116.code.littleSpiderGui.LittleSpiderGUI;
 public class GameGUI extends JFrame {
 	
 private LSTableauLayeredPane lslp;
+
+/**
+ * This subclass of JlayeredPane takes care of the entire game being isntantiated, with it, the game logic and graphical
+ * component take place
+ */
+private LSLPgame lsGame;
 
 	
 
@@ -62,7 +69,8 @@ private LSTableauLayeredPane lslp;
 	littleSpider.addActionListener(new ActionListener(){
 		@Override
 		public void actionPerformed(ActionEvent a) {
-			
+			lsGame = new LSLPgame();
+			add(lsGame);
 			
 			//These two are necessary lines
 			revalidate(); //checks if anything has changed in the 'components' (like JLayeredPane, JPanel) such as remove

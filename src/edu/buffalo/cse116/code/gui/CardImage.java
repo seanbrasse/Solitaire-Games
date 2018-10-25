@@ -163,5 +163,7 @@ public class CardImage extends JLabel{
 			return false;
 		}
 	}
+	
+	
 
 }

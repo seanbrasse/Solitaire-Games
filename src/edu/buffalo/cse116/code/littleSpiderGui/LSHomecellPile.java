@@ -73,10 +73,12 @@ public class LSHomecellPile {
 	public LSHomecellPile(JLayeredPane lslp, LittleSpiderHomecell lsHomecell, int numHomecell, ArrayList<CardImage> cardImages) {
 		this.lslp = lslp;
 		this.lsHomecell = lsHomecell;
+		y = 600;
 		homecell = lsHomecell.getHomecellPile();
 		this.cardImages = cardImages;
 		setXcoord(numHomecell);
 		drawHomecellPile(cardImages);
+		
 	}
 	
 	/**
@@ -88,11 +90,11 @@ public class LSHomecellPile {
 		if(numHomecell == 0) {
 			x = 150;
 		} else if(numHomecell == 1) {
-			x = 300;
+			x = 375;
 		} else if(numHomecell == 2) {
-			x = 450;
-		} else if(numHomecell == 3) {
 			x = 600;
+		} else if(numHomecell == 3) {
+			x = 825;
 		} else {
 			//Should not be any other, this will be very bad otherwise cuz we'll have a random pile floating in space.
 		}
@@ -129,11 +131,10 @@ public class LSHomecellPile {
 					
 					tempY = tempY - 23;
 					
-					lslp.add(ci, new Integer(i));
+					lslp.add(ci, new Integer(i)); 
 					
 				}
-			}
-			
+			}			
 		}
 	}
 	

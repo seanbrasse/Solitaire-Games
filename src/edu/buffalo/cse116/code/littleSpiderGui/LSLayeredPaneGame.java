@@ -8,6 +8,7 @@ import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.gui.CardImage;
 import edu.buffalo.cse116.code.littleSpider.LittleSpiderGame;
 import edu.buffalo.cse116.code.littleSpider.LittleSpiderHomecell;
+import edu.buffalo.cse116.code.littleSpider.LittleSpiderTableau;
 
 /**
  * This is going to be the actual class to pull the logic and what the GUI displays here.
@@ -34,7 +35,7 @@ public class LSLayeredPaneGame extends JLayeredPane {
 	/**
 	 * Here will be the LSTableauPile class once it's made. Made LShomecellPiles first b/c LS starts with creating homecell piles first.
 	 */
-	
+	private ArrayList<LSTableauPile> tableauPiles;
 	
 	
 	/**
@@ -47,7 +48,7 @@ public class LSLayeredPaneGame extends JLayeredPane {
 		
 		createCardImages(lsg.getCopyGameDeck());
 		instantiateHomecellPiles(lsg.getHomecellPiles(), cardImages); //creates the 4 homecell piles, with their 1 initial card.
-		
+		instantiateTableauPiles(lsg.getTableauPiles(), cardImages);
 		
 		
 	}
@@ -74,6 +75,15 @@ public class LSLayeredPaneGame extends JLayeredPane {
 			homecellPiles.add(new LSHomecellPile(this, lsh.get(i), i, cardImages));
 		}
 	}
+	
+	public void instantiateTableauPiles(ArrayList<LittleSpiderTableau> lst, ArrayList<CardImage> cardImages) {
+		tableauPiles = new ArrayList<LSTableauPile>();
+		for(int i = 0; i < lst.size(); i++) {
+			tableauPiles.add(new LSTableauPile(this, lst.get(i), i, cardImages));
+		}
+	}
+	
+	
 	
 	
 	

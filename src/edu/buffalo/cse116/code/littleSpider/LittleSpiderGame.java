@@ -101,6 +101,7 @@ public class LittleSpiderGame
 		for(int i = 0; i < 8; i++) {	
 			LittleSpiderTableau lst = new LittleSpiderTableau(gameDeck);
 			gameTableauPiles.add(lst);
+			
 		}
 		
 		

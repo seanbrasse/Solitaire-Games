@@ -17,7 +17,7 @@ import edu.buffalo.cse116.code.littleSpiderGui.LSTableauLayeredPane;
 import edu.buffalo.cse116.code.littleSpiderGui.LittleSpiderGUI;
 
 /**
- * 
+ * This class is the frame from where we will have at most 
  * @author 
  *
  */
@@ -34,10 +34,10 @@ private LSTableauLayeredPane lslp;
 	
 		add(menuBar(), BorderLayout.NORTH);
 		
-		//pack(); //Packs our components nicely
-		setSize(1000, 700);//Size of our frame, Not final
+		//*****NOTE ******
+		//The final size of the frame should be 
+		setSize(1200, 800);
 		
-	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);	
 	}
@@ -63,11 +63,6 @@ private LSTableauLayeredPane lslp;
 		@Override
 		public void actionPerformed(ActionEvent a) {
 			
-			//These 4 lines are just for testing purposes, can be removed whenever, won't be in the final submition
-			lslp = new LSTableauLayeredPane(); //Will start Little Spider
-			LSTableauLayeredPane test = new LSTableauLayeredPane();
-			add(lslp, BorderLayout.NORTH); //Sets
-			add(test, BorderLayout.SOUTH);
 			
 			//These two are necessary lines
 			revalidate(); //checks if anything has changed in the 'components' (like JLayeredPane, JPanel) such as remove

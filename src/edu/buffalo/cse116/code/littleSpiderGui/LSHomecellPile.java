@@ -121,6 +121,8 @@ public class LSHomecellPile {
 					//Draw with 'x' , y , z. Then increment x and y for the next one. 
 					//Remember we are only displaying the cards, the game logic classes take care of deciding if it can be added
 					//we just do the actual showing of it.
+					
+					//commented the line out underneath for testing, if the homecells appear then that line won't be necessary
 					CardImage ci = cardImages.get(j);
 					ci.setBounds(x, tempY, ci.getImageIcon().getIconWidth(), ci.getImageIcon().getIconHeight());
 					ci.setLocation(x, tempY);

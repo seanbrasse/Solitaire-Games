@@ -6,6 +6,6 @@ package edu.buffalo.cse116.code.golfGui;
  * @author Andrew Quinonez
  *
  */
-public class GolfGui {
+public class GolfGUI {
 
 }

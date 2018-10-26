@@ -145,5 +145,25 @@ public class CardImage extends JLabel{
 	public Card getCard() {
 		return card;
 	}
+	
+	public ImageIcon getImageIcon() {
+		return cardImage;
+	}
+	
+	/**
+	 * When placing cards, we need to make sure the correct card is being assigned. Such as the initial 4 cards in the
+	 * homecell for LS. This will take a card and see if the card is the same, if not, then returns false
+	 * @param card
+	 * @return true if the card is the correct card on the 'card' image.
+	 */
+	public boolean equalCardValue(Card card) {
+		if(this.card.getRank() == card.getRank() && this.card.getSuit() == card.getSuit()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
 
 }

@@ -99,8 +99,11 @@ public class LittleSpiderGame
 		 * Now take these 48 cards and create 8 tableau piles where each pile will get 6 cards
 		 */
 		for(int i = 0; i < 8; i++) {	
+			
 			LittleSpiderTableau lst = new LittleSpiderTableau(gameDeck);
 			gameTableauPiles.add(lst);
+			
+			
 		}
 		
 		

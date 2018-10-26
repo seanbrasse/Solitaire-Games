@@ -14,10 +14,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import edu.buffalo.cse116.code.golfGui.GolfLayeredPaneGame;
-import edu.buffalo.cse116.code.littleSpiderGui.LSLPgame;
 import edu.buffalo.cse116.code.littleSpiderGui.LSLayeredPaneGame;
-import edu.buffalo.cse116.code.littleSpiderGui.LSTableauLayeredPane;
-import edu.buffalo.cse116.code.littleSpiderGui.LittleSpiderGUI;
+
 
 /**
  * This class is the frame from where we will have at most 
@@ -26,13 +24,9 @@ import edu.buffalo.cse116.code.littleSpiderGui.LittleSpiderGUI;
  */
 public class GameGUI extends JFrame {
 
-	private LSTableauLayeredPane lslp;
 
-	/**
-	 * This subclass of JlayeredPane takes care of the entire game being instantiated, with it, the game logic and graphical
-	 * component take place
-	 */
-	private LSLPgame lsGame;
+
+
 
 	/**
 	 * An instance of the LS game

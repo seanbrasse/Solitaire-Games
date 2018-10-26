@@ -37,6 +37,12 @@ public class LSLayeredPaneGame extends JLayeredPane {
 	 */
 	private ArrayList<LSTableauPile> tableauPiles;
 	
+	/**
+	 * Reference to the class to pass everything of importantance to the Action Listener class.
+	 */
+	private LSActionListener lsActionListener; //There may need to be some get methods for this to work. Unless we can think of
+	//another way to do it.
+	
 	
 	/**
 	 * Creates the properties we need for the LayeredPane and instantiates the game logic and then afterwords create the graphical

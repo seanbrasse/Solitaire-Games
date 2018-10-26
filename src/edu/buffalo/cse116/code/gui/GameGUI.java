@@ -24,10 +24,6 @@ import edu.buffalo.cse116.code.littleSpiderGui.LSLayeredPaneGame;
  */
 public class GameGUI extends JFrame {
 
-
-
-
-
 	/**
 	 * An instance of the LS game
 	 */

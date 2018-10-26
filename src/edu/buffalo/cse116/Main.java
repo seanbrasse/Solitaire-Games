@@ -8,7 +8,7 @@ import javax.swing.SwingUtilities;
 import edu.buffalo.cse116.code.gui.GameGUI;
 
 /**
- * 
+ * Runs the programe
  * @author william
  *
  */
@@ -30,7 +30,7 @@ public class Main
 			@Override
 			public void run()
 			{
-				runGUI();
+				runGUI(); 
 			}
 		});
 	}

@@ -26,10 +26,14 @@ public class GolfStock
 	{
 		this.stockPile = new ArrayList<Card>();
 		
-		for(Card card: gameDeck.getDeck())
-		{
-			this.stockPile.add(card);
+		int size = gameDeck.getDeck().size();
+		for(int i = 0; i < size; i++){
+			this.stockPile.add(gameDeck.getDeck().get(0));
+			gameDeck.getDeck().remove(0);
 		}
+		
+			
+		
 	}
 	
 	/**

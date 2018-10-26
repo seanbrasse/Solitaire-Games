@@ -3,6 +3,7 @@ package edu.buffalo.cse116.code.golf;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.Deck;
 
 /**
@@ -35,6 +36,11 @@ public class GolfGame
 	private GolfStock gameStockPile;
 	
 	/**
+	 * This will be used to reference each card to an image.
+	 */
+	private ArrayList<Card> copyGameDeck; 
+	
+	/**
 	 * Create an new instance of Deck and randomized it. Then creates our Tableau piles, as well as our Stock and
 	 * Homecell pile.
 	 */
@@ -54,6 +60,9 @@ public class GolfGame
 		
 		this.gameStockPile = new GolfStock(this.gameDeck);
 		this.gameHomecellPile = new GolfHomecell();
+		
+		copyGameDeck = new ArrayList<Card>();
+		copyGameDeck.addAll(gameDeck.getDeck());
 	}
 	
 	/**
@@ -62,5 +71,22 @@ public class GolfGame
 	 */
 	public ArrayList<GolfTableau> getGameTableauPiles(){
 		return gameTableauPiles;
+	}
+	
+	/**
+	 * Returns gameHomecellPile.
+	 * @return gameHomecellPile.
+	 */
+	
+	public GolfHomecell getGameHomecellPile() {
+		return this.gameHomecellPile;
+	}
+	
+	/**
+	 * Returns a copy of the deck that has all the 52 elements (cards) so pictures can be assigned to them.
+	 * @return
+	 */
+	public ArrayList<Card> getCopyGameDeck(){
+		return copyGameDeck;
 	}
 }

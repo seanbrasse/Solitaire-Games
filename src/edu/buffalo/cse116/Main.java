@@ -30,7 +30,7 @@ public class Main
 			@Override
 			public void run()
 			{
-				runGUI();
+				runGUI(); 
 			}
 		});
 	}

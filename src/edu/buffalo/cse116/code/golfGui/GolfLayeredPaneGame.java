@@ -6,136 +6,92 @@ import javax.swing.JLayeredPane;
 
 import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.golf.GolfGame;
-import edu.buffalo.cse116.code.golf.GolfHomecell;
+import edu.buffalo.cse116.code.golf.GolfTableau;
 import edu.buffalo.cse116.code.gui.CardImage;
+
+//import edu.buffalo.cse116.code.littleSpiderGui.LSLPgame.HomecellCardPile;
 
 
 public class GolfLayeredPaneGame extends JLayeredPane  {
 	
 	/**
-	 * The instance of the game to access the cards, tableau and homecell piles
+	 * Instantiates the game logic for homecells and tableau piles for LS.
 	 */
-	
-	GolfGame game;
+	private GolfGame golfG;
 	
 	/**
-	 * A  copy of the game deck so we can use it to initially set the value of each card 
+	 * Arraylist of the 52 card images
 	 */
-	
-	ArrayList<Card> copyGameDeck;
-//	ArrayList<GolfHomecell> homecells;
+	private ArrayList<CardImage> cardImages;
 	
 	/**
-	 * Hold an image of each card
+	 * Here will be the GolfTableauPile class once it's made. Made GolfTableauPiles first b/c Golf starts with creating Tableau piles first.
 	 */
+	private ArrayList<GolfTableauPile> tableauPiles;
 	
-	ArrayList<CardImage> cardImages;
+	
 	
 	/**
-	 * The logic for checking on the Homecell piles
+	 * We have one homecellPile.
 	 */
-	HomecellCardPile hcPicturePile;
+	private GolfHomecellPile homecellPile;
+	//private ArrayList<LSHomecellPile> homecellPiles;
 	
+	
+	
+	/**
+	 * Creates the properties we need for the LayeredPane and instantiates the game logic and then afterwords create the graphical
+	 * display based on the game logic. 
+	 */
 	public GolfLayeredPaneGame() {
-		game = new GolfGame(); //instantiates Golf game session, cards are shuffled.
-		cardImages = new ArrayList<CardImage>(); //instantiates the list
-		//hcPicturePile = new HomecellCardPile(GolfHomecell c);
-	}
-	
-	/**
-	 * Creates an arraylist (cardImages) of 52 CardImage objects, i.e. the whole deck.
-	 */
-	
-	public void assignAllCardImages() {
-		for(int i = 0; i < copyGameDeck.size(); i++) {
-			CardImage cardImage = new CardImage(copyGameDeck.get(i)); //assign each card an image
-			cardImages.add(cardImage);
-		}
+		golfG = new GolfGame(); 	
+		cardImages = new ArrayList<CardImage>(); //the list that will hold the 52 JLabel (Images) of our cards
 		
-	}
-	
-	/**
-	 * Creates the location of where tableaus are placed
-	 */
-	
-	public void initialTableauPlacement() {
-		//card image size is 73x97
+		createCardImages(golfG.getCopyGameDeck());
+		//instantiateHomecellPiles(lsg.getHomecellPiles(), cardImages); //creates the 4 homecell piles, with their 1 initial card.
+		instantiateTableauPiles(golfG.getGameTableauPiles(), cardImages);
 		
-	}
-	
-	/**
-	 * 
-	 * @author Andrew Quinonez
-	 *
-	 */
-	
-	private class HomecellCardPile {
-		//x coord
-		private int x;
-		//y coord
-		private int y;
-		//z coord
-		private int z;
 		
+	} 
+	
 	/**
-	 * A reference to the homecell to get the current cards on that homecell
+	 * Assign each card a picture.
 	 */
+	public void createCardImages(ArrayList<Card> deck) {
 		
-	private GolfHomecell homecell;
-	
-	/**
-	 * The current cards that will be viewed, will be in this list and will be updated based on the 
-	 * homecell reference above.
-	 */
-	
-	private ArrayList<CardImage> currentCards;
-	
-	/**
-	 *Only one homecell pile
-	 * No need anymore
-	 */
-	//private int pileNumber;
-	
-	public HomecellCardPile(GolfHomecell homecell) {
-		this.homecell = homecell;
-		setCoordsForHCPile();
-	}
-	
-	/**
-	 * Sets the coords for the one homecell pile.
-	 * Edited to account for one pile
-	 */
-	private void setCoordsForHCPile() {
-			x = 375;	
-			// x is set to 375 as its the halfway point and there is only one homecell pile. 
-			//The y and z value per card will change
+		//assign each element of the array a card image
+		for(int i = 0; i < deck.size(); i++) {
+			cardImages.add(new CardImage(deck.get(i)));
 		}
 	}
 	
-	/**
-	 * Will be called when the Y coordinate of where the card is going to be placed with respect to where 
-	 * it's in the homecell pile for the logic rules of the game.
-	 * @return the y coordinate value for the card image
-	 */
-	private int setYcardImage() {
-		return 0;
+//	/**
+//	 * Instantiate each of the 4 homecell piles 
+//	 * @param lsh
+//	 */
+//	public void instantiateHomecellPiles(ArrayList<LittleSpiderHomecell> lsh, ArrayList<CardImage> cardImages) {
+//		
+//		homecellPiles = new ArrayList<LSHomecellPile>();
+//		for(int i = 0; i < lsh.size(); i++) {
+//			homecellPiles.add(new LSHomecellPile(this, lsh.get(i), i, cardImages));
+//		}
+//	}
+	
+	public void instantiateTableauPiles(ArrayList<GolfTableau> gt, ArrayList<CardImage> cardImages) {
+		tableauPiles = new ArrayList<GolfTableauPile>();
+		for(int i = 0; i < gt.size(); i++) {
+			tableauPiles.add(new GolfTableauPile(this, gt.get(i), i, cardImages));
+		}
 	}
 	
-	/**
-	 * Will be called when the Z coordinate of where the card is going to be placed with respect to where 
-	 * it's in the homecell pile for the logic rules of the game.
-	 * @return
-	 */
-	private int setZcardImage() {
-		return 0;
-	}
-
+	
+	
 	
 	
 	
 	
 
-
+	
 }
 
 

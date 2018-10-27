@@ -40,12 +40,12 @@ public class LSMouseListener implements MouseListener{
 	/**
 	 * Reference to this object because it has the method to draw the cards in the homecell piles
 	 */
-	private LSHomecellPile homecellPile;
+	private ArrayList<LSHomecellPile> homecellPiles;
 	
 	/**
 	 * Reference to this object because it has the method to draw the cards in the tableau piles
 	 */
-	private LSTableauPile tableauPile;
+	private ArrayList<LSTableauPile> tableauPiles;
 	
 	
 	
@@ -74,11 +74,11 @@ public class LSMouseListener implements MouseListener{
 	private boolean cardClicked1; //cardClicked
 	private boolean cardClicked2; //targetCardClicked
 	
-	public LSMouseListener(LSLayeredPaneGame lslp, LittleSpiderGame lsg, LSHomecellPile homecellPile, LSTableauPile tableauPile) {
+	public LSMouseListener(LSLayeredPaneGame lslp, LittleSpiderGame lsg) {
 		this.lslp = lslp;
 		this.lsg = lsg;
-		this.homecellPile = homecellPile;
-		this.tableauPile = tableauPile;
+		this.homecellPiles = lslp.getHomecellPiles();
+		this.tableauPiles = lslp.getTableauPiles();
 		cardPileNumber = null;
 		targetCardPileNumber = null;
 		
@@ -208,6 +208,14 @@ public class LSMouseListener implements MouseListener{
 			}
 				
 		}
+		
+		homecellPiles.get(cardPileNumber).drawHomecellPile(lslp.getCardImages());
+		tableauPiles.get(targetCardPileNumber).drawTableauPile(lslp.getCardImages());
+		
+		homecellPiles.get(targetCardPileNumber).drawHomecellPile(lslp.getCardImages());
+		tableauPiles.get(cardPileNumber).drawTableauPile(lslp.getCardImages());
+		
+		lslp.repaint();
 		
 		
 	}

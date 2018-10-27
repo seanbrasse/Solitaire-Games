@@ -139,6 +139,18 @@ public class CardImage extends JLabel{
 	}
 	
 	/**
+	 * Sets the blank green card for Golf's initial blank Tableau
+	 * @return Image icon for the card
+	 */
+	private ImageIcon setGreenCardImage() {
+		ImageIcon retVal;
+		String imgLoc = "resources/Cards/"; 
+		imgLoc = imgLoc + "green.gif";
+		retVal = new ImageIcon(imgLoc);
+		return retVal;
+	}
+	
+	/**
 	 * Returns the Card of this object to check rank and suit of the card in the ActionListener.
 	 * @return card.
 	 */
@@ -148,6 +160,13 @@ public class CardImage extends JLabel{
 	
 	public ImageIcon getImageIcon() {
 		return cardImage;
+	}
+	
+	/**
+	 * Returns the Golf initial Green Homcell card
+	 */
+	public ImageIcon getGreenImageIcon() {
+		return setGreenCardImage();
 	}
 	
 	/**

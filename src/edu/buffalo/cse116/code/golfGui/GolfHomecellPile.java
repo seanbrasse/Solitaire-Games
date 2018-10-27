@@ -15,10 +15,10 @@ public class GolfHomecellPile {
 	 * A reference to the JLayeredPane class from which this object is being called. It's of type JLayeredPane instead of
 	 * LSLayeredPane, so we only get the necessary methods, such as 'add' to the container, 'setLocation' of our cards, etc.
 	 */
-	private JLayeredPane lslp;
+	private JLayeredPane glp;
 	
 	/**
-	 * Creates the reference to the class, LittleSpiderHomecell
+	 * Creates the reference to the class, GolfHomecell
 	 */
 	private GolfHomecell gHomecell;
 	
@@ -57,20 +57,28 @@ public class GolfHomecellPile {
 	private ArrayList<CardImage> cardImages;
 	
 	/**
+	 * A single instance of CardImages to obtain instantiate the homecell pile
+	 */
+	private CardImage greenCard;
+	
+	/**
 	 * The initialization will pass through the GolfLayeredPaneGame (subclass of JLayeredPane) so we can just add to the pane 
 	 * from which this class is being called and do the adding to that container, here.
-	 * @param lslp the reference to LSLayeredPaneGame so that we can make changes from here.
-	 * @param lsHomecell
-	 * @param numHomecell is the number that this homecell is from 0 - 3 (4 total). Ex: the first one will be A of H for numHomecell = 0
+	 * @param glp the reference to LSLayeredPaneGame so that we can make changes from here.
+	 * @param gHomecell
+	 * @param cardImages
 	 */
-	public GolfHomecellPile(JLayeredPane lslp, GolfHomecell gHomecell, ArrayList<CardImage> cardImages) {
-		this.lslp = lslp;
+	public GolfHomecellPile(JLayeredPane glp, GolfHomecell gHomecell, ArrayList<CardImage> cardImages, CardImage greenCard) {
+		this.glp = glp;
 		this.gHomecell = gHomecell;
 		y = 600;
 		homecell = gHomecell.getGolfHomecellPile();
+		this.greenCard = greenCard;
+		drawInitialHomecellPile(greenCard);
 		this.cardImages = cardImages;
 		setXcoord();
 		drawHomecellPile(cardImages);
+		
 		
 	}
 	
@@ -91,6 +99,18 @@ public class GolfHomecellPile {
 	//NOTE: this may not be needed, along with homecellCardImages. b/c we can just scan through a full deck of images
 	public void updateHomecellCardImages() {
 		
+	}
+	
+	/**
+	 * Should create the Green card that starts off the homecell pile
+	 */
+	
+	public void drawInitialHomecellPile(CardImage greenCard) {
+		int permY = y; // 97 height of the card 
+		int permZ = z;
+		greenCard.setBounds(x, permY, greenCard.getGreenImageIcon().getIconWidth(), greenCard.getGreenImageIcon().getIconHeight());
+		greenCard.setLocation(x, permY);
+		glp.add(greenCard, greenCard.getGreenImageIcon());
 	}
 	
 	
@@ -114,9 +134,9 @@ public class GolfHomecellPile {
 					ci.setBounds(x, tempY, ci.getImageIcon().getIconWidth(), ci.getImageIcon().getIconHeight());
 					ci.setLocation(x, tempY);
 					
-					tempY = tempY - 23;
+					tempY = tempY - 23; 
 					
-					lslp.add(ci, new Integer(i)); 
+					glp.add(ci, new Integer(i)); 
 					
 				}
 			}			

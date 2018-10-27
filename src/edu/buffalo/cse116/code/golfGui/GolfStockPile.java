@@ -56,7 +56,7 @@ public class GolfStockPile {
 		this.stock = stock;
 		this.cardImages = cardImages;
 		x=450;
-		y=600; 
+		y=500; 
 		drawStockPile(cardImages);
 		
 	}

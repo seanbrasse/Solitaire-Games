@@ -73,7 +73,7 @@ public class GolfHomecellPile {
 	public GolfHomecellPile(JLayeredPane glp, GolfHomecell gHomecell, ArrayList<CardImage> cardImages) {
 		this.glp = glp;
 		this.gHomecell = gHomecell;
-		y = 600;
+		y = 500;
 		homecell = gHomecell.getGolfHomecellPile();
 		this.greenCard = new JLabel();
 		drawInitialHomecellPile();

@@ -73,7 +73,7 @@ public class LSHomecellPile {
 	public LSHomecellPile(JLayeredPane lslp, LittleSpiderHomecell lsHomecell, int numHomecell, ArrayList<CardImage> cardImages) {
 		this.lslp = lslp;
 		this.lsHomecell = lsHomecell;
-		y = 600;
+		y = 500;
 		homecell = lsHomecell.getHomecellPile();
 		this.cardImages = cardImages;
 		setXcoord(numHomecell);

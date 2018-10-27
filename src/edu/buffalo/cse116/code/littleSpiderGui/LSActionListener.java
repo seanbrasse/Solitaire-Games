@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
 import edu.buffalo.cse116.code.Card;
@@ -86,11 +87,11 @@ public class LSActionListener implements ActionListener, MouseListener{
 	}
 
 	private void saySomething(String string, MouseEvent e) {
-		Object textArea;
-		String eventDescription;
-		String newline;
+		JTextArea textArea = new JTextArea();
+		String eventDescription = string;
+		String newline = "\n";
 		// TODO Auto-generated method stub
-		((Object) textArea).append(eventDescription + " detected on "
+		 textArea.append(eventDescription + " detected on "
                 + e.getComponent().getClass().getName()
                 + "." + newline);
 		

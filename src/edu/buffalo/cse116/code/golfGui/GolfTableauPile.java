@@ -16,7 +16,7 @@ public class GolfTableauPile {
 	 * A reference to the JLayeredPane class from which this object is being called. It's of type JLayeredPane instead of
 	 * LSLayeredPane, so we only get the necessary methods, such as 'add' to the container, 'setLocation' of our cards, etc.
 	 */
-	private JLayeredPane lslp;
+	private JLayeredPane glp;
 	
 	/**
 	 * Creates the reference to the class, LittleSpiderHomecell
@@ -60,10 +60,10 @@ public class GolfTableauPile {
 	/**
 	 * Insantiates the tableau piles
 	 */
-	public GolfTableauPile(JLayeredPane lslp, GolfTableau gTableau, int numTableau, ArrayList<CardImage> cardImages) {
-		this.lslp = lslp;
+	public GolfTableauPile(JLayeredPane glp, GolfTableau gTableau, int numTableau, ArrayList<CardImage> cardImages) {
+		this.glp = glp;
 		this.gTableau = gTableau;
-		y = 50;
+		y = 75;
 		tableau = gTableau.getPile();
 		this.cardImages = cardImages;
 		setXcoord(numTableau);
@@ -124,6 +124,7 @@ public class GolfTableauPile {
 	public void drawTableauPile(ArrayList<CardImage> cardImages) {
 		int tempY = y; // 97 height of the card 
 		int tempZ = z;
+		int topCardValue = tableau.size() - 1;
 		for(int i = 0; i < tableau.size(); i++) {
 			for(int j = 0; j < cardImages.size(); j++) {
 				if(cardImages.get(j).equalCardValue(tableau.get(i))) {
@@ -133,12 +134,20 @@ public class GolfTableauPile {
 					
 					//commented the line out underneath for testing, if the homecells appear then that line won't be necessary
 					CardImage ci = cardImages.get(j);
+					
+					if(topCardValue == i) {
+						ci.setEnabled(true);
+					} else {
+						ci.setEnabled(false);
+					}
+					
+					
 					ci.setBounds(x, tempY, ci.getImageIcon().getIconWidth(), ci.getImageIcon().getIconHeight());
 					ci.setLocation(x, tempY);
 					
 					tempY = tempY + 23;
 					
-					lslp.add(ci, new Integer(i)); 
+					glp.add(ci, new Integer(i)); 
 					
 				}
 			}			

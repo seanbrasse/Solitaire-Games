@@ -56,6 +56,7 @@ public class LSTableauPile {
 	 */
 	private ArrayList<CardImage> cardImages;
 	
+	
 	/**
 	 * Insantiates the tableau piles
 	 */
@@ -99,12 +100,13 @@ public class LSTableauPile {
 
 	
 	/**
-	 * Puts this tableau pile in the frame. 
+	 * Draws the cards corresponding to what the game logic's tableau pile has in it's array of Cards. 
 	 * @param cardImages is the array of the images for each card.
 	 */
 	public void drawTableauPile(ArrayList<CardImage> cardImages) {
 		int tempY = y; // 97 height of the card 
 		int tempZ = z;
+		int topCardValue = tableau.size() - 1;
 		for(int i = 0; i < tableau.size(); i++) {
 			for(int j = 0; j < cardImages.size(); j++) {
 				if(cardImages.get(j).equalCardValue(tableau.get(i))) {
@@ -114,7 +116,17 @@ public class LSTableauPile {
 					
 					//commented the line out underneath for testing, if the homecells appear then that line won't be necessary
 					CardImage ci = cardImages.get(j);
-					ci.setBounds(x, tempY, ci.getImageIcon().getIconWidth(), ci.getImageIcon().getIconHeight());
+					
+					//This 'if' statement checks if on the nth loop, if the card getting drawn on the frame is a top card for that 
+					//tableau pile.
+					if(topCardValue == i) {
+						ci.setEnabled(true);
+					} else {
+						ci.setEnabled(false);
+					}
+					
+					
+					ci.setBounds(x, tempY, ci.getImageIcon().getIconWidth() + 2, ci.getImageIcon().getIconHeight() + 2);
 					ci.setLocation(x, tempY);
 					
 					tempY = tempY + 23;

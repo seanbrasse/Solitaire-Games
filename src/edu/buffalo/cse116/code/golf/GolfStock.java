@@ -16,7 +16,7 @@ import edu.buffalo.cse116.code.Deck;
 
 public class GolfStock 
 {	
-	ArrayList<Card> stockPile;
+	ArrayList<Card> stockPile; 
 	
 	/**
 	 * Draw remaining cards from deck, add them to

@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import edu.buffalo.cse116.code.Card;
+import edu.buffalo.cse116.code.littleSpiderGui.LSActionListener;
 
 /**
  * Assigns a Card to it's according image and any extra information that may be needed.
@@ -33,7 +34,6 @@ public class CardImage extends JLabel{
 	 */
 	public CardImage(Card card) {	
 		this.card = card;
-		
 		cardImage = setCardImage(); 	
 		setIcon(cardImage);
 		
@@ -41,6 +41,7 @@ public class CardImage extends JLabel{
         //setBounds(layoutWidth/ 2, layoutHeight/2, cardImage.getIconWidth(), cardImage.getIconHeight());
         //this.setBounds(500, 0, cardImage.getIconWidth(), cardImage.getIconHeight()); //coords: (0,0) is the top left corner
         
+		addMouseListener(new LSActionListener());
 	}
 	
 

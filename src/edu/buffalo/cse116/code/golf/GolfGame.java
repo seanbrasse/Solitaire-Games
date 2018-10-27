@@ -94,7 +94,7 @@ public class GolfGame
 		return copyGameDeck;
 	}
 	
-	public ArrayList<Card> getStock(){
-		return gameStockPile.getStockPile();
+	public GolfStock getStock(){
+		return gameStockPile;
 	}
 }

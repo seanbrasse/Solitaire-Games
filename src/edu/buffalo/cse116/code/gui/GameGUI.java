@@ -49,6 +49,9 @@ public class GameGUI extends JFrame {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);	
+		
+		ls = null;
+		g = null;
 	}
 
 
@@ -71,21 +74,54 @@ public class GameGUI extends JFrame {
 		littleSpider.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent a) {
-				ls = new LSLayeredPaneGame();
-
+				
+				
+				if(g != null) {
+					g.removeAll();
+					remove(g);
+					g = null;
+					//These two are necessary lines
+					revalidate(); //checks if anything has changed in the 'components' (like JLayeredPane, JPanel) such as remove
+					repaint(); //Similar to 'refreshing' the GUI
+					
+					ls = new LSLayeredPaneGame();
+				} else {
+					//These two are necessary lines
+					revalidate(); //checks if anything has changed in the 'components' (like JLayeredPane, JPanel) such as remove
+					repaint(); //Similar to 'refreshing' the GUI
+					
+					ls = new LSLayeredPaneGame();
+					
+				}
+				
+		
 				add(ls, BorderLayout.CENTER);
-
-				//These two are necessary lines
-				revalidate(); //checks if anything has changed in the 'components' (like JLayeredPane, JPanel) such as remove
-				repaint(); //Similar to 'refreshing' the GUI
-
+				
+				revalidate(); 
+				repaint(); 
 			} 
 		});
 
 		golf.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent a) {
-				g = new GolfLayeredPaneGame();
+				
+				if(ls != null) {
+					ls.removeAll();
+					remove(ls);
+					ls = null;
+					//These two are necessary lines
+					revalidate(); //checks if anything has changed in the 'components' (like JLayeredPane, JPanel) such as remove
+					repaint(); //Similar to 'refreshing' the GUI
+					
+					g = new GolfLayeredPaneGame();
+					
+				} else {
+					g = new GolfLayeredPaneGame();
+				}
+				
+				
+				
 
 				add(g, BorderLayout.CENTER);
 

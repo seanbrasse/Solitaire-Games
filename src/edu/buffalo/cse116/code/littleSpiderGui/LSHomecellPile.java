@@ -88,13 +88,13 @@ public class LSHomecellPile {
 	public void setXcoord(int numHomecell) {
 		//NOTE: these numbers aren't final.
 		if(numHomecell == 0) {
-			x = 150;
+			x = 250;
 		} else if(numHomecell == 1) {
-			x = 375;
+			x = 450;
 		} else if(numHomecell == 2) {
-			x = 600;
+			x = 650; 
 		} else if(numHomecell == 3) {
-			x = 825;
+			x = 850;
 		} else {
 			//Should not be any other, this will be very bad otherwise cuz we'll have a random pile floating in space.
 		}

@@ -8,6 +8,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import edu.buffalo.cse116.code.Card;
+import edu.buffalo.cse116.code.golfGui.GolfActionListener;
+import edu.buffalo.cse116.code.littleSpiderGui.LSActionListener;
 
 /**
  * Assigns a Card to it's according image and any extra information that may be needed.
@@ -33,14 +35,15 @@ public class CardImage extends JLabel{
 	 */
 	public CardImage(Card card) {	
 		this.card = card;
-		
 		cardImage = setCardImage(); 	
 		setIcon(cardImage);
 		
 
-        //setBounds(layoutWidth/ 2, layoutHeight/2, cardImage.getIconWidth(), cardImage.getIconHeight());
-        //this.setBounds(500, 0, cardImage.getIconWidth(), cardImage.getIconHeight()); //coords: (0,0) is the top left corner
+//        setBounds(layoutWidth/ 2, layoutHeight/2, cardImage.getIconWidth(), cardImage.getIconHeight());
+//        this.setBounds(500, 0, cardImage.getIconWidth(), cardImage.getIconHeight()); //coords: (0,0) is the top left corner
         
+		addMouseListener(new LSActionListener());
+		addMouseListener(new GolfActionListener());
 	}
 	
 
@@ -139,6 +142,18 @@ public class CardImage extends JLabel{
 	}
 	
 	/**
+	 * Sets the blank green card for Golf's initial blank Tableau
+	 * @return Image icon for the card
+	 */
+	private ImageIcon setGreenCardImage() {
+		ImageIcon retVal;
+		String imgLoc = "resources/Cards/"; 
+		imgLoc = imgLoc + "green.gif";
+		retVal = new ImageIcon(imgLoc);
+		return retVal;
+	}
+	
+	/**
 	 * Returns the Card of this object to check rank and suit of the card in the ActionListener.
 	 * @return card.
 	 */
@@ -148,6 +163,13 @@ public class CardImage extends JLabel{
 	
 	public ImageIcon getImageIcon() {
 		return cardImage;
+	}
+	
+	/**
+	 * Returns the Golf initial Green Homcell card
+	 */
+	public ImageIcon getGreenImageIcon() {
+		return setGreenCardImage();
 	}
 	
 	/**

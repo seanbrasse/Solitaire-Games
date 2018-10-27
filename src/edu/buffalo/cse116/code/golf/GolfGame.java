@@ -33,6 +33,7 @@ public class GolfGame
 	/**
 	 * Our Stock pile, will hold the remaining cards
 	 */
+	
 	private GolfStock gameStockPile;
 	
 	/**
@@ -48,6 +49,10 @@ public class GolfGame
 	{
 		
 		this.gameDeck = new Deck();
+		
+		copyGameDeck = new ArrayList<Card>();
+		copyGameDeck.addAll(gameDeck.getDeck());
+		
 		Collections.shuffle(this.gameDeck.getDeck());
 		
 		this.gameTableauPiles = new ArrayList<GolfTableau>();
@@ -61,8 +66,7 @@ public class GolfGame
 		this.gameStockPile = new GolfStock(this.gameDeck);
 		this.gameHomecellPile = new GolfHomecell();
 		
-		copyGameDeck = new ArrayList<Card>();
-		copyGameDeck.addAll(gameDeck.getDeck());
+		
 	}
 	
 	/**
@@ -88,5 +92,9 @@ public class GolfGame
 	 */
 	public ArrayList<Card> getCopyGameDeck(){
 		return copyGameDeck;
+	}
+	
+	public GolfStock getStock(){
+		return gameStockPile;
 	}
 }

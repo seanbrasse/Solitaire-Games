@@ -16,7 +16,7 @@ import edu.buffalo.cse116.code.Deck;
 
 public class GolfStock 
 {	
-	ArrayList<Card> stockPile;
+	ArrayList<Card> stockPile; 
 	
 	/**
 	 * Draw remaining cards from deck, add them to
@@ -26,10 +26,14 @@ public class GolfStock
 	{
 		this.stockPile = new ArrayList<Card>();
 		
-		for(Card card: gameDeck.getDeck())
-		{
-			this.stockPile.add(card);
+		int size = gameDeck.getDeck().size();
+		for(int i = 0; i < size; i++){
+			this.stockPile.add(gameDeck.getDeck().get(0));
+			gameDeck.getDeck().remove(0);
 		}
+		
+			
+		
 	}
 	
 	/**
@@ -80,6 +84,14 @@ public class GolfStock
 	{
 		//Cards cannot be added to stock pile in golf.
 		return false;
+	}
+	
+	/**
+	 * Returns the stockpile
+	 */
+	
+	public ArrayList<Card> getStockPile(){
+		return this.stockPile;
 	}
 
 }

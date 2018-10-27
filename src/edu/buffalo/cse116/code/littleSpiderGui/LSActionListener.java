@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
-
+import java.util.Stack;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
@@ -17,25 +17,45 @@ import javax.swing.border.Border;
 import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.gui.CardImage;
 import edu.buffalo.cse116.code.littleSpider.LittleSpiderGame;
+import edu.buffalo.cse116.code.littleSpider.LittleSpiderHomecell;
+import edu.buffalo.cse116.code.littleSpider.LittleSpiderTableau;
 
-public class LSActionListener implements ActionListener, MouseListener{
+public class LSActionListener implements MouseListener{
 	
 	public static ArrayList<CardImage> clickedCards;
+	
+	public CardImage cardClicked;
+	
+	public CardImage targetCardClicked;
 	
 	private Card card;
 	
 	/**
 	 * This should help to get the references needed for the tableau and homecell piles.
 	 */
-	private LSLayeredPaneGame lslp;//most likely delete
+	private LSLayeredPaneGame lslp;
 	
-	private LittleSpiderGame lsg; //somewhat  likely to delete
+	private LittleSpiderGame lsg; 
+	
+	private LSHomecellPile homecellPile;
+	
+	private LSTableauPile tableauPile;
 	
 	private boolean clicked;
 	private String mouse;
 	
-	public LSActionListener() {
+	
+	private boolean cardClicked1; //cardClicked
+	private boolean cardClicked2; //targetCardClicked
+	
+	public LSActionListener(LSLayeredPaneGame lslp, LittleSpiderGame lsg, LSHomecellPile homecellPile, LSTableauPile tableauPile) {
+		this.lslp = lslp;
+		this.lsg = lsg;
+		this.homecellPile = homecellPile;
+		this.tableauPile = tableauPile;
+	
 		clicked = false;
+		
 	}
 	
 	
@@ -55,28 +75,87 @@ public class LSActionListener implements ActionListener, MouseListener{
 	    }
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-		
-	}
-
-	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		if(clicked == false) {
-			clicked = true;
-			CardImage ci = (CardImage) e.getSource();
-			select(ci);
-		} else {
-			clicked = false;
-			CardImage ci = (CardImage) e.getSource();
-			unselect(ci);
+		CardImage ci = (CardImage) e.getSource();
+		
+		if(cardClicked == null) {
+			cardClicked = ci;
+			select(cardClicked);
+			
+		}  else if(cardClicked != null && cardClicked.equals(ci)) {
+			unselect(cardClicked);
+			cardClicked = null;
+			
+		}  else if(cardClicked != null && targetCardClicked == null) {
+			targetCardClicked = ci;
+			select(cardClicked);
+			
+			littleSpiderLogic();
 		}
 		
 		
 		
 	}
+	
+	/**
+	 * Little spider logic -- mother fucker!@!@!
+	 */
+	public void littleSpiderLogic() {
+		
+		
+		
+	}
+	
+	
+	/**
+	 * Checks if the card that you clicked is the top of the tableau pile.
+	 * @param card
+	 * @return
+	 */
+	private boolean isCardInTableau(Card card) {
+		
+		ArrayList<LittleSpiderTableau> tableauLogicPiles = lsg.getTableauPiles();
+		for(int i = 0; i < tableauLogicPiles.size(); i++) {
+			Stack<Card> tableauPile = tableauLogicPiles.get(i).getPile();
+			
+			if(card == tableauPile.peek()) {
+				return true;
+			}
+		}		
+		return false;
+	}
+	
+	/**
+	 * Checks if the card you clicked is the top card of the homecell.
+	 * @param card
+	 * @return
+	 */
+	private boolean isCardInHomecell(Card card) {
+		ArrayList<LittleSpiderHomecell> homecellLogicPiles = lsg.getHomecellPiles();
+		
+		for(int i = 0; i < homecellLogicPiles.size(); i++) {
+			Stack<Card> homecellPile = homecellLogicPiles.get(i).getHomecellPile();
+			
+			if(card == homecellPile.peek()) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	
+	
+	
 
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub

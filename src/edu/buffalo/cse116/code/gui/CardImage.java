@@ -1,6 +1,7 @@
 package edu.buffalo.cse116.code.gui;
 
 import java.awt.Dimension;
+import java.awt.event.MouseListener;
 import java.io.File;
 import java.net.URL;
 
@@ -48,10 +49,12 @@ public class CardImage extends JLabel{
 //        setBounds(layoutWidth/ 2, layoutHeight/2, cardImage.getIconWidth(), cardImage.getIconHeight());
 //        this.setBounds(500, 0, cardImage.getIconWidth(), cardImage.getIconHeight()); //coords: (0,0) is the top left corner
         
+		
+		//under review:
 		if(gameFlag == 1) {
 			addMouseListener(new GolfActionListener());
 		} else if(gameFlag == 2) {
-			addMouseListener(new LSActionListener());
+			//addMouseListener(new LSActionListener());
 		} else if(gameFlag == 3) {
 			//When the 3rd game is created post the listener here
 		}
@@ -200,6 +203,12 @@ public class CardImage extends JLabel{
 		}
 	}
 	
-	
+	/**
+	 * Pass the mouse listener for the corresponding game
+	 * @param ml
+	 */
+	public void setMouseListenerForLS(MouseListener ml) {
+		addMouseListener(ml);
+	}
 
 }

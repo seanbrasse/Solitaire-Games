@@ -31,6 +31,7 @@ public class LSActionListener implements ActionListener, MouseListener{
 	private LittleSpiderGame lsg; //somewhat  likely to delete
 	
 	private boolean clicked;
+	private String mouse;
 	
 	public LSActionListener() {
 		clicked = false;
@@ -78,24 +79,42 @@ public class LSActionListener implements ActionListener, MouseListener{
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
+		this.mouse = "Mouse pressed at : " + e.getX() + ", " + e.getY();
+		saySomething("Mouse pressed; # of clicks: "
+                + e.getClickCount(), e);
+		
+	}
+
+	private void saySomething(String string, MouseEvent e) {
+		Object textArea;
+		String eventDescription;
+		String newline;
+		// TODO Auto-generated method stub
+		((Object) textArea).append(eventDescription + " detected on "
+                + e.getComponent().getClass().getName()
+                + "." + newline);
 		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
+		saySomething("Mouse released; # of clicks: "
+                + e.getClickCount(), e);
 		
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
+		saySomething("Mouse entered", e);
 		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
+		saySomething("Mouse exited", e);
 		
 	}
 	

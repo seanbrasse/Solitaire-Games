@@ -28,7 +28,7 @@ public class LSMouseListener implements MouseListener{
 	
 	public CardImage targetCardClicked;
 	
-	private Card card;
+
 	
 	/**
 	 * This should help to get the references needed for the tableau and homecell piles.
@@ -37,12 +37,38 @@ public class LSMouseListener implements MouseListener{
 	
 	private LittleSpiderGame lsg; 
 	
+	/**
+	 * Reference to this object because it has the method to draw the cards in the homecell piles
+	 */
 	private LSHomecellPile homecellPile;
 	
+	/**
+	 * Reference to this object because it has the method to draw the cards in the tableau piles
+	 */
 	private LSTableauPile tableauPile;
 	
-	private boolean clicked;
-	private String mouse;
+	
+	
+	/**
+	 * The pile number that the card is from, if it's tableau or homecell
+	 */
+	private Integer cardPileNumber; //0 - 3 is for homecell, 0 - 7 is for tableau
+	
+	/**
+	 * The pile number for the targeted card that is clicked (2nd card that is clicked)
+	 * if it's from homecell or tableau
+	 */
+	private Integer targetCardPileNumber; 
+	
+	/**
+	 * To know which tableau pile the card was found in
+	 */
+	private Integer tableauPileNumber;
+	
+	/**
+	 * To know which homecell pile the card was found in
+	 */
+	private Integer homecellPileNumber;
 	
 	
 	private boolean cardClicked1; //cardClicked
@@ -53,8 +79,9 @@ public class LSMouseListener implements MouseListener{
 		this.lsg = lsg;
 		this.homecellPile = homecellPile;
 		this.tableauPile = tableauPile;
-	
-		clicked = false;
+		cardPileNumber = null;
+		targetCardPileNumber = null;
+		
 		
 	}
 	
@@ -99,13 +126,20 @@ public class LSMouseListener implements MouseListener{
 	}
 	
 	/**
-	 * Little spider logic -- mother fucker!@!@!
+	 * Little spider logic
 	 */
 		public void littleSpiderLogic() {
 		
 		if(isCardInTableau(cardClicked.getCard())) {
+			cardPileNumber = tableauPileNumber; //so we know which tableau pile the first card is in
+			
+			
 			if(isCardInTableau(targetCardClicked.getCard())) {
+				targetCardPileNumber = tableauPileNumber; //so we know in which tableau pile the target card is in
+				
+				
 				if(cardClicked.getCard().canBuild(targetCardClicked.getCard())) {
+					
 					
 				} else if(cardClicked.getCard().canWrap(targetCardClicked.getCard())) {
 					
@@ -113,7 +147,11 @@ public class LSMouseListener implements MouseListener{
 					//error
 				}
 			} else if(isCardInHomecell(targetCardClicked.getCard())) {
+				targetCardPileNumber = homecellPileNumber; //so we know which homecell pile the 2nd card is in
+				
+				
 				if(cardClicked.getCard().getSuit() == targetCardClicked.getCard().getSuit()) {
+					
 					if(cardClicked.getCard().canBuildUp(targetCardClicked.getCard())) {
 						
 					}else if(cardClicked.getCard().canBuildDown(targetCardClicked.getCard())) {
@@ -124,9 +162,13 @@ public class LSMouseListener implements MouseListener{
 				}
 			}
 		} else if(isCardInHomecell(cardClicked.getCard())) {
+			cardPileNumber = homecellPileNumber; //to know which homecell pile the first card is in
+			
 			if(isCardInTableau(targetCardClicked.getCard())) {
+				targetCardPileNumber = tableauPileNumber;
 				
 			} else if(isCardInHomecell(targetCardClicked.getCard())) {
+				//Error b/c each homecell pile requires the same suit.
 				
 			}
 		}
@@ -147,6 +189,7 @@ public class LSMouseListener implements MouseListener{
 			Stack<Card> tableauPile = tableauLogicPiles.get(i).getPile();
 			
 			if(card == tableauPile.peek()) {
+				tableauPileNumber = new Integer(i);
 				return true;
 			}
 		}		
@@ -165,6 +208,7 @@ public class LSMouseListener implements MouseListener{
 			Stack<Card> homecellPile = homecellLogicPiles.get(i).getHomecellPile();
 			
 			if(card == homecellPile.peek()) {
+				homecellPileNumber = new Integer(i);
 				return true;
 			}
 		}
@@ -185,44 +229,19 @@ public class LSMouseListener implements MouseListener{
 	
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		this.mouse = "Mouse pressed at : " + e.getX() + ", " + e.getY();
-		saySomething("Mouse pressed; # of clicks: "
-                + e.getClickCount(), e);
-		
+		// TODO Auto-generated method stub	
 	}
-
-	private void saySomething(String string, MouseEvent e) {
-		JTextArea textArea = new JTextArea();
-		String eventDescription = string;
-		String newline = "\n";
-		// TODO Auto-generated method stub
-		 textArea.append(eventDescription + " detected on "
-                + e.getComponent().getClass().getName()
-                + "." + newline);
-		
-	}
-
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		saySomething("Mouse released; # of clicks: "
-                + e.getClickCount(), e);
-		
 	}
-
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		saySomething("Mouse entered", e);
-		
+		// TODO Auto-generated method stub		
 	}
-
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		saySomething("Mouse exited", e);
-		
+		// TODO Auto-generated method stub		
 	}
 	
 	

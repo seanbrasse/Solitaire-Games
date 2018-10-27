@@ -40,7 +40,7 @@ public class LSLayeredPaneGame extends JLayeredPane {
 	/**
 	 * Reference to the class to pass everything of importantance to the Action Listener class.
 	 */
-	private LSActionListener lsActionListener; //There may need to be some get methods for this to work. Unless we can think of
+	private LSMouseListener lsActionListener; //There may need to be some get methods for this to work. Unless we can think of
 	//another way to do it.
 	
 	
@@ -56,7 +56,7 @@ public class LSLayeredPaneGame extends JLayeredPane {
 		createCardImages(lsg.getCopyGameDeck());
 		instantiateHomecellPiles(lsg.getHomecellPiles(), cardImages); //creates the 4 homecell piles, with their 1 initial card.
 		instantiateTableauPiles(lsg.getTableauPiles(), cardImages);
-//		lsActionListener = new LSActionListener(this);
+//		lsActionListener = new LSMouseListener(this);
 		
 		
 		

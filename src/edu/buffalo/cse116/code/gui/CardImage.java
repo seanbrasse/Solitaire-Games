@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 
 import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.golfGui.GolfActionListener;
-import edu.buffalo.cse116.code.littleSpiderGui.LSActionListener;
+import edu.buffalo.cse116.code.littleSpiderGui.LSMouseListener;
 
 /**
  * Assigns a Card to it's according image and any extra information that may be needed.
@@ -54,7 +54,7 @@ public class CardImage extends JLabel{
 		if(gameFlag == 1) {
 			addMouseListener(new GolfActionListener());
 		} else if(gameFlag == 2) {
-			//addMouseListener(new LSActionListener());
+			//addMouseListener(new LSMouseListener());
 		} else if(gameFlag == 3) {
 			//When the 3rd game is created post the listener here
 		}

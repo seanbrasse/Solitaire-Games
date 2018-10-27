@@ -20,7 +20,7 @@ import edu.buffalo.cse116.code.littleSpider.LittleSpiderGame;
 import edu.buffalo.cse116.code.littleSpider.LittleSpiderHomecell;
 import edu.buffalo.cse116.code.littleSpider.LittleSpiderTableau;
 
-public class LSActionListener implements MouseListener{
+public class LSMouseListener implements MouseListener{
 	
 	public static ArrayList<CardImage> clickedCards;
 	
@@ -48,7 +48,7 @@ public class LSActionListener implements MouseListener{
 	private boolean cardClicked1; //cardClicked
 	private boolean cardClicked2; //targetCardClicked
 	
-	public LSActionListener(LSLayeredPaneGame lslp, LittleSpiderGame lsg, LSHomecellPile homecellPile, LSTableauPile tableauPile) {
+	public LSMouseListener(LSLayeredPaneGame lslp, LittleSpiderGame lsg, LSHomecellPile homecellPile, LSTableauPile tableauPile) {
 		this.lslp = lslp;
 		this.lsg = lsg;
 		this.homecellPile = homecellPile;

@@ -7,6 +7,7 @@ import javax.swing.JLayeredPane;
 
 import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.gui.CardImage;
+import edu.buffalo.cse116.code.littleSpider.LittleSpiderGame;
 import edu.buffalo.cse116.code.littleSpider.LittleSpiderHomecell;
 import edu.buffalo.cse116.code.littleSpider.LittleSpiderTableau;
 
@@ -60,7 +61,7 @@ public class LSTableauPile {
 	/**
 	 * Insantiates the tableau piles
 	 */
-	public LSTableauPile(JLayeredPane lslp, LittleSpiderTableau lsTableau, int numTableau, ArrayList<CardImage> cardImages) {
+	public LSTableauPile(JLayeredPane lslp, LittleSpiderTableau lsTableau, int numTableau, ArrayList<CardImage> cardImages, LittleSpiderGame lsg) {
 		this.lslp = lslp;
 		this.lsTableau = lsTableau;
 		y = 50;

@@ -69,7 +69,7 @@ public class LSLayeredPaneGame extends JLayeredPane {
 		
 		//assign each element of the array a card image
 		for(int i = 0; i < deck.size(); i++) {
-			cardImages.add(new CardImage(deck.get(i)));
+			cardImages.add(new CardImage(deck.get(i), 2));
 		}
 	}
 	
@@ -81,14 +81,14 @@ public class LSLayeredPaneGame extends JLayeredPane {
 		
 		homecellPiles = new ArrayList<LSHomecellPile>();
 		for(int i = 0; i < lsh.size(); i++) {
-			homecellPiles.add(new LSHomecellPile(this, lsh.get(i), i, cardImages));
+			homecellPiles.add(new LSHomecellPile(this, lsh.get(i), i, cardImages, lsg));
 		}
 	}
 	
 	public void instantiateTableauPiles(ArrayList<LittleSpiderTableau> lst, ArrayList<CardImage> cardImages) {
 		tableauPiles = new ArrayList<LSTableauPile>();
 		for(int i = 0; i < lst.size(); i++) {
-			tableauPiles.add(new LSTableauPile(this, lst.get(i), i, cardImages));
+			tableauPiles.add(new LSTableauPile(this, lst.get(i), i, cardImages ,lsg));
 		}
 	}
 	

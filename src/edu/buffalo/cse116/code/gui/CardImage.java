@@ -30,20 +30,34 @@ public class CardImage extends JLabel{
 	private ImageIcon cardImage;
 	
 	/**
+	 * Game flag integer, 1 = Golf, 2, Little Spider, 3 = Another solitaire game
+	 */
+	private int gameFlag;
+	
+	/**
 	 * Takes a card and finds the image of the card and stores that information in this JLabel child class.
 	 * @param card
 	 */
-	public CardImage(Card card) {	
+	public CardImage(Card card, int gameFlag) {	
 		this.card = card;
 		cardImage = setCardImage(); 	
 		setIcon(cardImage);
+		this.gameFlag = gameFlag;
 		
 
 //        setBounds(layoutWidth/ 2, layoutHeight/2, cardImage.getIconWidth(), cardImage.getIconHeight());
 //        this.setBounds(500, 0, cardImage.getIconWidth(), cardImage.getIconHeight()); //coords: (0,0) is the top left corner
         
-		addMouseListener(new LSActionListener());
-		addMouseListener(new GolfActionListener());
+		if(gameFlag == 1) {
+			addMouseListener(new GolfActionListener());
+		} else if(gameFlag == 2) {
+			addMouseListener(new LSActionListener());
+		} else if(gameFlag == 3) {
+			//When the 3rd game is created post the listener here
+		}
+		
+		
+		
 	}
 	
 

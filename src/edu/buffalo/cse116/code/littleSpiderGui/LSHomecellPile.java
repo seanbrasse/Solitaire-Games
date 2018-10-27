@@ -7,6 +7,7 @@ import javax.swing.JLayeredPane;
 
 import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.gui.CardImage;
+import edu.buffalo.cse116.code.littleSpider.LittleSpiderGame;
 import edu.buffalo.cse116.code.littleSpider.LittleSpiderHomecell;
 
 
@@ -70,7 +71,7 @@ public class LSHomecellPile {
 	 * @param lsHomecell
 	 * @param numHomecell is the number that this homecell is from 0 - 3 (4 total). Ex: the first one will be A of H for numHomecell = 0
 	 */
-	public LSHomecellPile(JLayeredPane lslp, LittleSpiderHomecell lsHomecell, int numHomecell, ArrayList<CardImage> cardImages) {
+	public LSHomecellPile(JLayeredPane lslp, LittleSpiderHomecell lsHomecell, int numHomecell, ArrayList<CardImage> cardImages, LittleSpiderGame lsg) {
 		this.lslp = lslp;
 		this.lsHomecell = lsHomecell;
 		y = 500;

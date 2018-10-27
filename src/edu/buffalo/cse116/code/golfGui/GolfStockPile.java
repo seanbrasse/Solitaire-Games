@@ -55,7 +55,7 @@ public class GolfStockPile {
 		this.glp = glp;
 		this.stock = stock;
 		this.cardImages = cardImages;
-		x=500;
+		x=450;
 		y=600; 
 		drawStockPile(cardImages);
 		

@@ -98,19 +98,19 @@ public class GolfTableauPile {
 	public void setXcoord(int numTableau) {
 		//NOTE: these numbers aren't final. 73 x 97 card w,h
 		if(numTableau == 0) {
-			x = 150;
+			x = 100;
 		} else if(numTableau == 1) {
-			x = 300;
+			x = 250;
 		} else if(numTableau == 2) {
-			x = 450;
+			x = 400;
 		} else if(numTableau == 3) {
-			x = 600;
+			x = 550;
 		} else if(numTableau == 4) {
-			x = 750;
+			x = 700;
 		} else if(numTableau == 5) {
-			x = 900;
+			x = 850;
 		} else if(numTableau == 6) {
-			x = 1050;
+			x = 1000;
 		} else {
 			//Should not be any other, this will be very bad otherwise cuz we'll have a random pile floating in space.
 		}

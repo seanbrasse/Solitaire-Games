@@ -92,7 +92,7 @@ public class GolfHomecellPile {
 	 */
 	public void setXcoord() {
 		//NOTE: this numbers isn't final.
-		x = 650;
+		x = 600;
 	}
 	
 	/**

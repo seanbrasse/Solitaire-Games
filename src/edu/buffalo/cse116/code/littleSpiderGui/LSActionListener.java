@@ -101,12 +101,39 @@ public class LSActionListener implements MouseListener{
 	/**
 	 * Little spider logic -- mother fucker!@!@!
 	 */
-	public void littleSpiderLogic() {
+		public void littleSpiderLogic() {
 		
+		if(isCardInTableau(cardClicked.getCard())) {
+			if(isCardInTableau(targetCardClicked.getCard())) {
+				if(cardClicked.getCard().canBuild(targetCardClicked.getCard())) {
+					
+				} else if(cardClicked.getCard().canWrap(targetCardClicked.getCard())) {
+					
+				} else {
+					//error
+				}
+			} else if(isCardInHomecell(targetCardClicked.getCard())) {
+				if(cardClicked.getCard().getSuit() == targetCardClicked.getCard().getSuit()) {
+					if(cardClicked.getCard().canBuildUp(targetCardClicked.getCard())) {
+						
+					}else if(cardClicked.getCard().canBuildDown(targetCardClicked.getCard())) {
+						
+					} else {
+						//error
+					}
+				}
+			}
+		} else if(isCardInHomecell(cardClicked.getCard())) {
+			if(isCardInTableau(targetCardClicked.getCard())) {
+				
+			} else if(isCardInHomecell(targetCardClicked.getCard())) {
+				
+			}
+		}
 		
 		
 	}
-	
+
 	
 	/**
 	 * Checks if the card that you clicked is the top of the tableau pile.

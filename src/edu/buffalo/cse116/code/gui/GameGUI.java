@@ -87,6 +87,12 @@ public class GameGUI extends JFrame {
 					repaint(); //Similar to 'refreshing' the GUI
 					
 					ls = new LSLayeredPaneGame();
+				} if(ls != null) {
+					ls.removeAll();
+					remove(ls);
+					ls = new LSLayeredPaneGame();
+					revalidate();
+					repaint();
 				} else {
 					//These two are necessary lines
 					revalidate(); //checks if anything has changed in the 'components' (like JLayeredPane, JPanel) such as remove
@@ -118,6 +124,12 @@ public class GameGUI extends JFrame {
 					
 					g = new GolfLayeredPaneGame();
 					
+				} if(g != null) {
+					g.removeAll();
+					remove(g);
+					g = new GolfLayeredPaneGame();
+					revalidate();
+					repaint();
 				} else {
 					g = new GolfLayeredPaneGame();
 				}

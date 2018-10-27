@@ -33,6 +33,7 @@ public class GolfGame
 	/**
 	 * Our Stock pile, will hold the remaining cards
 	 */
+	
 	private GolfStock gameStockPile;
 	
 	/**
@@ -91,5 +92,9 @@ public class GolfGame
 	 */
 	public ArrayList<Card> getCopyGameDeck(){
 		return copyGameDeck;
+	}
+	
+	public ArrayList<Card> getStock(){
+		return gameStockPile.getStockPile();
 	}
 }

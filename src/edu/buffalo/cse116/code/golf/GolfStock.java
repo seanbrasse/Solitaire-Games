@@ -85,5 +85,13 @@ public class GolfStock
 		//Cards cannot be added to stock pile in golf.
 		return false;
 	}
+	
+	/**
+	 * Returns the stockpile
+	 */
+	
+	public ArrayList<Card> getStockPile(){
+		return this.stockPile;
+	}
 
 }

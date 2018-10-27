@@ -3,6 +3,8 @@ package edu.buffalo.cse116.code.golfGui;
 import java.util.ArrayList;
 import java.util.Stack;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
 import edu.buffalo.cse116.code.Card;
@@ -59,7 +61,7 @@ public class GolfHomecellPile {
 	/**
 	 * A single instance of CardImages to obtain instantiate the homecell pile
 	 */
-	private CardImage greenCard;
+	private JLabel greenCard;
 	
 	/**
 	 * The initialization will pass through the GolfLayeredPaneGame (subclass of JLayeredPane) so we can just add to the pane 
@@ -68,13 +70,13 @@ public class GolfHomecellPile {
 	 * @param gHomecell
 	 * @param cardImages
 	 */
-	public GolfHomecellPile(JLayeredPane glp, GolfHomecell gHomecell, ArrayList<CardImage> cardImages, CardImage greenCard) {
+	public GolfHomecellPile(JLayeredPane glp, GolfHomecell gHomecell, ArrayList<CardImage> cardImages) {
 		this.glp = glp;
 		this.gHomecell = gHomecell;
 		y = 600;
 		homecell = gHomecell.getGolfHomecellPile();
-		this.greenCard = greenCard;
-		drawInitialHomecellPile(greenCard);
+		this.greenCard = new JLabel();
+		drawInitialHomecellPile();
 		this.cardImages = cardImages;
 		setXcoord();
 		drawHomecellPile(cardImages);
@@ -105,12 +107,16 @@ public class GolfHomecellPile {
 	 * Should create the Green card that starts off the homecell pile
 	 */
 	
-	public void drawInitialHomecellPile(CardImage greenCard) {
+	public void drawInitialHomecellPile() {
+		greenCard = new JLabel();
+		ImageIcon ii = new ImageIcon("resources/Cards/green.gif");
+		greenCard.setIcon(ii);
+		setXcoord();
 		int permY = y; // 97 height of the card 
 		int permZ = z;
-		greenCard.setBounds(x, permY, greenCard.getGreenImageIcon().getIconWidth(), greenCard.getGreenImageIcon().getIconHeight());
+		greenCard.setBounds(x, permY, ii.getIconWidth(), ii.getIconHeight());
 		greenCard.setLocation(x, permY);
-		glp.add(greenCard, greenCard.getGreenImageIcon());
+		glp.add(greenCard, new Integer(0));
 	}
 	
 	
@@ -134,9 +140,9 @@ public class GolfHomecellPile {
 					ci.setBounds(x, tempY, ci.getImageIcon().getIconWidth(), ci.getImageIcon().getIconHeight());
 					ci.setLocation(x, tempY);
 					
-					tempY = tempY - 23; 
+					//tempZ = tempZ - 2; 
 					
-					glp.add(ci, new Integer(i)); 
+					glp.add(ci, new Integer(i+1)); 
 					
 				}
 			}			

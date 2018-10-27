@@ -75,22 +75,42 @@ public class GolfTableauPile {
 	 * Creates the x coordinate that will be constant for the homecell pile, with only the y and z value changing per card stacked on top.
 	 * @param numTableau
 	 */
+//	public void setXcoord(int numTableau) {
+//		//NOTE: these numbers aren't final. 73 x 97 card w,h
+//		if(numTableau == 0) {
+//			x = 0;
+//		} else if(numTableau == 1) {
+//			x = 75;
+//		} else if(numTableau == 2) {
+//			x = 225;
+//		} else if(numTableau == 3) {
+//			x = 300;
+//		} else if(numTableau == 4) {
+//			x = 450;
+//		} else if(numTableau == 5) {
+//			x = 525;
+//		} else if(numTableau == 6) {
+//			x = 675;
+//		} else {
+//			//Should not be any other, this will be very bad otherwise cuz we'll have a random pile floating in space.
+//		}
+//	}
 	public void setXcoord(int numTableau) {
 		//NOTE: these numbers aren't final. 73 x 97 card w,h
 		if(numTableau == 0) {
-			x = 0;
+			x = 150;
 		} else if(numTableau == 1) {
-			x = 75;
-		} else if(numTableau == 2) {
-			x = 225;
-		} else if(numTableau == 3) {
 			x = 300;
-		} else if(numTableau == 4) {
+		} else if(numTableau == 2) {
 			x = 450;
+		} else if(numTableau == 3) {
+			x = 600;
+		} else if(numTableau == 4) {
+			x = 750;
 		} else if(numTableau == 5) {
-			x = 525;
+			x = 900;
 		} else if(numTableau == 6) {
-			x = 675;
+			x = 1050;
 		} else {
 			//Should not be any other, this will be very bad otherwise cuz we'll have a random pile floating in space.
 		}

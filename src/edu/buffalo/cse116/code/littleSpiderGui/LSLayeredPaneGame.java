@@ -56,7 +56,7 @@ public class LSLayeredPaneGame extends JLayeredPane {
 		createCardImages(lsg.getCopyGameDeck());
 		instantiateHomecellPiles(lsg.getHomecellPiles(), cardImages); //creates the 4 homecell piles, with their 1 initial card.
 		instantiateTableauPiles(lsg.getTableauPiles(), cardImages);
-		//lsActionListener = new LSActionListener(this);
+//		lsActionListener = new LSActionListener(this);
 		
 		
 		

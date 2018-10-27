@@ -1,11 +1,14 @@
 package edu.buffalo.cse116.code.golfGui;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.border.Border;
 
 import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.Deck;
@@ -34,21 +37,28 @@ public class GolfLayeredPaneGame extends JLayeredPane  {
 	 * Here will be the GolfTableauPile class once it's made. Made GolfTableauPiles first b/c Golf starts with creating Tableau piles first.
 	 */
 	private ArrayList<GolfTableauPile> tableauPiles;
-
+	
+	/**
+	 * Instantiates GolfHomecell
+	 */
 	private GolfHomecell ghc;
 
 	/**
 	 * We have one homecellPile.
 	 */
 	private GolfHomecellPile homecellPile;	
-	//private ArrayList<LSHomecellPile> homecellPiles;
 
-	//	private Deck d;
-
+	/*
+	 * Instantiates GolfStockPile
+	 */
 	private GolfStockPile stockPile;
 
+	/**
+	 * Instantiates GolfStock
+	 */
 	private GolfStock stock;
-
+	
+	private GolfActionListener actionListener; 
 
 	/**
 	 * Creates the properties we need for the LayeredPane and instantiates the game logic and then afterwords create the graphical
@@ -68,6 +78,9 @@ public class GolfLayeredPaneGame extends JLayeredPane  {
 		instantiateTableauPiles(golfG.getGameTableauPiles(), cardImages);
 		instantiateStockPile(stock, cardImages);
 		instantiateHomecellPile(ghc, cardImages);
+		actionListener = new GolfActionListener();
+//		actionListener.borderGreen(green);
+	
 
 	} 
 
@@ -90,6 +103,8 @@ public class GolfLayeredPaneGame extends JLayeredPane  {
 		retVal = new ImageIcon(imgLoc);
 		return retVal;
 	}
+
+
 	/**
 	 * Instantiates a homecell pile 
 	 * @param lsh

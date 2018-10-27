@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import edu.buffalo.cse116.code.Card;
+import edu.buffalo.cse116.code.golfGui.GolfActionListener;
 import edu.buffalo.cse116.code.littleSpiderGui.LSActionListener;
 
 /**
@@ -38,10 +39,11 @@ public class CardImage extends JLabel{
 		setIcon(cardImage);
 		
 
-        //setBounds(layoutWidth/ 2, layoutHeight/2, cardImage.getIconWidth(), cardImage.getIconHeight());
-        //this.setBounds(500, 0, cardImage.getIconWidth(), cardImage.getIconHeight()); //coords: (0,0) is the top left corner
+//        setBounds(layoutWidth/ 2, layoutHeight/2, cardImage.getIconWidth(), cardImage.getIconHeight());
+//        this.setBounds(500, 0, cardImage.getIconWidth(), cardImage.getIconHeight()); //coords: (0,0) is the top left corner
         
 		addMouseListener(new LSActionListener());
+		addMouseListener(new GolfActionListener());
 	}
 	
 

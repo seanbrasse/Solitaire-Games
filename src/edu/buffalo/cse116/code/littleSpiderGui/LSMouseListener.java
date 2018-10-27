@@ -139,12 +139,19 @@ public class LSMouseListener implements MouseListener{
 				
 				
 				if(cardClicked.getCard().canBuild(targetCardClicked.getCard())) {
-					
+					Card card = cardClicked.getCard();
+					lsg.getTableauPiles().get(cardPileNumber).getPile().pop();
+					lsg.getTableauPiles().get(targetCardPileNumber).getPile().push(card);
+					//graphic change
 					
 				} else if(cardClicked.getCard().canWrap(targetCardClicked.getCard())) {
+					Card card = cardClicked.getCard();
+					lsg.getTableauPiles().get(cardPileNumber).getPile().pop();
+					lsg.getTableauPiles().get(targetCardPileNumber).getPile().push(card);
+					//graphic change
 					
 				} else {
-					//error
+					//graphic error
 				}
 			} else if(isCardInHomecell(targetCardClicked.getCard())) {
 				targetCardPileNumber = homecellPileNumber; //so we know which homecell pile the 2nd card is in
@@ -153,8 +160,16 @@ public class LSMouseListener implements MouseListener{
 				if(cardClicked.getCard().getSuit() == targetCardClicked.getCard().getSuit()) {
 					
 					if(cardClicked.getCard().canBuildUp(targetCardClicked.getCard())) {
+						Card card = cardClicked.getCard();
+						lsg.getTableauPiles().get(cardPileNumber).getPile().pop();
+						lsg.getHomecellPiles().get(targetCardPileNumber).getHomecellPile().push(card);
+						//graphic change
 						
 					}else if(cardClicked.getCard().canBuildDown(targetCardClicked.getCard())) {
+						Card card = cardClicked.getCard();
+						lsg.getTableauPiles().get(cardPileNumber).getPile().pop();
+						lsg.getHomecellPiles().get(targetCardPileNumber).getHomecellPile().push(card);
+						//graphic change
 						
 					} else {
 						//error
@@ -164,13 +179,34 @@ public class LSMouseListener implements MouseListener{
 		} else if(isCardInHomecell(cardClicked.getCard())) {
 			cardPileNumber = homecellPileNumber; //to know which homecell pile the first card is in
 			
-			if(isCardInTableau(targetCardClicked.getCard())) {
-				targetCardPileNumber = tableauPileNumber;
+			
+			if(lsg.getHomecellPiles().get(cardPileNumber).isRemovingCardLegal()) {
 				
-			} else if(isCardInHomecell(targetCardClicked.getCard())) {
-				//Error b/c each homecell pile requires the same suit.
-				
+				if(isCardInTableau(targetCardClicked.getCard())) {
+					targetCardPileNumber = tableauPileNumber;
+					
+					
+					if(cardClicked.getCard().canBuild(targetCardClicked.getCard())) {
+						Card card = cardClicked.getCard();
+						lsg.getHomecellPiles().get(cardPileNumber).getHomecellPile().pop();
+						lsg.getTableauPiles().get(targetCardPileNumber).getPile().push(card);
+						//graphic change
+						
+					} else if(cardClicked.getCard().canWrap(targetCardClicked.getCard())) {
+						Card card = cardClicked.getCard();
+						lsg.getHomecellPiles().get(cardPileNumber).getHomecellPile().pop();
+						lsg.getTableauPiles().get(targetCardPileNumber).getPile().push(card);
+						//graphic change
+						
+					} else {
+						//graphic error
+					}
+				} else if(isCardInHomecell(targetCardClicked.getCard())) {
+					//Error b/c each homecell pile requires the same suit.
+					
+				}
 			}
+				
 		}
 		
 		

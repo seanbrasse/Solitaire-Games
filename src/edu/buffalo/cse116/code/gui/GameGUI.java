@@ -51,7 +51,7 @@ public class GameGUI extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);	
 		
-		//getContentPane().setBackground(new java.awt.Color(0, 102, 0));
+		getContentPane().setBackground(new java.awt.Color(0, 102, 0));
 		
 		ls = null;
 		golfLayeredPanel = null;

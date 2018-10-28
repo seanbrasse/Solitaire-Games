@@ -3,33 +3,36 @@ package edu.buffalo.cse116.code.golfGUI;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import edu.buffalo.cse116.code.golf.GolfHomecell;
-import edu.buffalo.cse116.code.golf.GolfStock;
-
-public class GolfStockListener implements MouseListener
+/**
+ * Makes changes to model through
+ * interactions with homecell piles.
+ * 
+ * @author William F. Nicholson
+ *
+ */
+public class GolfHomecellListener implements MouseListener
 {
-	private GolfStock stockPile;
-	private GolfHomecell homecellPile;
+	/**
+	 * View the controller will manuipulate
+	 */
 	private GolfLayeredPanel pane;
 	
-	public GolfStockListener(GolfLayeredPanel pane)
+	/**
+	 * Allow mouse listener to get values from game.
+	 * @param pane
+	 */
+	public GolfHomecellListener(GolfLayeredPanel pane)
 	{
 		this.pane = pane;
-		stockPile = pane.getGame().getStock();
-		homecellPile = pane.getGame().getGameHomecellPile();
 	}
-
+	
+	/**
+	 * On mouse click, tell the user they can't do anything to the homecell pile.
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e)
 	{
-		System.out.println("click registered");
-		
-		if(stockPile.isRemoveCardLegal())
-		{
-			homecellPile.addCardFromStock(stockPile.removeTopCard());
-		}
-		
-		pane.redrawLayeredPanel();
+		pane.getTextField().setText("Cannot move cards from homecell pile");
 	}
 
 	@Override

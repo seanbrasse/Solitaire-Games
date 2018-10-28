@@ -1,15 +1,12 @@
 package edu.buffalo.cse116;
 
-import java.awt.BorderLayout; 
-
-import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 import edu.buffalo.cse116.code.gui.GameGUI;
 
 /**
- * Runs the programe
- * @author william
+ * Runs the program
+ * @author William F. Nicholson
  *
  */
 public class Main 

@@ -69,7 +69,7 @@ public class GolfLayeredPaneGame extends JLayeredPane  {
 		ghc=new GolfHomecell();
 		//		stock = new GolfStock(d);
 		cardImages = new ArrayList<CardImage>(); //the list that will hold the 52 JLabel (Images) of our cards
-		CardImage green=new CardImage(new Card(0,0), 1);
+		CardImage green=new CardImage(new Card(0,0));
 		green.setIcon(green.getGreenImageIcon());
 		homecellPile = new GolfHomecellPile(this, ghc, cardImages);
 		stock = golfG.getStock(); 
@@ -90,7 +90,7 @@ public class GolfLayeredPaneGame extends JLayeredPane  {
 	public void createCardImages(ArrayList<Card> deck) {
 		//assign each element of the array a card image
 		for(int i = 0; i < deck.size(); i++) {
-			cardImages.add(new CardImage(deck.get(i), 2));
+			cardImages.add(new CardImage(deck.get(i)));
 		}
 		setCardImage();
 	}

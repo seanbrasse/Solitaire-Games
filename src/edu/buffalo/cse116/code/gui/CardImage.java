@@ -30,29 +30,16 @@ public class CardImage extends JLabel{
 	 */
 	private ImageIcon cardImage;
 	
-	/**
-	 * Game flag integer, 1 = Golf, 2, Little Spider, 3 = Another solitaire game
-	 */
-	private int gameFlag;
+	
 	
 	/**
-	 * Takes a card and finds the image of the card and stores that information in this JLabel child class.
+	 * Takes a Card and finds the corresponding image of the card and stores that information in this (JLabel child) class.
 	 * @param card
 	 */
-	public CardImage(Card card, int gameFlag) {	
+	public CardImage(Card card) {	
 		this.card = card;
 		cardImage = setCardImage(); 	
 		setIcon(cardImage);
-		this.gameFlag = gameFlag;
-		
-
-//        setBounds(layoutWidth/ 2, layoutHeight/2, cardImage.getIconWidth(), cardImage.getIconHeight());
-//        this.setBounds(500, 0, cardImage.getIconWidth(), cardImage.getIconHeight()); //coords: (0,0) is the top left corner
-        
-		
-		
-		
-		
 	}
 	
 
@@ -78,8 +65,7 @@ public class CardImage extends JLabel{
 				} else if(card.getSuit() == 3) {
 					imgLoc = imgLoc + "s.gif";
 				} else {
-					/*Add if time allows/or required for phase 2, a way to throw an exception if a card of a suit is there
-					when it shouldn't be. */
+					
 				}
 				
 			} else if( card.getRank() == 0) { //Checks if the card is an Ace
@@ -95,7 +81,7 @@ public class CardImage extends JLabel{
 				} else if(suit == 3) {
 					imgLoc = imgLoc + "s.gif";
 				} else {
-					//Read above comment.
+					
 				}
 			} else if(card.getRank() == 10) { //Checks if the card is a Jack
 				imgLoc = imgLoc + "j";
@@ -109,7 +95,7 @@ public class CardImage extends JLabel{
 				} else if(card.getSuit() == 3) {
 					imgLoc = imgLoc + "s.gif";
 				} else {
-					//Read above comment about this space.
+					
 				}
 				
 			} else if(card.getRank() == 11) { //Checks if the card is a Queen
@@ -124,7 +110,7 @@ public class CardImage extends JLabel{
 				} else if(card.getSuit() == 3) {
 					imgLoc = imgLoc + "s.gif";
 				} else {
-					//Read above comment about this space.
+					
 				}
 				
 			} else if(card.getRank() == 12) { //Checks if the card is a King
@@ -139,7 +125,7 @@ public class CardImage extends JLabel{
 				} else if(card.getSuit() == 3) {
 					imgLoc = imgLoc + "s.gif";
 				} else {
-					//Read above comment about this space.
+					
 				}
 			} else {
 				// Would/Could throw an exception b/c this card's rank is 'invalid' for standard game of cards
@@ -174,7 +160,7 @@ public class CardImage extends JLabel{
 	}
 	
 	/**
-	 * Returns the Golf initial Green Homcell card
+	 * Returns the Golf initial Green Homecell card
 	 */
 	public ImageIcon getGreenImageIcon() {
 		return setGreenCardImage();
@@ -201,5 +187,7 @@ public class CardImage extends JLabel{
 	public void setMouseListenerForLS(MouseListener ml) {
 		addMouseListener(ml);
 	}
+	
+	
 
 }

@@ -49,6 +49,7 @@ public class LSLayeredPaneGame extends JLayeredPane {
 	 * display based on the game logic. 
 	 */
 	public LSLayeredPaneGame() {
+		
 		lsg = new LittleSpiderGame(); 	
 		
 		lsMouseListener = new LSMouseListener(this,lsg);
@@ -72,7 +73,7 @@ public class LSLayeredPaneGame extends JLayeredPane {
 		
 		//assign each element of the array a card image
 		for(int i = 0; i < deck.size(); i++) {
-			CardImage cardImage = new CardImage(deck.get(i), 2);
+			CardImage cardImage = new CardImage(deck.get(i));
 			cardImage.setMouseListenerForLS(lsMouseListener);
 			cardImages.add(cardImage);
 			
@@ -80,7 +81,7 @@ public class LSLayeredPaneGame extends JLayeredPane {
 	}
 	
 	/**
-	 * Instantiate each of the 4 homecell piles 
+	 * Instantiate each of the 4 LSHomecellPile classes
 	 * @param lsh
 	 */
 	public void instantiateHomecellPiles(ArrayList<LittleSpiderHomecell> lsh, ArrayList<CardImage> cardImages) {
@@ -91,6 +92,11 @@ public class LSLayeredPaneGame extends JLayeredPane {
 		}
 	}
 	
+	/**
+	 * Instantiate each of the 8 LSTableauPile classes
+	 * @param lst
+	 * @param cardImages
+	 */
 	public void instantiateTableauPiles(ArrayList<LittleSpiderTableau> lst, ArrayList<CardImage> cardImages) {
 		tableauPiles = new ArrayList<LSTableauPile>();
 		for(int i = 0; i < lst.size(); i++) {

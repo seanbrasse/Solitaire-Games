@@ -140,11 +140,7 @@ public class LSTableauPile {
 					
 					//This 'if' statement checks if on the nth loop, if the card getting drawn on the frame is a top card for that 
 					//tableau pile.
-					if(topCardValue == i) {
-						ci.setEnabled(true);
-					} else {
-						ci.setEnabled(false);
-					}
+					
 					
 					
 					ci.setBounds(x, tempY, ci.getImageIcon().getIconWidth() + 2, ci.getImageIcon().getIconHeight() + 2);

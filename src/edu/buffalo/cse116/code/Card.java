@@ -93,7 +93,8 @@ public class Card
 	{
 		if(this.suit == 1  && card.getSuit() == 1 || this.suit == 2 && card.getSuit() == 2)
 		{
-			if(card.getRank() - this.rank == 1) 
+			System.out.println("Ranks aren't = 1 or 2");
+			if((this.rank - card.getRank()) == 1) 
 			{
 				return true;
 			}
@@ -111,7 +112,7 @@ public class Card
 	{
 		if(this.suit == 0  && card.getSuit() == 0 || this.suit == 3 && card.getSuit() == 3)
 		{
-			if(card.getRank() - this.rank == -1)
+			if((this.rank - card.getRank()) == -1)
 			{
 				return true;
 			}

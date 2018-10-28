@@ -101,13 +101,6 @@ public class LSHomecellPile {
 		}
 	}
 	
-	/**
-	 * Updates the CardImages to any changes made to 'homecell' from the game logic class.
-	 */
-	//NOTE: this may not be needed, along with homecellCardImages. b/c we can just scan through a full deck of images
-	public void updateHomecellCardImages() {
-		
-	}
 	
 	
 	/**

@@ -1,11 +1,37 @@
 package edu.buffalo.cse116;
 
-public class Main {
+import java.awt.BorderLayout; 
 
-	public static void main(String [] args) {
-		System.out.println("moo");
-		char a = '!';
-		System.out.println("I figured out how pushing and pulling works" + a);
-		//(Sean) 
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
+import edu.buffalo.cse116.code.gui.GameGUI;
+
+/**
+ * Runs the programe
+ * @author william
+ *
+ */
+public class Main 
+{
+	/**
+	 * Creates our frame and start the game.
+	 */
+	public static void runGUI()
+	{
+			GameGUI game = new GameGUI();
+		
+	}
+	
+	public static void main(String [] args)
+	{
+		SwingUtilities.invokeLater(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				runGUI(); 
+			}
+		});
 	}
 }

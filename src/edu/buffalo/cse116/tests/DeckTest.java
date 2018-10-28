@@ -13,7 +13,7 @@ import edu.buffalo.cse116.code.Deck;
  * This tester class will ensure there
  * are 52 unique cards in a deck 
  * 
- * @author Willshady
+ * @author William F. Nicholson
  *
  */
 public class DeckTest 
@@ -38,14 +38,19 @@ public class DeckTest
 	public void testDeckHasUniqueCards()
 	{
 		Deck testDeck = new Deck();
-		HashSet<Card> uniqueCards = new HashSet<Card>();
+		HashSet<String> uniqueCardValues = new HashSet<String>();
 		
 		for(Card card : testDeck.getDeck())
 		{
-			uniqueCards.add(card);
+			int suit = card.getSuit();
+			int rank = card.getRank();
+			
+			String cardValues = suit + ":" + rank;
+			
+			uniqueCardValues.add(cardValues);
 		}
 		
-		if(uniqueCards.size() != 52)
+		if(uniqueCardValues.size() != 52)
 		{
 			fail();
 		}

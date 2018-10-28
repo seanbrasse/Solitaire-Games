@@ -1,167 +1,99 @@
 package edu.buffalo.cse116.code;
 
-import java.util.ArrayList;
+import java.util.Stack;
 
 /**
- * This class represents a tableau pile in either
- * solitare game of golf or little spider, with logic
- * for pile functionality.
+ * Class represents abstraction of tableau piles,
+ * with pile size, adding logic, and removing logic
+ * to be implemented in extending game variants.
  * 
- * @author Willshady
- *
+ * @author William F. Nicholson
  */
-
-/*
- * NOTE for team: This Tableau class should be for Golf and I'll create a Tableau class for little spider. - Andrew.
- */
-
-public class Tableau 
+public abstract class Tableau 
 {
 	/**
-	 * An Arraylist for a tableau pile.
+	 * pile is represented as an Stack<Card>; Stack ensures
+	 * that top card is preserved upon data manipulation.
+	 * pileSize varies per game, used to determine draw size.
 	 */
-	ArrayList<Card> pile;
+	protected Stack<Card> pile;
+	protected int pileSize;
 	
 	/**
-	 * The topcard on the pile.
+	 * Constructor requires setPileSize() to be defined by subclass.
+	 * Pile is instantiated, and cards are drawn from @param deck.
 	 */
-	Card topCard;
-	
-	//Since there'll be a Tableau class for LS and Golf, guess we won't need the flags - Andrew.
-	/**
-	 * Flag to inform the class if the game is a golf
-	 */
-	boolean isGolfFlag;
-	boolean isLittleSpiderFlag;
-	
-	
-	
-	/**
-	 * The number of cards on each Tableau pile, 5 for Golf solitaire and 6 for Little Spider solitaire.
-	 */
-	int pileSize;
-	
-	/**
-	 * Constructor will check for game type, ask for a
-	 * pre-built deck of cards. The constructor will
-	 * draw from the deck of cards to form its pile
-	 * and apply the grounds for logic.
-	 *  
-	 * @param Golf
-	 * @param LittleSpider
-	 */
-	public Tableau(boolean isTheGameGolf, Deck deck)
+	public Tableau(Deck deck)
 	{
-		this.pile = new ArrayList<Card>();
-		this.topCard = null;
+		this.pile = new Stack<Card>();
+		this.pileSize = setPileSize();
 		
-		if(isTheGameGolf == true)
+		int size = deck.getDeck().size();
+		for(int i=0; i<size; i++)
 		{
-			pileSize = 5;
-			this.isGolfFlag = true;
-			this.isLittleSpiderFlag = false;
-		}
-		else
-		{
-			pileSize = 6;
-			this.isLittleSpiderFlag = true;
-			this.isGolfFlag = false;
-		} //Checks out for both so far (CFB) - Andrew
-		
-		//We get our deck of 52 cards with 'deck.getDeck(), returns ArrayList<Card>deck. - Andrew
-		for(int i=0; i<deck.getDeck().size(); i++)
-		{
-			
-			
 			if(pile.size() < pileSize)
 			{
-				pile.add(deck.getDeck().get(i));
-				deck.getDeck().remove(i);
+				pile.push(deck.getDeck().get(0));
+				deck.getDeck().remove(0);
 			}
+			
 			else
 			{
 				break;
 			}
 		}
-		
-		this.topCard = pile.get(0);
 	}
 	
-	public void removeCard()
-	{
-		if(this.isAddingCardLegal())
-		{
-			if(this.isGolfFlag)
-			{
-				this.pile.remove(0);
-				this.topCard = this.pile.get(0);
-			}
-			
-			if(this.isLittleSpiderFlag)
-			{
-				/**
-				 * Andrew, your logic goes here!
-				 */
-			}
-		}
-	}
+	/**
+	 * Abstract method that should remove the card
+	 * from the pile upon implementation.
+	 * @return the card removed from the pile.
+	 */
+	public abstract Card removeCard();
 	
-	public void addCard()
-	{
-		
-	}
+	/**
+	 * Abstract method that should add the
+	 * @param card to the pile upon implementation.
+	 */
+	public abstract void addCard(Card card);
 	
-	public boolean isAddingCardLegal()
-	{
-		if(this.isGolfFlag)
-		{
-			return false;
-		}
-		
-		if(this.isLittleSpiderFlag)
-		{
-			/**
-			 * Andrew, your logic goes here!
-			 */
-		}
-		
-		return false;
-	}
+	/**
+	 * Abstract method that should check if the
+	 * @param card can be added to the pile according
+	 * to the rules of the game in question.
+	 * @return if card can be added to pile
+	 */
+	public abstract boolean isAddingCardLegal(Card card);
 	
-	public boolean isRemovingCardLegal()
-	{
-		if(this.pile.size() <= 0)
-		{
-			return false;
-		}
-		
-		if(this.isGolfFlag)
-		{
-			return true;
-		}
-		
-		if(this.isLittleSpiderFlag)
-		{
-			/**
-			 * Andrew, your logic goes here!
-			 */
-		}
-		
-		return false;
-	}
+	/**
+	 * Abstract method that should check if the 
+	 * @param card can be removed from the pile
+	 * according to the rules of the game in question.
+	 * @return if a card can be removed from the pile.
+	 */
+	public abstract boolean isRemovingCardLegal();
 	
+	/**
+	 * Method required to be implemented in order for
+	 * constructor to compile. @return the desired size
+	 * of the pile which will be instantiated in the
+	 * Constructor.
+	 */
+	public abstract int setPileSize();
+	
+	/**
+	 * @return size of the pile.
+	 */
 	public int getPileSize()
 	{
 		return this.pileSize;
 	}
 	
-	public ArrayList<Card> getPile()
+	/**
+	 * @return pile represented as Stack<Card>.
+	 */
+	public Stack<Card> getPile()
 	{
 		return this.pile;
-	}
-	
-	public Card getTopCard()
-	{
-		return this.topCard;
 	}
 }

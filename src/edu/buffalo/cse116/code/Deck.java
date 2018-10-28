@@ -6,8 +6,7 @@ import java.util.ArrayList;
  * This class represents a deck of cards, where each
  * card in the deck is unique in its suit and rank.
  * 
- * @author Willshady
- *
+ * @author William F. Nicholson
  */
 
 public class Deck 
@@ -20,7 +19,7 @@ public class Deck
 	
 	/**
 	 * Constructor will create unique Cards and add
-	 * them to the ArrayList of type Card by itterating
+	 * them to the ArrayList of type Card by iterating
 	 * through all the suits (0 - 3), and ranks (0 - 12).
 	 */
 	public Deck()

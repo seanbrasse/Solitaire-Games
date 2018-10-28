@@ -1,8 +1,10 @@
 package edu.buffalo.cse116.code.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,6 +14,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+
+import com.sun.org.apache.xerces.internal.util.URI;
 
 import edu.buffalo.cse116.code.golfGUI.GolfLayeredPanel;
 import edu.buffalo.cse116.code.littleSpiderGui.LSLayeredPaneGame;
@@ -66,11 +70,12 @@ public class GameGUI extends JFrame {
 	 * @return menuBar
 	 */
 	private JMenuBar menuBar() {
-
+		
 		JMenuBar menuBar = new JMenuBar();
 		JMenu newGame = new JMenu("New Game");
 		JMenuItem littleSpider = new JMenuItem("Little Spider");
 		JMenuItem golf = new JMenuItem("Golf");
+		JMenuItem easterEgg = new JMenuItem("Easter Egg");
 		JMenuItem exit = new JMenuItem("Exit");
 
 
@@ -150,6 +155,24 @@ public class GameGUI extends JFrame {
 
 			}
 		});
+		/**
+		 * Adds actionListener to easterEgg JMenuItem
+		 */
+		easterEgg.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				try {
+				    Desktop.getDesktop().browse(new URL("https://www.facebook.com/photo.php?fbid=10153679747804142&set=a.10153679747859142&type=3&theater").toURI());
+				} catch (Exception f) {
+					}
+				}
+		
+		
+		});
+		
 
 		exit.addActionListener(new ActionListener(){
 			@Override
@@ -160,9 +183,11 @@ public class GameGUI extends JFrame {
 
 		newGame.add(littleSpider);
 		newGame.add(golf);
+		newGame.add(easterEgg);
 		newGame.add(exit);
 		menuBar.add(newGame);
 		return menuBar;
 	}
 
 }
+

@@ -71,9 +71,6 @@ public class LSMouseListener implements MouseListener{
 	private Integer homecellPileNumber;
 	
 	
-	private boolean cardClicked1; //cardClicked
-	private boolean cardClicked2; //targetCardClicked
-	
 	public LSMouseListener(LSLayeredPaneGame lslp, LittleSpiderGame lsg) {
 		this.lslp = lslp;
 		this.lsg = lsg;
@@ -84,9 +81,7 @@ public class LSMouseListener implements MouseListener{
 		
 		
 	}
-	
-	
-	
+
 	 private static final Border UNSELECTED_BORDER = BorderFactory.createEmptyBorder(0, 0, 0, 0);
 	 private static final Border SELECTED_BORDER = BorderFactory.createLineBorder(Color.BLACK, 1);
 
@@ -115,6 +110,7 @@ public class LSMouseListener implements MouseListener{
 			cardClicked = ci;
 			
 			select(cardClicked);
+			lslp.getErrorBox().setText("Error box.");
 			
 		}  else if(cardClicked != null && cardClicked.equals(ci)) {
 			unselect(cardClicked);
@@ -176,7 +172,7 @@ public class LSMouseListener implements MouseListener{
 					
 					
 				} else {
-					//can't do anything, label will say the move is illegal.
+					lslp.getErrorBox().setText("Illegal move: tableau to tableau.");
 				}
 			} else if(isCardInHomecell(targetCardClicked.getCard())) {
 				targetCardPileNumber = homecellPileNumber; //so we know which homecell pile the 2nd card is in
@@ -187,30 +183,21 @@ public class LSMouseListener implements MouseListener{
 					
 					
 					if(cardClicked.getCard().canBuildUp(targetCardClicked.getCard())) {
-						
-						
 						Card card = cardClicked.getCard();
 						lsg.getTableauPiles().get(cardPileNumber).getPile().pop();
 						lsg.getHomecellPiles().get(targetCardPileNumber).getHomecellPile().push(card);
-						
-						
-						
-						
-						
-						
+	
 					}else if(cardClicked.getCard().canBuildDown(targetCardClicked.getCard())) {
 						System.out.println("Trying to build down clubs and spades");
 						Card card = cardClicked.getCard();
 						lsg.getTableauPiles().get(cardPileNumber).getPile().pop();
 						lsg.getHomecellPiles().get(targetCardPileNumber).getHomecellPile().push(card);
-						
-						
-						
-						
-						
+			
 					} else {
-						//error
+						lslp.getErrorBox().setText("Illegal move: tableau to homecell");
 					}
+				} else {
+					lslp.getErrorBox().setText("Illegal move: tableau to homecell");
 				}
 			}
 		} else if(isCardInHomecell(cardClicked.getCard())) {
@@ -238,10 +225,10 @@ public class LSMouseListener implements MouseListener{
 						
 						
 					} else {
-						//graphic error
+						lslp.getErrorBox().setText("Illegal move: can't");
 					}
 				} else if(isCardInHomecell(targetCardClicked.getCard())) {
-					//Error b/c each homecell pile requires the same suit.
+					lslp.getErrorBox().setText("Illegal move: homecell to homecell");
 					
 				}
 			}

@@ -3,6 +3,7 @@ package edu.buffalo.cse116.code.littleSpiderGui;
 import java.util.ArrayList;
 
 import javax.swing.JLayeredPane;
+import javax.swing.JTextField;
 
 import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.gui.CardImage;
@@ -43,6 +44,8 @@ public class LSLayeredPaneGame extends JLayeredPane {
 	private LSMouseListener lsMouseListener; //There may need to be some get methods for this to work. Unless we can think of
 	//another way to do it.
 	
+	private JTextField errorBox;
+	
 	
 	/**
 	 * Creates the properties we need for the LayeredPane and instantiates the game logic and then afterwords create the graphical
@@ -61,10 +64,30 @@ public class LSLayeredPaneGame extends JLayeredPane {
 		instantiateHomecellPiles(lsg.getHomecellPiles(), cardImages); //creates the 4 homecell piles, with their 1 initial card.
 		instantiateTableauPiles(lsg.getTableauPiles(), cardImages);
 		
-		
-		
+		//set up error box here
+		errorBox = new JTextField();
+		drawErrorBox();
 		
 	}
+	
+	/**
+	 * Set up and draw the error text box.
+	 */
+	private void drawErrorBox() {
+		int xCoordinate = 800;
+		int yCoordinate = 650;
+		int width = 350;
+		int height = 75;
+		errorBox.setBounds(xCoordinate, yCoordinate, width, height);
+		errorBox.setLocation(xCoordinate, yCoordinate);
+		errorBox.setText("Error box.");
+		this.add(errorBox);
+	}
+	
+	public JTextField getErrorBox() {
+		return this.errorBox;
+	}
+	
 	
 	/**
 	 * Assign each card a picture.

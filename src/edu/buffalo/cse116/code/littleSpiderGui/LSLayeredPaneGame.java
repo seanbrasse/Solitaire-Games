@@ -50,13 +50,16 @@ public class LSLayeredPaneGame extends JLayeredPane {
 	 */
 	public LSLayeredPaneGame() {
 		lsg = new LittleSpiderGame(); 	
+		
+		lsMouseListener = new LSMouseListener(this,lsg);
 		cardImages = new ArrayList<CardImage>(); //the list that will hold the 52 JLabel (Images) of our cards
 		
 		
 		createCardImages(lsg.getCopyGameDeck());
+		
 		instantiateHomecellPiles(lsg.getHomecellPiles(), cardImages); //creates the 4 homecell piles, with their 1 initial card.
 		instantiateTableauPiles(lsg.getTableauPiles(), cardImages);
-		lsMouseListener = new LSMouseListener(this,lsg);
+		
 		
 		
 		

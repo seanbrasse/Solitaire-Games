@@ -141,6 +141,31 @@ public class LSHomecellPile {
 	
 	
 	
+	public void redrawHomecellPile(ArrayList<CardImage> cardImages) {
+		int tempY = y; // 97 height of the card 
+		int tempZ = z;
+		for(int i = 0; i < homecell.size(); i++) {
+			for(int j = 0; j < cardImages.size(); j++) {
+				if(cardImages.get(j).equalCardValue(homecell.get(i))) {
+					//Draw with 'x' , y , z. Then increment x and y for the next one. 
+					//Remember we are only displaying the cards, the game logic classes take care of deciding if it can be added
+					//we just do the actual showing of it.
+					
+					//commented the line out underneath for testing, if the homecells appear then that line won't be necessary
+					CardImage ci = cardImages.get(j);
+					ci.setBounds(x, tempY, ci.getImageIcon().getIconWidth(), ci.getImageIcon().getIconHeight());
+		
+					tempY = tempY - 23;
+					
+					
+					
+				}
+			}			
+		}
+	}
+	
+	
+	
 	
 	
 

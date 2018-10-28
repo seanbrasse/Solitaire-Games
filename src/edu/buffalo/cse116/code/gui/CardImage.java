@@ -50,14 +50,6 @@ public class CardImage extends JLabel{
 //        this.setBounds(500, 0, cardImage.getIconWidth(), cardImage.getIconHeight()); //coords: (0,0) is the top left corner
         
 		
-		//under review:
-		if(gameFlag == 1) {
-			addMouseListener(new GolfActionListener());
-		} else if(gameFlag == 2) {
-			//addMouseListener(new LSMouseListener());
-		} else if(gameFlag == 3) {
-			//When the 3rd game is created post the listener here
-		}
 		
 		
 		
@@ -152,7 +144,6 @@ public class CardImage extends JLabel{
 			} else {
 				// Would/Could throw an exception b/c this card's rank is 'invalid' for standard game of cards
 			}
-			System.out.println(imgLoc);
 		retVal = new ImageIcon(imgLoc);
 		
 		return retVal;

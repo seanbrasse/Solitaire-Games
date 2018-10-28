@@ -77,8 +77,8 @@ public class LSMouseListener implements MouseListener{
 	public LSMouseListener(LSLayeredPaneGame lslp, LittleSpiderGame lsg) {
 		this.lslp = lslp;
 		this.lsg = lsg;
-		this.homecellPiles = lslp.getHomecellPiles();
-		this.tableauPiles = lslp.getTableauPiles();
+		this.homecellPiles = lslp.getHomecellPiles(); //null points
+		this.tableauPiles = lslp.getTableauPiles(); //null points
 		cardPileNumber = null;
 		targetCardPileNumber = null;
 		
@@ -90,24 +90,30 @@ public class LSMouseListener implements MouseListener{
 	 private static final Border UNSELECTED_BORDER = BorderFactory.createEmptyBorder(0, 0, 0, 0);
 	 private static final Border SELECTED_BORDER = BorderFactory.createLineBorder(Color.BLACK, 1);
 
-	    public static void select(CardImage label) {
-	      label.setBorder(SELECTED_BORDER);
-	      label.repaint();
-	    }
+    public static void select(CardImage label) {
+      label.setBorder(SELECTED_BORDER);
+      label.repaint();
+    }
 
-	    public static void unselect(CardImage label) {
-	      label.setBorder(UNSELECTED_BORDER);
-	   
-	      label.repaint();
-	    }
+    public static void unselect(CardImage label) {
+      label.setBorder(UNSELECTED_BORDER);
+   
+      label.repaint();
+    }
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
+		System.out.println("CLICKED!!!!");
+		
+		
 		CardImage ci = (CardImage) e.getSource();
+		
+		
 		
 		if(cardClicked == null) {
 			cardClicked = ci;
+			
 			select(cardClicked);
 			
 		}  else if(cardClicked != null && cardClicked.equals(ci)) {
@@ -115,10 +121,19 @@ public class LSMouseListener implements MouseListener{
 			cardClicked = null;
 			
 		}  else if(cardClicked != null && targetCardClicked == null) {
+			
 			targetCardClicked = ci;
 			select(cardClicked);
 			
 			littleSpiderLogic();
+			
+			unselect(cardClicked);
+			cardClicked = null;
+			targetCardClicked = null;
+			
+		} else {
+			cardClicked = null;
+			targetCardClicked = null;
 		}
 		
 		
@@ -142,13 +157,21 @@ public class LSMouseListener implements MouseListener{
 					Card card = cardClicked.getCard();
 					lsg.getTableauPiles().get(cardPileNumber).getPile().pop();
 					lsg.getTableauPiles().get(targetCardPileNumber).getPile().push(card);
-					//graphic change
+					for(int i = 0; i < lsg.getTableauPiles().get(targetCardPileNumber).getPile().size(); i++) {
+						Card card1 = lsg.getTableauPiles().get(targetCardPileNumber).getPile().get(i);
+						System.out.println("Rank and suit of card " + i + " in the pile: " + card1.getRank() + " , " + card1.getSuit());
+					}
+					
+
 					
 				} else if(cardClicked.getCard().canWrap(targetCardClicked.getCard())) {
 					Card card = cardClicked.getCard();
 					lsg.getTableauPiles().get(cardPileNumber).getPile().pop();
 					lsg.getTableauPiles().get(targetCardPileNumber).getPile().push(card);
+					
 					//graphic change
+					
+					
 					
 				} else {
 					//graphic error
@@ -157,19 +180,25 @@ public class LSMouseListener implements MouseListener{
 				targetCardPileNumber = homecellPileNumber; //so we know which homecell pile the 2nd card is in
 				
 				
+				
 				if(cardClicked.getCard().getSuit() == targetCardClicked.getCard().getSuit()) {
 					
 					if(cardClicked.getCard().canBuildUp(targetCardClicked.getCard())) {
 						Card card = cardClicked.getCard();
-						lsg.getTableauPiles().get(cardPileNumber).getPile().pop();
-						lsg.getHomecellPiles().get(targetCardPileNumber).getHomecellPile().push(card);
+						
+						
 						//graphic change
+						
+						
 						
 					}else if(cardClicked.getCard().canBuildDown(targetCardClicked.getCard())) {
 						Card card = cardClicked.getCard();
 						lsg.getTableauPiles().get(cardPileNumber).getPile().pop();
 						lsg.getHomecellPiles().get(targetCardPileNumber).getHomecellPile().push(card);
+						
 						//graphic change
+						
+						
 						
 					} else {
 						//error
@@ -190,13 +219,17 @@ public class LSMouseListener implements MouseListener{
 						Card card = cardClicked.getCard();
 						lsg.getHomecellPiles().get(cardPileNumber).getHomecellPile().pop();
 						lsg.getTableauPiles().get(targetCardPileNumber).getPile().push(card);
-						//graphic change
+						
+						//graphic change		
+						
 						
 					} else if(cardClicked.getCard().canWrap(targetCardClicked.getCard())) {
 						Card card = cardClicked.getCard();
 						lsg.getHomecellPiles().get(cardPileNumber).getHomecellPile().pop();
 						lsg.getTableauPiles().get(targetCardPileNumber).getPile().push(card);
+						
 						//graphic change
+						
 						
 					} else {
 						//graphic error
@@ -209,13 +242,8 @@ public class LSMouseListener implements MouseListener{
 				
 		}
 		
-		homecellPiles.get(cardPileNumber).drawHomecellPile(lslp.getCardImages());
-		tableauPiles.get(targetCardPileNumber).drawTableauPile(lslp.getCardImages());
 		
-		homecellPiles.get(targetCardPileNumber).drawHomecellPile(lslp.getCardImages());
-		tableauPiles.get(cardPileNumber).drawTableauPile(lslp.getCardImages());
 		
-		lslp.repaint();
 		
 		
 	}
@@ -234,9 +262,11 @@ public class LSMouseListener implements MouseListener{
 			
 			if(card == tableauPile.peek()) {
 				tableauPileNumber = new Integer(i);
+				System.out.println("Found card in tableau");
 				return true;
 			}
 		}		
+		System.out.println("Couldn't find card in tableau");
 		return false;
 	}
 	
@@ -253,11 +283,92 @@ public class LSMouseListener implements MouseListener{
 			
 			if(card == homecellPile.peek()) {
 				homecellPileNumber = new Integer(i);
+				System.out.println("Found card in homecell");
 				return true;
 			}
 		}
-		
+		System.out.println("Coouldn't find card in homecell");
 		return false;
+	}
+	
+	
+	
+//	if(numHomecell == 0) {
+//		x = 250;
+//	} else if(numHomecell == 1) {
+//		x = 450;
+//	} else if(numHomecell == 2) {
+//		x = 650; 
+//	} else if(numHomecell == 3) {
+//		x = 850;
+//	} else {
+	
+	
+	public void setLocationForAllCards() {
+		
+		
+		ArrayList<LittleSpiderHomecell> homecellPiles = lsg.getHomecellPiles();
+		ArrayList<LittleSpiderTableau> tableauPiles = lsg.getTableauPiles();
+		ArrayList<CardImage> cardImages = lslp.getCardImages();
+		
+		
+		//The x coordinate for each homecell
+		int xForHomecell = 250;
+		int yForHomecell = 500;
+		
+		//is placing homecell cards	from LS
+		for(int i = 0; i < homecellPiles.size(); i++) {
+			Stack<Card> homecellPile = homecellPiles.get(i).getHomecellPile();
+			
+			for(int j = 0; j < homecellPile.size(); j++) {
+				for(int k = 0; k < lslp.getCardImages().size(); k++) {
+					if(cardImages.get(k).equalCardValue(homecellPile.get(j))) {
+						String cardRank = " " + lslp.getCardImages().get(k).getCard().getRank();
+					
+						String cardSuit = " " + lslp.getCardImages().get(k).getCard().getSuit();
+						
+						System.out.println("Rank and suit:" + cardRank + " , " + cardSuit);
+						
+						
+						CardImage ci = lslp.getCardImages().get(k);
+						
+						ci.setBounds(xForHomecell, yForHomecell, ci.getIcon().getIconWidth(), ci.getIcon().getIconHeight());
+						lslp.setLayer(ci, j);
+					}
+				}
+				xForHomecell+=200;
+			}
+			
+		}
+		
+		//x is the coordinate of the tableau pile, increments by 100 for each tableau pile so the first pile is at 100, 2nd at 200, etc...
+		int xForLS = 200;
+		
+		//z is the coordinate of where the pile starts at (0,0 is the top left of the screen)
+		int yForLS = 50;
+		//changes the posistion of the tableau piles to accurately represent the game
+		for(int i = 0; i < tableauPiles.size(); i++) {
+			Stack<Card> tableauPile = tableauPiles.get(i).getPile();
+			
+			for(int j = 0; j < tableauPile.size(); j++) {
+				for(int k = 0; k < lslp.getCardImages().size(); k++) {
+					if(cardImages.get(k).equalCardValue(tableauPile.get(j))) {
+						CardImage ci = lslp.getCardImages().get(k);
+						
+						ci.setBounds(xForHomecell, yForLS, ci.getIcon().getIconWidth(), ci.getIcon().getIconHeight());
+						lslp.setLayer(ci, j);
+						yForLS+=23;
+						
+					}
+				}
+				yForLS= 50;
+				xForLS+= 100;
+			}
+			
+			
+		}
+		
+		
 	}
 	
 	

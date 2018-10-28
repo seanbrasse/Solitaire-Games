@@ -77,27 +77,6 @@ public class LSTableauPile {
 	 * @param numTableau
 	 */
 	public void setXcoord(int numTableau) {
-		//NOTE: these numbers aren't final. 73 x 97 card w,h
-//		if(numTableau == 0) {
-//			x = 100;
-//		} else if(numTableau == 1) {
-//			x = 175;
-//		} else if(numTableau == 2) {
-//			x = 225;
-//		} else if(numTableau == 3) {
-//			x = 300;
-//		} else if(numTableau == 4) {
-//			x = 450;
-//		} else if(numTableau == 5) {
-//			x = 525;
-//		} else if(numTableau == 6) {
-//			x = 675;
-//		} else if(numTableau == 7) {
-//			x = 750;
-//		} else {
-//			//Should not be any other, this will be very bad otherwise cuz we'll have a random pile floating in space.
-//		}
-		
 		if(numTableau == 0) {
 			x = 200;
 		} else if(numTableau == 1) {
@@ -154,40 +133,6 @@ public class LSTableauPile {
 			}			
 		}
 	}
-	
-	public void redrawTableauPile(ArrayList<CardImage> cardImages) {
-		int tempY = y; // 97 height of the card 
-		int tempZ = z;
-		int topCardValue = tableau.size() - 1;
-		for(int i = 0; i < tableau.size(); i++) {
-			for(int j = 0; j < cardImages.size(); j++) {
-				if(cardImages.get(j).equalCardValue(tableau.get(i))) {
-					//Draw with 'x' , y , z. Then increment x and y for the next one. 
-					//Remember we are only displaying the cards, the game logic classes take care of deciding if it can be added
-					//we just do the actual showing of it.
-					
-					//commented the line out underneath for testing, if the homecells appear then that line won't be necessary
-					CardImage ci = cardImages.get(j);
-					
-					//This 'if' statement checks if on the nth loop, if the card getting drawn on the frame is a top card for that 
-					//tableau pile.
-					if(topCardValue == i) {
-						ci.setEnabled(true);
-					} else {
-						ci.setEnabled(false);
-					}
-				
-					ci.setBounds(x, tempY, ci.getImageIcon().getIconWidth() + 2, ci.getImageIcon().getIconHeight() + 2);
-	
-					tempY = tempY + 23;
-					
-					
-					
-				}
-			}			
-		}
-	}
-	
 	
 
 }

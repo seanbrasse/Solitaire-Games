@@ -1,17 +1,13 @@
 package edu.buffalo.cse116.code.littleSpiderGui;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Stack;
 
 import javax.swing.BorderFactory;
-import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
-import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
 import edu.buffalo.cse116.code.Card;
@@ -22,35 +18,28 @@ import edu.buffalo.cse116.code.littleSpider.LittleSpiderTableau;
 
 public class LSMouseListener implements MouseListener{
 	
-	public static ArrayList<CardImage> clickedCards;
-	
+	/**
+	 * The first card that is clicked.
+	 */
 	public CardImage cardClicked;
 	
+	/**
+	 * The second card that is clicked.
+	 */
 	public CardImage targetCardClicked;
-	
-
 	
 	/**
 	 * This should help to get the references needed for the tableau and homecell piles.
 	 */
 	private LSLayeredPaneGame lslp;
 	
+	/**
+	 * Reference to the game logic we'll need for the action listeners.
+	 */
 	private LittleSpiderGame lsg; 
 	
 	/**
-	 * Reference to this object because it has the method to draw the cards in the homecell piles
-	 */
-	private ArrayList<LSHomecellPile> homecellPiles;
-	
-	/**
-	 * Reference to this object because it has the method to draw the cards in the tableau piles
-	 */
-	private ArrayList<LSTableauPile> tableauPiles;
-	
-	
-	
-	/**
-	 * The pile number that the card is from, if it's tableau or homecell
+	 * The pile number that the card is from, if it's tableau or homecell.
 	 */
 	private Integer cardPileNumber; //0 - 3 is for homecell, 0 - 7 is for tableau
 	
@@ -71,29 +60,47 @@ public class LSMouseListener implements MouseListener{
 	private Integer homecellPileNumber;
 	
 	
+	/**
+	 * Passes in a reference to the LSLayeredPaneGame and the logic for the game.
+	 * @param lslp
+	 * @param lsg
+	 */
 	public LSMouseListener(LSLayeredPaneGame lslp, LittleSpiderGame lsg) {
 		this.lslp = lslp;
 		this.lsg = lsg;
-		this.homecellPiles = lslp.getHomecellPiles(); //null points
-		this.tableauPiles = lslp.getTableauPiles(); //null points
 		cardPileNumber = null;
 		targetCardPileNumber = null;
 		
 		
 	}
+	
+	/**
+	 * Creates the border for cards that are unselected, i.e. no border.
+	 */
+	private static final Border UNSELECTED_BORDER = BorderFactory.createEmptyBorder(0, 0, 0, 0);
+	
+	/**
+	 * Adds a black line around the selected card.
+	 */
+	private static final Border SELECTED_BORDER = BorderFactory.createLineBorder(Color.BLACK, 1);
 
-	 private static final Border UNSELECTED_BORDER = BorderFactory.createEmptyBorder(0, 0, 0, 0);
-	 private static final Border SELECTED_BORDER = BorderFactory.createLineBorder(Color.BLACK, 1);
-
-    public static void select(CardImage label) {
-      label.setBorder(SELECTED_BORDER);
-      label.repaint();
+	/**
+	 * Puts the border around a card.
+	 * @param cardImage that will have a border put on.
+	 */
+    public static void select(CardImage cardImage) {
+      cardImage.setBorder(SELECTED_BORDER);
+      cardImage.repaint();
     }
 
-    public static void unselect(CardImage label) {
-      label.setBorder(UNSELECTED_BORDER);
-   
-      label.repaint();
+    
+    /**
+     * Takes a card and puts the "unselect" border on a cardImage
+     * @param cardImage the card we will "unselect".
+     */
+    public static void unselect(CardImage cardImage) {
+      cardImage.setBorder(UNSELECTED_BORDER);
+      cardImage.repaint();
     }
 
     /**
@@ -285,32 +292,21 @@ public class LSMouseListener implements MouseListener{
 	}
 	
 	
-	
-//	if(numHomecell == 0) {
-//		x = 250;
-//	} else if(numHomecell == 1) {
-//		x = 450;
-//	} else if(numHomecell == 2) {
-//		x = 650; 
-//	} else if(numHomecell == 3) {
-//		x = 850;
-//	} else {
-	
-	
+
+	/**
+	 * Calls the two methods that repositions all the cards
+	 */
 	public void setLocationForAllCards() {
-		
-		
 		reLocateHomecellPiles();
 		reLocateTableauPiles();
 		
 	}
 	
 	/**
-	 * Re locates all the cards that should be on a homecell
+	 * Reposisitions all the cards that should be on a homecell.
 	 */
 	public void reLocateHomecellPiles() {
 		ArrayList<LittleSpiderHomecell> homecellPiles = lsg.getHomecellPiles();
-		ArrayList<CardImage> cardImages = lslp.getCardImages();
 		
 		int xSpacing = 250;
 		int zSpacing = 0;
@@ -334,8 +330,7 @@ public class LSMouseListener implements MouseListener{
 						lslp.setLayer(cardImage, zSpacing);
 					}
 				}
-				zSpacing++;
-				
+				zSpacing++;			
 			}
 			xSpacing+= 200;
 			zSpacing = 0;
@@ -348,7 +343,7 @@ public class LSMouseListener implements MouseListener{
 	 */
 	public void reLocateTableauPiles() {
 		ArrayList<LittleSpiderTableau> tableauPiles = lsg.getTableauPiles();
-		ArrayList<CardImage> cardImages = lslp.getCardImages();
+		
 		
 		int xSpacing = 200;
 		int ySpacing = 50;
@@ -376,52 +371,47 @@ public class LSMouseListener implements MouseListener{
 						System.out.println(zSpacing);
 						zSpacing++;
 						System.out.println(zSpacing);
-					}
-					
-					
-				}
-				
-				ySpacing+= 23;
-				
+					}				
+				}				
+				ySpacing+= 23;				
 			}
 			zSpacing = 0;
 			ySpacing = 50;
 			xSpacing += 100;
-			
 		}
 	}
-	
-	
-	
-	
-	
-	
 
-	
-	
-	
-	
-	
-	
-	
+	/**
+	 * Not used.
+	 * @param e
+	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub	
 	}
+	
+	/**
+	 * Not used.
+	 * @param e
+	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 	}
+	/**
+	 * Not used.
+	 * @param e
+	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub		
 	}
+	/**
+	 * Not used.
+	 * @param e
+	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub		
 	}
-	
-	
-	
-
 }

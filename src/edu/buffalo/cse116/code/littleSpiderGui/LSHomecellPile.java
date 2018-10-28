@@ -34,10 +34,7 @@ public class LSHomecellPile {
 	 */
 	private Stack<Card> homecell;
 	
-	/**
-	 * Creates the copy of the 'homecell' Stack from above but with CardImage(s) (JLabel subclass) so we already know the order to display.
-	 */
-	private ArrayList<CardImage> homecellCardImages; //This field may get removed (10/25)
+	
 	
 	/**
 	 * The 'x' coordinate from which we will start drawing the 'stack' of cards to represent the pile.
@@ -51,12 +48,6 @@ public class LSHomecellPile {
 	 * top left of the screen, we'll need a high value to have it on the bottom of the screen.
 	 */
 	private int y;
-	
-	/**
-	 * The 'z' coordinate of the first card. This is going to be 0 but will be used to keep track of the height of the card.
-	 * 0 means bottom and n + 1 means it's on a position on top of 'n'.
-	 */
-	private int z;
 	
 	/**
 	 * A full list of card images so we can assign from Stack<Card> homecell to an image to display accordingly.
@@ -78,7 +69,7 @@ public class LSHomecellPile {
 		homecell = lsHomecell.getHomecellPile();
 		this.cardImages = cardImages;
 		setXcoord(numHomecell);
-		drawHomecellPile(cardImages);
+		drawHomecellPile(this.cardImages);
 		
 	}
 	
@@ -110,7 +101,6 @@ public class LSHomecellPile {
 	 */
 	public void drawHomecellPile(ArrayList<CardImage> cardImages) {
 		int tempY = y; // 97 height of the card 
-		int tempZ = z;
 		for(int i = 0; i < homecell.size(); i++) {
 			for(int j = 0; j < cardImages.size(); j++) {
 				if(cardImages.get(j).equalCardValue(homecell.get(i))) {
@@ -134,32 +124,7 @@ public class LSHomecellPile {
 	
 	
 	
-	public void redrawHomecellPile(ArrayList<CardImage> cardImages) {
-		int tempY = y; // 97 height of the card 
-		int tempZ = z;
-		for(int i = 0; i < homecell.size(); i++) {
-			for(int j = 0; j < cardImages.size(); j++) {
-				if(cardImages.get(j).equalCardValue(homecell.get(i))) {
-					//Draw with 'x' , y , z. Then increment x and y for the next one. 
-					//Remember we are only displaying the cards, the game logic classes take care of deciding if it can be added
-					//we just do the actual showing of it.
-					
-					//commented the line out underneath for testing, if the homecells appear then that line won't be necessary
-					CardImage ci = cardImages.get(j);
-					ci.setBounds(x, tempY, ci.getImageIcon().getIconWidth(), ci.getImageIcon().getIconHeight());
-		
-					tempY = tempY - 23;
-					
-					
-					
-				}
-			}			
-		}
-	}
-	
-	
-	
-	
+
 	
 
 }

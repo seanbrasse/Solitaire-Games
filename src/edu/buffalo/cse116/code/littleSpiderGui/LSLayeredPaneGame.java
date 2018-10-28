@@ -41,9 +41,11 @@ public class LSLayeredPaneGame extends JLayeredPane {
 	/**
 	 * Reference to the class to pass everything of importantance to the Action Listener class.
 	 */
-	private LSMouseListener lsMouseListener; //There may need to be some get methods for this to work. Unless we can think of
-	//another way to do it.
+	private LSMouseListener lsMouseListener;
 	
+	/**
+	 * The JTextField that will also be our box for putting error messages.
+	 */
 	private JTextField errorBox;
 	
 	
@@ -84,11 +86,14 @@ public class LSLayeredPaneGame extends JLayeredPane {
 		this.add(errorBox);
 	}
 	
+	/**
+	 * Returns the errorBox.
+	 * @return the errorBox.
+	 */
 	public JTextField getErrorBox() {
 		return this.errorBox;
 	}
-	
-	
+		
 	/**
 	 * Assign each card a picture.
 	 */
@@ -98,8 +103,7 @@ public class LSLayeredPaneGame extends JLayeredPane {
 		for(int i = 0; i < deck.size(); i++) {
 			CardImage cardImage = new CardImage(deck.get(i));
 			cardImage.setMouseListenerForLS(lsMouseListener);
-			cardImages.add(cardImage);
-			
+			cardImages.add(cardImage);			
 		}
 	}
 	
@@ -128,18 +132,10 @@ public class LSLayeredPaneGame extends JLayeredPane {
 	}
 	
 	
-	public LittleSpiderGame getLittleSpiderGame() {
-		return lsg;
-	}
-	
-	public ArrayList<LSHomecellPile> getHomecellPiles() {
-		return homecellPiles;
-	}
-	
-	public ArrayList<LSTableauPile> getTableauPiles(){
-		return tableauPiles;
-	}
-	
+	/**
+	 * Returns the reference to the ArrayList that contains all the necessary images of our cards.
+	 * @return cardImages the ArrayList of all our card images.
+	 */
 	public ArrayList<CardImage> getCardImages(){
 		return cardImages;
 	}

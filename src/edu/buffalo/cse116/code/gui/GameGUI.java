@@ -13,7 +13,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import edu.buffalo.cse116.code.golfGui.GolfLayeredPaneGame;
+import edu.buffalo.cse116.code.golfGUI.GolfLayeredPanel;
 import edu.buffalo.cse116.code.littleSpiderGui.LSLayeredPaneGame;
 
 
@@ -22,6 +22,7 @@ import edu.buffalo.cse116.code.littleSpiderGui.LSLayeredPaneGame;
  * @author 
  *
  */
+@SuppressWarnings("serial")
 public class GameGUI extends JFrame {
 
 	/**
@@ -32,7 +33,7 @@ public class GameGUI extends JFrame {
 	/**
 	 * An instance of the LS game
 	 */
-	private GolfLayeredPaneGame g;
+	private GolfLayeredPanel golfLayeredPanel;
 
 
 
@@ -53,7 +54,7 @@ public class GameGUI extends JFrame {
 		//getContentPane().setBackground(new java.awt.Color(0, 102, 0));
 		
 		ls = null;
-		g = null;
+		golfLayeredPanel = null;
 	}
 
 
@@ -78,10 +79,10 @@ public class GameGUI extends JFrame {
 			public void actionPerformed(ActionEvent a) {
 				
 				
-				if(g != null) {
-					g.removeAll();
-					remove(g);
-					g = null;
+				if(golfLayeredPanel != null) {
+					golfLayeredPanel.removeAll();
+					remove(golfLayeredPanel);
+					golfLayeredPanel = null;
 					//These two are necessary lines
 					revalidate(); //checks if anything has changed in the 'components' (like JLayeredPane, JPanel) such as remove
 					repaint(); //Similar to 'refreshing' the GUI
@@ -122,22 +123,22 @@ public class GameGUI extends JFrame {
 					revalidate(); //checks if anything has changed in the 'components' (like JLayeredPane, JPanel) such as remove
 					repaint(); //Similar to 'refreshing' the GUI
 					
-					g = new GolfLayeredPaneGame();
+					golfLayeredPanel = new GolfLayeredPanel();
 					
-				} if(g != null) {
-					g.removeAll();
-					remove(g);
-					g = new GolfLayeredPaneGame();
+				} if(golfLayeredPanel != null) {
+					golfLayeredPanel.removeAll();
+					remove(golfLayeredPanel);
+					golfLayeredPanel = new GolfLayeredPanel();
 					revalidate();
 					repaint();
 				} else {
-					g = new GolfLayeredPaneGame();
+					golfLayeredPanel = new GolfLayeredPanel();
 				}
 				
 				
 				
 
-				add(g, BorderLayout.CENTER);
+				add(golfLayeredPanel, BorderLayout.CENTER);
 
 				//remove(lslp);
 				revalidate(); 

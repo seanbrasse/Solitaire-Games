@@ -1,16 +1,11 @@
 package edu.buffalo.cse116.code.gui;
 
-import java.awt.Dimension;
 import java.awt.event.MouseListener;
-import java.io.File;
-import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import edu.buffalo.cse116.code.Card;
-import edu.buffalo.cse116.code.golfGui.GolfActionListener;
-import edu.buffalo.cse116.code.littleSpiderGui.LSMouseListener;
 
 /**
  * Assigns a Card to it's according image and any extra information that may be needed.

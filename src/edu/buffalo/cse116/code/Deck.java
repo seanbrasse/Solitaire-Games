@@ -1,7 +1,6 @@
 package edu.buffalo.cse116.code;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * This class represents a deck of cards, where each

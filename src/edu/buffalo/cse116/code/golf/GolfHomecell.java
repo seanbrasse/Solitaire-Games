@@ -30,6 +30,11 @@ public class GolfHomecell extends Homecell
 		}
 	}
 
+	public void addCardFromStock(Card card)
+	{
+		homecellPile.push(card);
+	}
+	
 	/**
 	 * this method removes a card from the homecell pile only if removing card is legal, which is always false
 	 */

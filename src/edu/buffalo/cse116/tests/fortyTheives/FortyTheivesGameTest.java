@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import edu.buffalo.cse116.code.Deck;
+import edu.buffalo.cse116.code.fortyThieves.FortyThievesGame;
 
 public class FortyTheivesGameTest {
 
@@ -15,6 +16,35 @@ public class FortyTheivesGameTest {
 		deck.doubledDeck();
 		
 		assertEquals(104, deck.getDeck().size());
+		
+		assertEquals(0, deck.getDeck().get(0).getSuit()); //clubs aces are index 0,1
+		assertEquals(0, deck.getDeck().get(1).getSuit());
+		
+		assertEquals(0, deck.getDeck().get(0).getRank());
+		assertEquals(0, deck.getDeck().get(1).getRank());
+		
+		assertEquals(1, deck.getDeck().get(26).getSuit()); //diamond aces are indexes 26, 27
+		assertEquals(1, deck.getDeck().get(27).getSuit());
+		
+		assertEquals(0, deck.getDeck().get(26).getRank());
+		assertEquals(0, deck.getDeck().get(27).getRank());
+		assertEquals(1, deck.getDeck().get(28).getRank()); //this one is a test that rank is moving up
+		
+		
+		assertEquals(2, deck.getDeck().get(52).getSuit()); //hearts of aces are indexes 52, 53
+		assertEquals(2, deck.getDeck().get(53).getSuit());
+		
+		assertEquals(0, deck.getDeck().get(52).getRank());
+		assertEquals(0, deck.getDeck().get(53).getRank());
+		
+		
+		assertEquals(3, deck.getDeck().get(78).getSuit()); //spades of aces are indexes 78,79
+		assertEquals(3, deck.getDeck().get(79).getSuit());
+		
+		assertEquals(0, deck.getDeck().get(78).getRank());
+		assertEquals(0, deck.getDeck().get(79).getRank());
+		
+		assertEquals(12, deck.getDeck().get(103).getRank());
 	}
 	
 	/**
@@ -23,6 +53,16 @@ public class FortyTheivesGameTest {
 	@Test
 	public void testInitialTableauPileSize() {
 		
+	}
+	
+	
+	@Test
+	public void testdeck() {
+		FortyThievesGame x = new FortyThievesGame();
+		
+		x.findAllAcesIndex();
+		
+		assertTrue(true);
 	}
 
 }

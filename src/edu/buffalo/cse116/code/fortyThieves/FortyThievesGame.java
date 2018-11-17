@@ -23,8 +23,15 @@ public class FortyThievesGame {
 	 */
 	private ArrayList<FortyThievesTableau> gameTableauPiles;
 	
+	/**
+	 * Creates our stock pile class
+	 */
 	private FortyThievesStock stock;
 	
+	/**
+	 * Creates our Waste pile.
+	 */
+	private FortyThievesWaste waste;
 	
 	/**
 	 * An instance of our (game) deck for this game
@@ -38,7 +45,10 @@ public class FortyThievesGame {
 		gameTableauPiles = new ArrayList<FortyThievesTableau>();
 		instantiateHomecellPiles();
 		instantiateTableauPiles();
-		instantiateStockPile();
+		
+		stock = new FortyThievesStock(deck);
+		waste = new FortyThievesWaste();
+		stock.setWastePile(waste);
 	}
 	
 	/**
@@ -79,12 +89,6 @@ public class FortyThievesGame {
 		
 	}
 	
-	/**
-	 * Instantiates our Stock pile
-	 */
-	public void instantiateStockPile() {
-		stock = new FortyThievesStock(deck);
-	}
 	
 	
 	

@@ -1,11 +1,16 @@
 package edu.buffalo.cse116.code.fortyThieves;
 
-import java.util.ArrayList;
+
 import java.util.Stack;
 
 import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.Deck;
 
+/**
+ * Creates the Stock pile in the form of a Stack of Card objects. We also have the rules here to check if cards can be added or removed from the stock.
+ * @author Andrew Quinonez
+ *
+ */
 public class FortyThievesStock {
 	
 	/**
@@ -13,6 +18,11 @@ public class FortyThievesStock {
 	 * i.e. 57.
 	 */
 	private Stack<Card> stockPile;
+	
+	/**
+	 * Holds a reference to our current Waste pile in the game
+	 */
+	private FortyThievesWaste wastePile;
 	
 	/**
 	 * Takes the remaining card Deck and places it into the Stock pile.
@@ -34,5 +44,52 @@ public class FortyThievesStock {
 	 */
 	public Stack<Card> getStock(){
 		return stockPile;
+	}
+	
+	/**
+	 * Will add a card to Stock if it's legal, it isn't so it won't add anything
+	 * @param card
+	 */
+	public void addCardToStock(Card card) {
+		if(isAddingCardLegal(card)) {
+			//If only you could add to the Stock in Forty Thieves...
+			stockPile.push(card);
+		}
+	}
+	
+	public void setWastePile(FortyThievesWaste waste) {
+		this.wastePile = waste;
+	}
+	
+	/**
+	 * Will take the removed card if its legal (when its not empty) and places it in the Waste pile
+	 */
+	public void removedCard() {
+		if(isRemovingCardLegal()) {
+			this.wastePile.getWastePile().push(stockPile.pop()); 
+		} 
+	}
+	
+	
+	
+	/**
+	 * Checks if a card can be added to the stock pile. You can't in Forty Thieves so it will return false;
+	 * @param card
+	 * @return
+	 */
+	public boolean isAddingCardLegal(Card card) {
+		return false;
+	}
+	
+	/**
+	 * Will check if you can remove a card from Stock.
+	 * @return
+	 */
+	public boolean isRemovingCardLegal() {
+		if(!stockPile.isEmpty()) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

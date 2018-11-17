@@ -4,6 +4,11 @@ import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.Deck;
 import edu.buffalo.cse116.code.Tableau;
 
+/**
+ * Creates the rules necessary for the Tableau pile with respect to the rules in Forty Thieves.
+ * @author Andrew Quinonez
+ *
+ */
 public class FortyThievesTableau extends Tableau {
 
 	public FortyThievesTableau(Deck deck) {

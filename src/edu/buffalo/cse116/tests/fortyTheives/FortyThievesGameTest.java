@@ -7,7 +7,7 @@ import org.junit.Test;
 import edu.buffalo.cse116.code.Deck;
 import edu.buffalo.cse116.code.fortyThieves.FortyThievesGame;
 
-public class FortyTheivesGameTest {
+public class FortyThievesGameTest {
 
 	@Test
 	public void test() {
@@ -59,10 +59,14 @@ public class FortyTheivesGameTest {
 	@Test
 	public void testdeck() {
 		FortyThievesGame x = new FortyThievesGame();
+
+		for(int i = 0; i < 8; i++) {
+			assertEquals(1, x.getGameHomecellPiles().get(i).getHomecellPile().size());
+		}
 		
-		x.findAllAcesIndex();
-		
-		assertTrue(true);
+		for(int i = 0; i < 13; i++) {
+			assertEquals(3, x.getGameTableauPiles().get(i).getPile().size());
+		}
 	}
 
 }

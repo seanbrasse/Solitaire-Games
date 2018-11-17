@@ -5,12 +5,12 @@ import java.util.Stack;
 import edu.buffalo.cse116.code.Card;
 import edu.buffalo.cse116.code.Homecell;
 
-public class FortyTheivesHomecell extends Homecell {
+public class FortyThievesHomecell extends Homecell {
 	
 	/**
 	 * Constructor for the Homecell.
 	 */
-	public FortyTheivesHomecell() {
+	public FortyThievesHomecell() {
 		
 	}
 	
@@ -62,7 +62,7 @@ public class FortyTheivesHomecell extends Homecell {
 	/**
 	 * Returns the stack of the homecellpile
 	 */
-	public Stack<Card> getFortyTheivesHomecellPile(){
+	public Stack<Card> getHomecellPile(){
 		return this.homecellPile;
 	}
 

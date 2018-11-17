@@ -1,5 +1,5 @@
 package edu.buffalo.cse116.code.fortyThieves;
 
-public class FortyTheivesTableau {
+public class FortyThievesWaste {
 
 }

@@ -30,10 +30,7 @@ public class GolfStock
 		for(int i = 0; i < size; i++){
 			this.stockPile.add(gameDeck.getDeck().get(0));
 			gameDeck.getDeck().remove(0);
-		}
-		
-			
-		
+		}		
 	}
 	
 	/**

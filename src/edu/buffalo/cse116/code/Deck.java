@@ -24,6 +24,13 @@ public class Deck
 	 */
 	public Deck()
 	{
+		
+	}
+	
+	/**
+	 * Creates a standard deck of cards
+	 */
+	public void standardDeck() {
 		for(int cardSuit = 0; cardSuit< 4; ++cardSuit)
 		{
 			for(int cardRank = 0; cardRank < 13; ++cardRank)
@@ -31,6 +38,27 @@ public class Deck
 				deck.add(new Card(cardSuit, cardRank));
 			}
 		}
+	}
+	
+	/**
+	 * Creates a deck of 104 cards for Forty Theives.
+	 */
+	public void doubledDeck() {
+		for(int cardSuit = 0; cardSuit< 4; ++cardSuit)
+		{
+			for(int cardRank = 0; cardRank < 13; ++cardRank)
+			{
+				//Should double the deck with this for loop.
+				for(int i = 0; i < 2; i++) {
+					deck.add(new Card(cardSuit, cardRank));
+				}
+				
+			}
+		}
+	}
+	
+	public Deck(String name) {
+		doubledDeck();
 	}
 	
 	/**

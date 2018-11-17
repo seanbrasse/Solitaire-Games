@@ -41,6 +41,7 @@ public class LittleSpiderGame
 		 * Then, create tableau piles with remaining cards from deck.
 		 */
 		this.gameDeck = new Deck();
+		this.gameDeck.standardDeck();
 		this.gameTableauPiles = new ArrayList<LittleSpiderTableau>();
 		this.gameHomecellPiles = new ArrayList<LittleSpiderHomecell>();
 		

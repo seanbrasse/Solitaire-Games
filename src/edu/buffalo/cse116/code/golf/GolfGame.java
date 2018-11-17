@@ -49,6 +49,7 @@ public class GolfGame
 	{
 		
 		this.gameDeck = new Deck();
+		this.gameDeck.standardDeck();
 		
 		copyGameDeck = new ArrayList<Card>();
 		copyGameDeck.addAll(gameDeck.getDeck());

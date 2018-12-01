@@ -28,8 +28,9 @@ public class FortyThievesStock {
 	 * Takes the remaining card Deck and places it into the Stock pile.
 	 * @param deck
 	 */
-	public FortyThievesStock(Deck deck) {
+	public FortyThievesStock(Deck deck, FortyThievesWaste wastePile) {
 		this.stockPile = new Stack<Card>();
+		this.wastePile = wastePile;
 		
 		int size = deck.getDeck().size();
 		for(int i = 0; i < size; i++){
@@ -57,20 +58,14 @@ public class FortyThievesStock {
 		}
 	}
 	
-	public void setWastePile(FortyThievesWaste waste) {
-		this.wastePile = waste;
-	}
-	
 	/**
 	 * Will take the removed card if its legal (when its not empty) and places it in the Waste pile
 	 */
-	public void removedCard() {
+	public void removeCard() {
 		if(isRemovingCardLegal()) {
 			this.wastePile.getWastePile().push(stockPile.pop()); 
-		} 
+		}		
 	}
-	
-	
 	
 	/**
 	 * Checks if a card can be added to the stock pile. You can't in Forty Thieves so it will return false;

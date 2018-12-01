@@ -20,10 +20,6 @@ public class FortyThievesStockListener implements MouseListener
 	/**
 	 * 
 	 */
-	private FortyThievesWaste wastePile;
-	/**
-	 * 
-	 */
 	private FortyThievesLayeredPanel pane;
 	
 	/**
@@ -33,8 +29,7 @@ public class FortyThievesStockListener implements MouseListener
 	public FortyThievesStockListener(FortyThievesLayeredPanel pane)
 	{
 		this.pane = pane;
-		this.stockPile = pane.getGame().getGameStockPiles();
-		this.wastePile = pane.getGame().getGameWastePiles();
+		this.stockPile = pane.getGame().getGameStockPile();
 	}
 
 	/**
@@ -48,7 +43,7 @@ public class FortyThievesStockListener implements MouseListener
 		
 		if(stockPile.isRemovingCardLegal())
 		{
-			wastePile.addCardFromStock(stockPile.removeTopCard());
+			stockPile.removeCard();
 		}
 		
 		pane.redrawLayeredPanel();

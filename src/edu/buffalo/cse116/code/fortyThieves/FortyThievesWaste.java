@@ -47,4 +47,9 @@ public class FortyThievesWaste {
 		return wastePile;
 	}
 	
+	public void addCardFromStock(Card card)
+	{
+		wastePile.push(card);
+	}
+	
 }

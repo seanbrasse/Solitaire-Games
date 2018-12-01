@@ -46,9 +46,8 @@ public class FortyThievesGame {
 		instantiateHomecellPiles();
 		instantiateTableauPiles();
 		
-		stock = new FortyThievesStock(deck);
 		waste = new FortyThievesWaste();
-		stock.setWastePile(waste);
+		stock = new FortyThievesStock(deck, waste);
 	}
 	
 	/**

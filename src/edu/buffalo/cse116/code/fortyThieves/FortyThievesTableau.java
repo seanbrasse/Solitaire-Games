@@ -44,7 +44,7 @@ public class FortyThievesTableau extends Tableau {
 	 */
 	@Override
 	public boolean isAddingCardLegal(Card card) {
-		if(!this.pile.isEmpty() && this.pile.peek().getSuit() == card.getSuit() && this.pile.peek().canBuild(card)) {
+		if(!this.pile.isEmpty() && this.pile.peek().getSuit() == card.getSuit() && this.pile.peek().getRank() - card.getRank() == -1) {
 			return true;
 		} else if(this.pile.isEmpty()) {
 			pile.push(card);

@@ -4,7 +4,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import edu.buffalo.cse116.code.fortyThieves.FortyThievesStock;
-import edu.buffalo.cse116.code.fortyThieves.FortyThievesWaste;
 
 /**
  * 
@@ -20,8 +19,7 @@ public class FortyThievesStockListener implements MouseListener
 	/**
 	 * 
 	 */
-	private FortyThievesLayeredPanel pane;
-	
+	private FortyThievesLayeredPanel pane;	
 	/**
 	 * 
 	 * @param pane
@@ -33,6 +31,9 @@ public class FortyThievesStockListener implements MouseListener
 	}
 
 	/**
+	 * If one can remove a card from the stock pile, check if there is a
+	 * selected card, if so, return the selected card and redraw, else,
+	 * pop off stock pile which adds to waste.
 	 * 
 	 * @param e
 	 */
@@ -41,36 +42,44 @@ public class FortyThievesStockListener implements MouseListener
 	{
 		System.out.println("click registered");
 		
-		if(stockPile.isRemovingCardLegal())
+		if(pane.getSelectedCard() != null)
 		{
-			stockPile.removeCard();
+			//cannot add to stock, return selected card.
+			pane.returnSelectedCard();
+		}
+		
+		else
+		{
+			if(stockPile.isRemovingCardLegal())
+			{
+				stockPile.removeCard();
+			}
 		}
 		
 		pane.redrawLayeredPanel();
 	}
 
 	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
+	public void mousePressed(MouseEvent e)
+	{
 		
 	}
 
 	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
+	public void mouseReleased(MouseEvent e)
+	{
 		
 	}
 
 	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
+	public void mouseEntered(MouseEvent e)
+	{
 		
 	}
 
 	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
+	public void mouseExited(MouseEvent e)
+	{
 		
 	}
-
 }

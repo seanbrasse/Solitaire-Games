@@ -89,9 +89,6 @@ public class FortyThievesGame {
 		
 	}
 	
-	
-	
-	
 	/**
 	 * Returns our arraylist of the FortyThievesTableau objects.
 	 * @return our arraylist of the FortyThievesTableau objects.
@@ -102,6 +99,16 @@ public class FortyThievesGame {
 	
 	public ArrayList<FortyThievesHomecell> getGameHomecellPiles(){
 		return gameHomecellPiles;
+	}
+	
+	public FortyThievesStock getGameStockPile()
+	{
+		return stock;
+	}
+	
+	public FortyThievesWaste getGameWastePile()
+	{
+		return waste;
 	}
 }
 

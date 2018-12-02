@@ -13,12 +13,18 @@ import edu.buffalo.cse116.code.fortyThieves.FortyThievesStock;
 import edu.buffalo.cse116.code.fortyThieves.FortyThievesWaste;
 
 public class FortyThievesStockTest {
+	/**
+	 * Testing initial size of stock pile
+	 */
 	@Test
 	public void InitialTest() {
 		FortyThievesGame gg = new FortyThievesGame();
 		assertEquals(57, gg.getGameStockPile().getStock().size());
 	}
 	
+	/**
+	 * Testing if adding is legal (Always illegal)
+	 */
 	@Test
 	public void AddingCard() {
 		Deck deck = new Deck();
@@ -28,6 +34,9 @@ public class FortyThievesStockTest {
 		
 	}
 	
+	/**
+	 * Testing if removing from stock pile is legal, when stock pile is empty it's illegal
+	 */
 	@Test
 	public void CheckRemovingCard() {
 		Deck deck = new Deck();
@@ -42,6 +51,9 @@ public class FortyThievesStockTest {
 		assertFalse(gg.isRemovingCardLegal());
 	}
 	
+	/**
+	 * Testing after removing from stock pile, there is a new top card for stock pile, and waste pile 
+	 */
 	@Test
 	public void NewTopCardTest() {
 		Deck deck = new Deck();
@@ -50,11 +62,11 @@ public class FortyThievesStockTest {
 		FortyThievesWaste w = new FortyThievesWaste();
 		gg.getStock().push(new Card(0,1));
 		gg.getStock().push(new Card(0,2));
-		Card card = gg.getStock().pop();
-		Card card1 = gg.getStock().peek();
+		Card card = gg.getStock().pop(); //Removing the top card from stock pile
+		Card card1 = gg.getStock().peek(); //The new top car 
 		assertEquals(card1, gg.getStock().peek());
 		
-		w.addCardFromStock(card);
+		w.addCardFromStock(card); //adding the removed card to waste pile
 		assertEquals(card, w.getWastePile().peek());
 		
 	}

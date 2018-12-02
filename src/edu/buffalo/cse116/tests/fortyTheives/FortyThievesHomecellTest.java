@@ -10,6 +10,10 @@ import edu.buffalo.cse116.code.fortyThieves.FortyThievesGame;
 import edu.buffalo.cse116.code.fortyThieves.FortyThievesHomecell;
 
 public class FortyThievesHomecellTest {
+	
+	/**
+	 * Testing for each homecell pile initial hold cards
+	 */
 	@Test
 	public void InitialHomecellPiles(){
 		FortyThievesGame InitialPileSize = new FortyThievesGame();
@@ -23,6 +27,9 @@ public class FortyThievesHomecellTest {
 		assertEquals(1, InitialPileSize.getGameHomecellPiles().get(7).getHomecellPile().size());
 	}
 	
+	/**
+	 * Testing if adding card is legal
+	 */
 	@Test
 	public void IsAddingLegal() {
 		FortyThievesHomecell gg = new FortyThievesHomecell();
@@ -33,12 +40,18 @@ public class FortyThievesHomecellTest {
 		assertEquals(4, gg.getHomecellPile().size());
 	}
 	
+	/**
+	 * Testing removing the top card (Always false)
+	 */
 	@Test
 	public void RemovingTopCard() {
 		FortyThievesHomecell gg = new FortyThievesHomecell();
 		assertFalse(gg.isRemovingCardLegal());
 	}
 	
+	/**
+	 * Testing the new top card of the homecell pile after adding a card on the pile
+	 */
 	@Test
 	public void NewTopCardTest() {
 		FortyThievesHomecell gg = new FortyThievesHomecell();

@@ -58,8 +58,9 @@ public class FortyThievesWasteListener implements MouseListener
 		{
 			if(wastePile.isRemoveLegal())
 			{
-				pane.setSelectedCard(wastePile.getWastePile().pop(), wastePile.getWastePile());
+				pane.setSelectedCard(wastePile.getWastePile().pop(), (CardImage)e.getComponent(), wastePile);
 				select((CardImage)e.getComponent());
+				return;
 			}
 		}
 		

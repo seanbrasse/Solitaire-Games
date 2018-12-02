@@ -13,6 +13,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import edu.buffalo.cse116.code.fortyThievesGUI.FortyThievesLayeredPanel;
 import edu.buffalo.cse116.code.golfGUI.GolfLayeredPanel;
 import edu.buffalo.cse116.code.littleSpiderGui.LSLayeredPaneGame;
 
@@ -34,8 +35,11 @@ public class GameGUI extends JFrame {
 	 * An instance of the LS game
 	 */
 	private GolfLayeredPanel golfLayeredPanel;
-
-
+	
+	/**
+	 * 
+	 */
+	private FortyThievesLayeredPanel fortyThievesLayeredPane;
 
 	/**
 	 * Creates our frame for the game with the menu bar.
@@ -55,6 +59,7 @@ public class GameGUI extends JFrame {
 		
 		ls = null;
 		golfLayeredPanel = null;
+		
 	}
 
 
@@ -71,15 +76,16 @@ public class GameGUI extends JFrame {
 		JMenu newGame = new JMenu("New Game");
 		JMenuItem littleSpider = new JMenuItem("Little Spider");
 		JMenuItem golf = new JMenuItem("Golf");
+		JMenuItem fortyThieves = new JMenuItem("Forty Thieves");
 		JMenuItem exit = new JMenuItem("Exit");
-
 
 		littleSpider.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent a) {
 				
 				
-				if(golfLayeredPanel != null) {
+				if(golfLayeredPanel != null)
+				{
 					golfLayeredPanel.removeAll();
 					remove(golfLayeredPanel);
 					golfLayeredPanel = null;
@@ -88,13 +94,28 @@ public class GameGUI extends JFrame {
 					repaint(); //Similar to 'refreshing' the GUI
 					
 					ls = new LSLayeredPaneGame();
-				} if(ls != null) {
+				}
+				
+				if(fortyThievesLayeredPane != null)
+				{
+					fortyThievesLayeredPane.removeAll();
+					remove(fortyThievesLayeredPane);
+					fortyThievesLayeredPane = null;
+					revalidate();
+					repaint();
+				}
+				
+				if(ls != null)
+				{
 					ls.removeAll();
 					remove(ls);
 					ls = new LSLayeredPaneGame();
 					revalidate();
 					repaint();
-				} else {
+				}
+				
+				else
+				{
 					//These two are necessary lines
 					revalidate(); //checks if anything has changed in the 'components' (like JLayeredPane, JPanel) such as remove
 					repaint(); //Similar to 'refreshing' the GUI
@@ -115,7 +136,8 @@ public class GameGUI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent a) {
 				
-				if(ls != null) {
+				if(ls != null)
+				{
 					ls.removeAll();
 					remove(ls);
 					ls = null;
@@ -125,31 +147,80 @@ public class GameGUI extends JFrame {
 					
 					golfLayeredPanel = new GolfLayeredPanel();
 					
-				} if(golfLayeredPanel != null) {
+				}
+				
+				if(fortyThievesLayeredPane != null)
+				{
+					fortyThievesLayeredPane.removeAll();
+					remove(fortyThievesLayeredPane);
+					fortyThievesLayeredPane = null;
+					revalidate();
+					repaint();
+				}
+				
+				if(golfLayeredPanel != null)
+				{
 					golfLayeredPanel.removeAll();
 					remove(golfLayeredPanel);
 					golfLayeredPanel = new GolfLayeredPanel();
 					revalidate();
 					repaint();
-				} else {
+				}
+				
+				else
+				{
 					golfLayeredPanel = new GolfLayeredPanel();
 				}
 				
-				
-				
-
 				add(golfLayeredPanel, BorderLayout.CENTER);
 
-				//remove(lslp);
 				revalidate(); 
 				repaint();
-
-
-
-				//Will start Golf here **********
-
 			}
 		});
+		
+		fortyThieves.addActionListener(new ActionListener()
+				{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				if(ls != null)
+				{
+					ls.removeAll();
+					remove(ls);
+					ls = null;
+					revalidate();
+					repaint();
+				}
+				
+				if(golfLayeredPanel != null)
+				{
+					golfLayeredPanel.removeAll();
+					remove(golfLayeredPanel);
+					golfLayeredPanel = null;
+					revalidate();
+					repaint();
+				}
+				
+				if(fortyThievesLayeredPane != null)
+				{
+					fortyThievesLayeredPane.removeAll();
+					remove(fortyThievesLayeredPane);
+					fortyThievesLayeredPane = new FortyThievesLayeredPanel();
+					revalidate();
+					repaint();
+				}
+				
+				else
+				{
+					fortyThievesLayeredPane = new FortyThievesLayeredPanel();
+				}
+				
+				add(fortyThievesLayeredPane, BorderLayout.CENTER);
+				revalidate();
+				repaint();
+			}
+				});
 
 		exit.addActionListener(new ActionListener(){
 			@Override
@@ -160,6 +231,7 @@ public class GameGUI extends JFrame {
 
 		newGame.add(littleSpider);
 		newGame.add(golf);
+		newGame.add(fortyThieves);
 		newGame.add(exit);
 		menuBar.add(newGame);
 		return menuBar;

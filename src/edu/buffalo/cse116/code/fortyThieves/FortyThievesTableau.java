@@ -38,24 +38,7 @@ public class FortyThievesTableau extends Tableau {
 			pileSize++;
 		}
 	}
-
-	/**
-	 * Checks if the card passing through can be used to build up.
-	 */
-//	@Override
-//	public boolean isAddingCardLegal(Card card) {
-//		if(this.pile.isEmpty()) {
-//			pile.push(card);
-//			return true;
-//		}else if(this.pile.peek().getSuit() == card.getSuit() && this.pile.peek().getRank() - card.getRank() == -1) {
-//			return true;
-////		} else if(this.pile.isEmpty()) {
-////			pile.push(card);
-//		}
-//		return false;
-//		
-//	}
-	
+		
 	/**
 	 * Checks if the card passing through can be used to build DoWn.
 	 */
@@ -90,6 +73,11 @@ public class FortyThievesTableau extends Tableau {
 	public int setPileSize() {
 		// TODO Auto-generated method stub
 		return 3;
+	}
+	
+	public int getPileSize()
+	{
+		return this.pileSize;
 	}
 
 }

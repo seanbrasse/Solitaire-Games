@@ -45,13 +45,10 @@ public class FortyThievesWasteListener implements MouseListener
 	 */
 	@Override
 	public void mouseClicked(MouseEvent e)
-	{
-		System.out.println("click registered");
-		
+	{		
 		if(pane.getSelectedCard() != null)
 		{
-			//cannot add selected card to waste, return selected card.
-			pane.returnSelectedCard();
+			//cannot add to waste
 		}
 		
 		else
@@ -59,8 +56,7 @@ public class FortyThievesWasteListener implements MouseListener
 			if(wastePile.isRemoveLegal())
 			{
 				pane.setSelectedCard(wastePile.getWastePile().pop(), (CardImage)e.getComponent(), wastePile);
-				select((CardImage)e.getComponent());
-				return;
+				pane.redrawLayeredPanel();
 			}
 		}
 		

@@ -49,45 +49,85 @@ public class FortyThievesTableauListener implements MouseListener
 	{
 		CardImage cardImage = (CardImage)e.getSource();
 		
-		if(!(pane.getSelectedCardImage() == (CardImage)e.getComponent()))
+		if(isCardTopOfPile(cardImage))
 		{
-			if(isCardTopOfPile(cardImage))
+			tableauPile = pane.getGame().getGameTableauPiles().get(pileNumber);
+			
+			if(pane.getSelectedCard() == null)
 			{
-				tableauPile = pane.getGame().getGameTableauPiles().get(pileNumber);
-				
-				if(pane.getSelectedCard() != null)
+				if(tableauPile.isRemovingCardLegal())
 				{
-					if(tableauPile.isAddingCardLegal(pane.getSelectedCard()))
-					{
-						tableauPile.addCard(pane.getSelectedCard());
-						pane.setSelectedCard(null, null, (FortyThievesTableau)null);
-					}
-					
-					else
-					{
-						pane.returnSelectedCard();
-					}
+					pane.setSelectedCard(tableauPile.removeCard(), cardImage, tableauPile);
+					select(cardImage);
+					return;
 				}
 				
 				else
 				{
-					if(tableauPile.isRemovingCardLegal())
-					{
-						pane.setSelectedCard(tableauPile.removeCard(), (CardImage)e.getComponent(), tableauPile);
-						select((CardImage)e.getComponent());
-						return;
-					}
+					return;
+				}
+			}
+			
+			else
+			{
+				if(pane.getSelectedCardImage().equalCardValue(((CardImage)e.getSource()).getCard()))
+				{
+					pane.returnSelectedCard();
+					pane.redrawLayeredPanel();
+				}
+				
+				else if(tableauPile.isAddingCardLegal(pane.getSelectedCard()))
+				{
+					tableauPile.addCard(pane.getSelectedCard());
+					pane.setSelectedCard(null, null, (FortyThievesTableau)null);
+				}
+				
+				else
+				{
+					pane.returnSelectedCard();
+					pane.redrawLayeredPanel();
 				}
 			}
 		}
 		
-		else
-		{
-			unselect(pane.getSelectedCardImage());
-			pane.returnSelectedCard();
-		}
-		
 		pane.redrawLayeredPanel();
+//		CardImage cardImage = (CardImage)e.getSource();
+//
+//		if(isCardTopOfPile(cardImage))
+//		{
+//			tableauPile = pane.getGame().getGameTableauPiles().get(pileNumber);
+//			
+//			if(pane.getSelectedCard() != null)
+//			{
+//				if(tableauPile.isAddingCardLegal(pane.getSelectedCard()))
+//				{
+//					tableauPile.addCard(pane.getSelectedCard());
+//					pane.setSelectedCard(null, null, (FortyThievesTableau)null);
+//				}
+//				
+//				else
+//				{
+//					pane.returnSelectedCard();
+//				}
+//			}
+//			
+//			else
+//			{
+//				if(e.getSource() != pane.getSelectedCardImage() && tableauPile.isRemovingCardLegal())
+//				{
+//					pane.setSelectedCard(tableauPile.removeCard(), (CardImage)e.getComponent(), tableauPile);
+//					select((CardImage)e.getComponent());
+//					return;
+//				}
+//				
+//				else
+//				{
+//					
+//				}
+//			}
+//		}
+//		
+//		pane.redrawLayeredPanel();
 	}
 
 	@Override

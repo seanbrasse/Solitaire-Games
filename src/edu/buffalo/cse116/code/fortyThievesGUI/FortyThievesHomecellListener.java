@@ -28,16 +28,21 @@ public class FortyThievesHomecellListener implements MouseListener
 	/**
 	 * 
 	 */
-	public FortyThievesHomecellListener(FortyThievesLayeredPanel pane)
+	public FortyThievesHomecellListener(FortyThievesLayeredPanel pane, FortyThievesHomecell homecellPile)
 	{
 		this.pane = pane;
-		this.homecellPile = null;
+		this.homecellPile = homecellPile;
 	}
 	
 	@Override
 	public void mouseClicked(MouseEvent e)
 	{
-		if(pane.getSelectedCard() != null)
+		if(pane.getSelectedCard() == null)
+		{
+			
+		}
+		
+		else
 		{
 			if(homecellPile.isAddingCardLegal(pane.getSelectedCard()))
 			{
@@ -47,7 +52,7 @@ public class FortyThievesHomecellListener implements MouseListener
 			
 			else
 			{
-				unselect(pane.getSelectedCardImage());
+				
 			}
 		}
 		

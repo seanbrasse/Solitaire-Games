@@ -1,7 +1,6 @@
 package edu.buffalo.cse116.code.fortyThievesGUI;
 
 import java.util.ArrayList;
-import java.util.Stack;
 
 import javax.swing.JLayeredPane;
 import javax.swing.JTextField;
@@ -167,7 +166,7 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 			
 			newCardImage.setBounds(xPileCoordinate, yCardCoordinate, imageWidth, imageHight);
 			newCardImage.setLocation(xPileCoordinate, yCardCoordinate);
-			newCardImage.addMouseListener(new FortyThievesHomecellListener(this));
+			newCardImage.addMouseListener(new FortyThievesHomecellListener(this, currentPile));
 			
 			this.add(newCardImage, Integer.valueOf(1));
 			xPileCoordinate += 80;
@@ -192,9 +191,40 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 	/**
 	 * 
 	 */
+	public void drawSelectedCard()
+	{
+		if(this.selectedCard != null)
+		{
+			CardImage newCardImage = new CardImage(this.selectedCard);
+			
+			int xCoordinate = 10;
+			int yCoordinate = 470;
+			int imageWidth = newCardImage.getImageIcon().getIconWidth();
+			int imageHight = newCardImage.getImageIcon().getIconHeight();
+			
+			newCardImage.setBounds(xCoordinate, yCoordinate, imageWidth, imageHight);
+			newCardImage.setLocation(xCoordinate, yCoordinate);
+			
+			if(this.selectedWastePile == null)
+			{
+				newCardImage.addMouseListener(new FortyThievesSelectedCardListener(this, (FortyThievesTableau)this.selectedTabelauPile));
+			}
+			else
+			{
+				newCardImage.addMouseListener(new FortyThievesSelectedCardListener(this, this.selectedWastePile));
+			}
+			
+			this.add(newCardImage, Integer.valueOf(1));
+		}
+	}
+	
+	/**
+	 * 
+	 */
 	public void drawLayeredPanel()
 	{
 		drawStockPile();
+		drawSelectedCard();
 		drawWastePile();
 		drawHomecellPile();
 		drawTextBox();
@@ -207,6 +237,7 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 	public void redrawLayeredPanel()
 	{
 		this.removeAll();
+		this.revalidate();
 		this.drawLayeredPanel();
 	}
 	
@@ -264,6 +295,8 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 		this.selectedTabelauPile = tableau;
 		this.selectedCardImage = cardImage;
 		this.selectedCard = card;
+		redrawLayeredPanel();
+		
 	}
 	
 	public void setSelectedCard(Card card, CardImage cardImage, FortyThievesWaste waste)
@@ -271,6 +304,7 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 		this.selectedWastePile = waste;
 		this.selectedCard = card;
 		this.selectedCardImage = cardImage;
+		redrawLayeredPanel();
 	}
 	
 	/**
@@ -283,7 +317,7 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 		{
 			if(this.selectedTabelauPile != null)
 			{
-				this.selectedTabelauPile.addCard(selectedCard);
+				((FortyThievesTableau)this.selectedTabelauPile).forceAddCard(selectedCard);
 			}
 			
 			else if (this.selectedWastePile != null)
@@ -296,5 +330,7 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 		this.selectedWastePile = null;
 		this.selectedCardImage = null;
 		this.selectedCard = null;
+		
+		this.redrawLayeredPanel();
 	}
 }

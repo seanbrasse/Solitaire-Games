@@ -38,6 +38,12 @@ public class FortyThievesTableau extends Tableau {
 			pileSize++;
 		}
 	}
+	
+	public void forceAddCard(Card card)
+	{
+		pile.push(card);
+		pileSize++;
+	}
 		
 	/**
 	 * Checks if the card passing through can be used to build DoWn.

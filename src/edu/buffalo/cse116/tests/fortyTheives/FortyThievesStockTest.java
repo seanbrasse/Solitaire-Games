@@ -13,20 +13,21 @@ import edu.buffalo.cse116.code.fortyThieves.FortyThievesStock;
 import edu.buffalo.cse116.code.fortyThieves.FortyThievesWaste;
 
 public class FortyThievesStockTest {
+	
 	/**
-	 * Testing initial size of stock pile
+	 * Testing initial size of the stock pile
 	 */
 	@Test
-	public void InitialTest() {
+	public void initialStockSizeTest() {
 		FortyThievesGame gg = new FortyThievesGame();
 		assertEquals(57, gg.getGameStockPile().getStock().size());
 	}
 	
 	/**
-	 * Testing if adding is legal (Always illegal)
+	 * Tests if adding a card is legal (Always illegal)
 	 */
 	@Test
-	public void AddingCard() {
+	public void addCardTest() {
 		Deck deck = new Deck();
 		FortyThievesWaste wastePile = new FortyThievesWaste();
 		FortyThievesStock gg = new FortyThievesStock(deck, wastePile);
@@ -35,39 +36,65 @@ public class FortyThievesStockTest {
 	}
 	
 	/**
-	 * Testing if removing from stock pile is legal, when stock pile is empty it's illegal
+	 * Tests if removing from stock pile is legal, when stock pile is empty it's illegal
 	 */
 	@Test
-	public void CheckRemovingCard() {
+	public void isRemoveCardLegalTest() {
 		Deck deck = new Deck();
 		FortyThievesWaste wastePile = new FortyThievesWaste();
 		FortyThievesStock gg = new FortyThievesStock(deck, wastePile);
+		
+		assertEquals(0,gg.getStock().size());
+		assertFalse(gg.isRemovingCardLegal()); //Tests if removing a card is legal when stock is empty
+		
 		gg.getStock().push(new Card(0,1));
 		gg.getStock().push(new Card(0,2));
-		assertTrue(gg.isRemovingCardLegal());
+		assertTrue(gg.isRemovingCardLegal()); //Tests if removing a card is legal
 		gg.removeCard();
-		assertTrue(gg.isRemovingCardLegal());
+		assertTrue(gg.isRemovingCardLegal());  //Tests if removing a card is legal
+		
 		gg.removeCard();
-		assertFalse(gg.isRemovingCardLegal());
+		assertFalse(gg.isRemovingCardLegal()); //Tests if removing a card is legal when stock is empty
 	}
 	
 	/**
-	 * Testing after removing from stock pile, there is a new top card for stock pile, and waste pile 
+	 * Tests if removing from stock decreases size, updates top card.
+	 * Also checks if removing from stock adds to the waste pile and updates waste size and top card 
 	 */
 	@Test
 	public void NewTopCardTest() {
 		Deck deck = new Deck();
-		FortyThievesWaste wastePile = new FortyThievesWaste();
-		FortyThievesStock gg = new FortyThievesStock(deck, wastePile);
 		FortyThievesWaste w = new FortyThievesWaste();
-		gg.getStock().push(new Card(0,1));
-		gg.getStock().push(new Card(0,2));
-		Card card = gg.getStock().pop(); //Removing the top card from stock pile
-		Card card1 = gg.getStock().peek(); //The new top car 
-		assertEquals(card1, gg.getStock().peek());
+		FortyThievesStock gg = new FortyThievesStock(deck, w);
+
 		
-		w.addCardFromStock(card); //adding the removed card to waste pile
-		assertEquals(card, w.getWastePile().peek());
+		assertEquals(0, gg.getStock().size());
+		assertEquals(0, w.getWastePile().size());
+		
+		gg.getStock().push(new Card(2,1));
+		gg.getStock().push(new Card(3,2));
+		gg.getStock().push(new Card(0,3));
+		gg.getStock().push(new Card(1,4));
+		assertEquals(4, gg.getStock().size());
+
+		
+		gg.removeCard();
+		assertEquals(3, gg.getStock().size()); //Checks updated stock size
+		assertEquals(0, gg.getStock().peek().getSuit()); //Checks updated stock top card
+		assertEquals(3, gg.getStock().peek().getRank()); //Checks updated stock top card
+		
+		assertEquals(1, w.getWastePile().size()); //Checks that removing from stock updates (adds) to waste pile size
+		assertEquals(1, w.getWastePile().peek().getSuit()); //Checks updated waste pile top card
+		assertEquals(4, w.getWastePile().peek().getRank()); //Checks updated waste pile top card
+		
+		gg.removeCard();
+		assertEquals(2, gg.getStock().size()); //Checks updated stock size
+		assertEquals(3, gg.getStock().peek().getSuit()); //Checks updated stock top card
+		assertEquals(2, gg.getStock().peek().getRank()); //Checks updated stock top card
+		
+		assertEquals(2, w.getWastePile().size()); //Checks that removing from stock updates (adds) to waste pile size
+		assertEquals(0, w.getWastePile().peek().getSuit()); //Checks updated waste pile top card
+		assertEquals(3, w.getWastePile().peek().getRank()); //Checks updated waste pile top card
 		
 	}
 }

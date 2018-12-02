@@ -15,6 +15,18 @@ import edu.buffalo.cse116.code.fortyThieves.FortyThievesTableau;
 
 public class FortyThievesTableauTest {
 
+	/**
+	 * Checks that the initial size of each tableau is 3.
+	 */
+	@Test
+	public void testInitialTableauPileSize() {
+			Deck d = new Deck();
+			FortyThievesTableau t = new FortyThievesTableau(d);
+			FortyThievesGame tG = new FortyThievesGame();
+			tG.getGameTableauPiles().get(0).getPileSize();
+			assertEquals(3, tG.getGameTableauPiles().get(0).getPileSize(), 0);
+	}
+	
 	/*
 	 * Tests if adding to the tableau piles is legal.
 	 */

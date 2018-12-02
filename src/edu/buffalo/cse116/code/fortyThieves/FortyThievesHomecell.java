@@ -39,13 +39,21 @@ public class FortyThievesHomecell extends Homecell {
 	 * Checks to see if the card that wants to be added to the top of the specific homecell is legal.
 	 * i.e. is the same suit and one rank above.
 	 */
+//	@Override
+//	public boolean isAddingCardLegal(Card card) {
+//		if(homecellPile.peek().isSameSuit(card)) {
+//			if(homecellPile.peek().canBuildUp(card)) {
+//				return true;
+//			}
+//		}
+//		return false;
+//	}
+	
 	@Override
 	public boolean isAddingCardLegal(Card card) {
-		if(homecellPile.peek().isSameSuit(card)) {
-			if(homecellPile.peek().canBuildUp(card)) {
+		if(homecellPile.peek().getSuit() == card.getSuit() && homecellPile.peek().getRank() - card.getRank() == -1) {
 				return true;
 			}
-		}
 		return false;
 	}
 

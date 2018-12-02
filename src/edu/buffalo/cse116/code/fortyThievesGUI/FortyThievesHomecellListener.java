@@ -52,7 +52,32 @@ public class FortyThievesHomecellListener implements MouseListener
 			
 			else
 			{
+				pane.returnSelectedCard();
+				pane.redrawLayeredPanel();
 				
+				if(pane.getTextField().getText().equals("Illegal Move"))
+				{
+					pane.getTextField().setText("Dude, the move's illegal...");
+				}
+				
+				else if(pane.getTextField().getText().equals("Dude, the move's illegal..."))
+				{
+					pane.getTextField().setText("...Can you cut it out? I'm tired of your stupidity");
+				}
+				
+				else if(pane.getTextField().getText().equals("...Can you cut it out? I'm tired of your stupidity"))
+				{
+					pane.removeAll();
+					pane.drawTextBox();
+					pane.getTextField().setText("Happy asshole? All you had to do was fucking make a valid move, but now you lost. GAME OVER");
+				}
+				
+				else
+				{
+					pane.getTextField().setText("Illegal Move");
+				}
+				
+				return;
 			}
 		}
 		

@@ -62,7 +62,7 @@ public class FortyThievesStockTest {
 	 * Also checks if removing from stock adds to the waste pile and updates waste size and top card 
 	 */
 	@Test
-	public void NewTopCardTest() {
+	public void removeTest() {
 		Deck deck = new Deck();
 		FortyThievesWaste w = new FortyThievesWaste();
 		FortyThievesStock gg = new FortyThievesStock(deck, w);

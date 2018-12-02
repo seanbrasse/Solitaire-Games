@@ -41,7 +41,7 @@ public class FortyThievesHomecellTest {
 
 		assertTrue(gg.isAddingCardLegal(new Card(3,9)));
 
-		gg.getHomecellPile().push(new Card(2,3));
+		gg.getHomecellPile().push(new Card(2,3)); 
 		assertTrue(gg.isAddingCardLegal(new Card(2,4)));
 		assertFalse(gg.isAddingCardLegal(new Card(2,2)));
 	}

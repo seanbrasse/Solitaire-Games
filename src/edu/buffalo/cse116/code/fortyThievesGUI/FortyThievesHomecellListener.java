@@ -123,6 +123,12 @@ public class FortyThievesHomecellListener implements MouseListener
 		
 	}
 	
+	/**
+	 * Code which, while utilized, was apart of a legacy solution
+	 * and who's impact is never seen in the view. 
+	 * 
+	 * @param label
+	 */
 	public static void unselect(CardImage label)
 	{
 		label.setBorder(UNSELECTED_BORDER);

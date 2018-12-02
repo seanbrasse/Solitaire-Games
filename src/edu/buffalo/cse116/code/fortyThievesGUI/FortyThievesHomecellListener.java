@@ -10,23 +10,30 @@ import edu.buffalo.cse116.code.fortyThieves.FortyThievesHomecell;
 import edu.buffalo.cse116.code.fortyThieves.FortyThievesTableau;
 import edu.buffalo.cse116.code.gui.CardImage;
 
+/**
+ * Makes changes to model through
+ * interactions with homecell piles.
+ * 
+ * @author William F. Nicholson
+ *
+ */
 public class FortyThievesHomecellListener implements MouseListener
 {
 	/**
-	 * 
+	 * Homecell pile respective cards belong to.
 	 */
 	private FortyThievesHomecell homecellPile;
 	/**
-	 * 
+	 * View the controller will manuipulate
 	 */
 	private FortyThievesLayeredPanel pane;
 	/**
-	 * 
+	 * Before having a seperate selected card area, boarders were used to highlight cards.
 	 */
 	private static final Border UNSELECTED_BORDER = BorderFactory.createEmptyBorder(0, 0, 0, 0);
 	
 	/**
-	 * 
+	 * Constructor assigning model and parent homecell pile.
 	 */
 	public FortyThievesHomecellListener(FortyThievesLayeredPanel pane, FortyThievesHomecell homecellPile)
 	{
@@ -37,6 +44,9 @@ public class FortyThievesHomecellListener implements MouseListener
 	@Override
 	public void mouseClicked(MouseEvent e)
 	{
+		/**
+		 * Cannot remove cards from homecell pile.
+		 */
 		if(pane.getSelectedCard() == null)
 		{
 			
@@ -44,6 +54,10 @@ public class FortyThievesHomecellListener implements MouseListener
 		
 		else
 		{
+			/**
+			 * When card can be added to homecell pile,
+			 * ensure selected card holds null values before redraw.
+			 */
 			if(homecellPile.isAddingCardLegal(pane.getSelectedCard()))
 			{
 				homecellPile.addCard(pane.getSelectedCard());
@@ -52,8 +66,9 @@ public class FortyThievesHomecellListener implements MouseListener
 			
 			else
 			{
-				pane.returnSelectedCard();
-				pane.redrawLayeredPanel();
+				/**
+				 * When illegal moves are made, make sure the user knows...
+				 */
 				
 				if(pane.getTextField().getText().equals("Illegal Move"))
 				{

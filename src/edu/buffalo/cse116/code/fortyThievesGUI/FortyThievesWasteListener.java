@@ -11,26 +11,29 @@ import edu.buffalo.cse116.code.fortyThieves.FortyThievesWaste;
 import edu.buffalo.cse116.code.gui.CardImage;
 
 /**
+ * Makes changes to model through
+ * interactions with waste pile.
  * 
- * @author william
+ * @author William F. Nicholson
  *
  */
 public class FortyThievesWasteListener implements MouseListener
 {
 	/**
-	 * 
+	 * Reference to game's waste pile.
 	 */
 	private FortyThievesWaste wastePile;
 	/**
-	 * 
+	 * view to manipulate and pull through.
 	 */
 	private FortyThievesLayeredPanel pane;
 	/**
-	 * 
+	 * Code utilized to previous solution to card selection. Effects no longer seen in view.
 	 */
 	private static final Border SELECTED_BORDER = BorderFactory.createLineBorder(Color.BLACK, 1);
 	
 	/**
+	 * Create listener and pass view to assign field variable values.
 	 * 
 	 * @param pane
 	 */
@@ -39,10 +42,7 @@ public class FortyThievesWasteListener implements MouseListener
 		this.pane = pane;
 		this.wastePile = pane.getGame().getGameWastePile();
 	}
-	
-	/**
-	 * 
-	 */
+
 	@Override
 	public void mouseClicked(MouseEvent e)
 	{		
@@ -120,6 +120,11 @@ public class FortyThievesWasteListener implements MouseListener
 		
 	}
 	
+	/**
+	 * Code utilized to previous solution to card selection. Effects no longer seen in view.
+	 * 
+	 * @param label
+	 */
 	public static void select(CardImage label)
 	{
 		label.setBorder(SELECTED_BORDER);

@@ -14,40 +14,51 @@ import edu.buffalo.cse116.code.fortyThieves.FortyThievesTableau;
 import edu.buffalo.cse116.code.fortyThieves.FortyThievesWaste;
 import edu.buffalo.cse116.code.gui.CardImage;
 /**
+ * Layered pane which draws and redraws
+ * each of forty thieves's piles. Also instantiates
+ * new game of forty thieves and wires control listeners.
  * 
- * @author william
- *
+ * @author William F. Nicholson
  */
 @SuppressWarnings("serial")
 public class FortyThievesLayeredPanel extends JLayeredPane
 {
 	/**
-	 * 
+	 * Model the controller will manuipulate.
 	 */
 	private FortyThievesGame fortyThievesGame;
 	/**
-	 * 
+	 * Error messages will be displayed here.
 	 */
 	private JTextField errorBox;
 	/**
-	 * 
+	 * A hack solution to selecting cards, cards that can be selected
+	 * as per model logic will be assigned here to be drawn on the bottom
+	 * left corner of the container.
 	 */
 	private Card selectedCard;
 	/**
-	 * 
+	 * Accompanying the selected card, a reference to its pile is made,
+	 * such that should the card need to be returned to its pile, doing so
+	 * would not require searching through the entirety of the model.
 	 */
 	private Tableau selectedTabelauPile;
 	/**
-	 * 
+	 * Because multiple piles may be selected, there are two seperate
+	 * pile types that need to be checked for, and can be assigned via.
+	 * method overloading. Must check which pile is null or assigned.
 	 */
 	private FortyThievesWaste selectedWastePile;
 	/**
-	 * 
+	 * Accompanying the selected card, a reference to its card image is
+	 * made, such that all card components are present for any possible
+	 * opporation needed to be executed.
 	 */
 	private CardImage selectedCardImage;
 	
 	/**
-	 * 
+	 * Constructs a new layered pane.
+	 * Instantiates fields with new values.
 	 */
 	public FortyThievesLayeredPanel()
 	{
@@ -58,7 +69,8 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 	}
 	
 	/**
-	 * 
+	 * Display top card of stock pile,
+	 * add drawn object to layered pane.
 	 */
 	public void drawStockPile()
 	{
@@ -83,7 +95,8 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 	}
 	
 	/**
-	 * 
+	 * Display top card of waste pile,
+	 * add drawn object to layered pane.
 	 */
 	public void drawWastePile()
 	{
@@ -108,7 +121,8 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 	}
 	
 	/**
-	 * 
+	 * Iterate through each tableau pile, draw
+	 * each card onto the layered panel.
 	 */
 	public void drawTableauPiles()
 	{
@@ -149,7 +163,8 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 	}
 	
 	/**
-	 * 
+	 * Iterate through each homecell pile, draw
+	 * each top card onto the layered panel.
 	 */
 	public void drawHomecellPile()
 	{
@@ -174,7 +189,8 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 	}
 	
 	/**
-	 * 
+	 * Draw the textbox, add it to the
+	 * layered pane.
 	 */
 	public void drawTextBox()
 	{
@@ -189,7 +205,8 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 	}
 	
 	/**
-	 * 
+	 * Drawing selected card onto
+	 * the layered pane, should there be one.
 	 */
 	public void drawSelectedCard()
 	{
@@ -219,7 +236,8 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 	}
 	
 	/**
-	 * 
+	 * draws all piles, the textbox, and the selected card,
+	 * should it exist.
 	 */
 	public void drawLayeredPanel()
 	{
@@ -232,7 +250,8 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 	}
 	
 	/**
-	 * 
+	 * redraws all piles, the textbox, and the selected card,
+	 * should it exist.
 	 */
 	public void redrawLayeredPanel()
 	{
@@ -242,8 +261,10 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 	}
 	
 	/**
+	 * Returns the textbox such that controllers
+	 * can update the text inside it.
 	 * 
-	 * @return
+	 * @return View's JTextField
 	 */
 	public JTextField getTextField()
 	{
@@ -251,8 +272,11 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 	}
 	
 	/**
+	 * Returns the model such that controllers
+	 * can make logic checks and update the model
+	 * as needed.
 	 * 
-	 * @return
+	 * @return Model created in the LayeredPane view.
 	 */
 	public FortyThievesGame getGame()
 	{
@@ -260,8 +284,9 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 	}
 	
 	/**
+	 * Return the selected card for controller checks.
 	 * 
-	 * @return
+	 * @return View's selected card.
 	 */
 	public Card getSelectedCard()
 	{
@@ -269,8 +294,9 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 	}
 	
 	/**
+	 * Return the selected card image for drawing or checks
 	 * 
-	 * @return
+	 * @return View's selected card image.
 	 */
 	public CardImage getSelectedCardImage()
 	{
@@ -278,8 +304,10 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 	}
 	
 	/**
+	 * Return the selected card stack for controller checks
+	 * and returning the selected card to its original stack.
 	 * 
-	 * @return
+	 * @return View's selected card stack.
 	 */
 	public Tableau getSelectedCardStack()
 	{
@@ -287,8 +315,11 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 	}
 	
 	/**
+	 * Ensure that when selecting a card, access to piles and image are passed
 	 * 
 	 * @param card
+	 * @param cardImage
+	 * @param tableau
 	 */
 	public void setSelectedCard(Card card, CardImage cardImage, Tableau tableau)
 	{
@@ -299,6 +330,13 @@ public class FortyThievesLayeredPanel extends JLayeredPane
 		
 	}
 	
+	/**
+	 * We can select cards from tableau or waste pile, so let us overload the method accordingly.
+	 * 
+	 * @param card
+	 * @param cardImage
+	 * @param waste
+	 */
 	public void setSelectedCard(Card card, CardImage cardImage, FortyThievesWaste waste)
 	{
 		this.selectedWastePile = waste;

@@ -6,14 +6,22 @@ import java.awt.event.MouseListener;
 import edu.buffalo.cse116.code.fortyThieves.FortyThievesTableau;
 import edu.buffalo.cse116.code.fortyThieves.FortyThievesWaste;
 
+/**
+ * Special listener for selected card to hack
+ * functionality into this god damned project.
+ * 
+ * @author William F. Nicholson
+ *
+ */
 public class FortyThievesSelectedCardListener implements MouseListener
 {
 	/**
-	 * 
+	 * View to allow us to manipulate stuff.
 	 */
 	private FortyThievesLayeredPanel pane;
 	
 	/**
+	 * Constructor for when selecting from waste pile
 	 * 
 	 * @param pane
 	 */
@@ -22,6 +30,12 @@ public class FortyThievesSelectedCardListener implements MouseListener
 		this.pane = pane;
 	}
 	
+	/**
+	 * Constructor for when selecting from tableau pile
+	 * 
+	 * @param pane
+	 * @param tableauPile
+	 */
 	public FortyThievesSelectedCardListener(FortyThievesLayeredPanel pane, FortyThievesTableau tableauPile)
 	{
 		this.pane = pane;

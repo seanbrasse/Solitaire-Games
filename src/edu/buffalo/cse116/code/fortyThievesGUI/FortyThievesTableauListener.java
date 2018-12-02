@@ -10,30 +10,38 @@ import javax.swing.border.Border;
 import edu.buffalo.cse116.code.fortyThieves.FortyThievesTableau;
 import edu.buffalo.cse116.code.gui.CardImage;
 
+/**
+ * Makes changes to model through
+ * interactions with tableau piles.
+ * 
+ * @author William F. Nicholson
+ *
+ */
 public class FortyThievesTableauListener implements MouseListener
 {
 	/**
-	 * 
+	 * Parent pile the source card belongs to.
 	 */
 	private FortyThievesTableau tableauPile;
 	/**
-	 * 
+	 * View for controller to manipulate.
 	 */
 	private FortyThievesLayeredPanel pane;
 	/**
-	 * 
+	 * Prior solution for card selection involved boarder coloring. Legacy code...
 	 */
 	private static final Border SELECTED_BORDER = BorderFactory.createLineBorder(Color.BLACK, 1);
 	/**
-	 * 
+	 * Prior solution for card selection involved boarder coloring. Legacy code...
 	 */
 	private static final Border UNSELECTED_BORDER = BorderFactory.createEmptyBorder(0, 0, 0, 0);
 	/**
-	 * 
+	 * Important field for allowing for proper tableau pile to be assigned to source card.
 	 */
 	private int pileNumber;
 	
 	/**
+	 * Construct new listener and pass view to controller.
 	 * 
 	 * @param pane
 	 */
@@ -182,6 +190,13 @@ public class FortyThievesTableauListener implements MouseListener
 		
 	}
 	
+	/**
+	 * Helper method to prevent cards in tableau pile
+	 * from being selected when not applicable.
+	 * 
+	 * @param cardImage
+	 * @return whether card in question is top of stack.
+	 */
 	public boolean isCardTopOfPile(CardImage cardImage)
 	{
 		for(int piles=0; piles<pane.getGame().getGameTableauPiles().size(); piles++)
@@ -201,12 +216,22 @@ public class FortyThievesTableauListener implements MouseListener
 		return false;
 	}
 	
+	/**
+	 * While utilized, no effects of this code is utilized anyone. Legacy code?...
+	 * 
+	 * @param label
+	 */
 	public static void select(CardImage label)
 	{
 		label.setBorder(SELECTED_BORDER);
 		label.repaint();
 	}
 	
+	/**
+	 * While utilized, no effects of this code is utilized anyone. Legacy code?...
+	 * 
+	 * @param label
+	 */
 	public static void unselect(CardImage label)
 	{
 		label.setBorder(UNSELECTED_BORDER);

@@ -6,21 +6,25 @@ import java.awt.event.MouseListener;
 import edu.buffalo.cse116.code.fortyThieves.FortyThievesStock;
 
 /**
+ * Makes changes to model through
+ * interactions with stock piles.
  * 
- * @author william
+ * @author William F. Nicholson
  *
  */
 public class FortyThievesStockListener implements MouseListener
 {
 	/**
-	 * 
+	 * Game's stock pile.
 	 */
 	private FortyThievesStock stockPile;
 	/**
-	 * 
+	 * View for controller to manipulate.
 	 */
-	private FortyThievesLayeredPanel pane;	
+	private FortyThievesLayeredPanel pane;
+	
 	/**
+	 * Assinging view to controller and assigning stock pile.
 	 * 
 	 * @param pane
 	 */

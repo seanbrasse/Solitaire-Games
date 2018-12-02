@@ -28,7 +28,7 @@ public class FortyThievesStock {
 	 * Takes the remaining card Deck and places it into the Stock pile.
 	 * @param deck
 	 */
-	public FortyThievesStock(Deck deck, FortyThievesWaste wastePile) { 
+	public FortyThievesStock(Deck deck, FortyThievesWaste wastePile) {
 		this.stockPile = new Stack<Card>();
 		this.wastePile = wastePile;
 		

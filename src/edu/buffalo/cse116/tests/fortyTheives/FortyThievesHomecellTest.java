@@ -12,6 +12,10 @@ public class FortyThievesHomecellTest {
 	public void InitialHomecellPiles(){
 		FortyThievesGame InitialPileSize = new FortyThievesGame();
 		assertEquals(1, InitialPileSize.getGameHomecellPiles().size());
+		
+		FortyThievesHomecell homecell = InitialPileSize.getGameHomecellPiles().get(0);
+		
+		assertEquals(1, homecell.getHomecellPile().size());
 	}
 	
 	@Test

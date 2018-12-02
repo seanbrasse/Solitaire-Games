@@ -37,7 +37,7 @@ public abstract class Tableau
 				deck.getDeck().remove(0);
 			}
 			
-			else
+			else 
 			{
 				break;
 			}

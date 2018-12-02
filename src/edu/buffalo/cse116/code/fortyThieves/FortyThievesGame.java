@@ -107,7 +107,7 @@ public class FortyThievesGame {
 	
 	public FortyThievesWaste getGameWastePile()
 	{
-		return waste;
+		return waste; 
 	}
 }
 

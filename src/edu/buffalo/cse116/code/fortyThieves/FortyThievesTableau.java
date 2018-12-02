@@ -42,12 +42,32 @@ public class FortyThievesTableau extends Tableau {
 	/**
 	 * Checks if the card passing through can be used to build up.
 	 */
+//	@Override
+//	public boolean isAddingCardLegal(Card card) {
+//		if(this.pile.isEmpty()) {
+//			pile.push(card);
+//			return true;
+//		}else if(this.pile.peek().getSuit() == card.getSuit() && this.pile.peek().getRank() - card.getRank() == -1) {
+//			return true;
+////		} else if(this.pile.isEmpty()) {
+////			pile.push(card);
+//		}
+//		return false;
+//		
+//	}
+	
+	/**
+	 * Checks if the card passing through can be used to build DoWn.
+	 */
 	@Override
 	public boolean isAddingCardLegal(Card card) {
-		if(!this.pile.isEmpty() && this.pile.peek().getSuit() == card.getSuit() && this.pile.peek().getRank() - card.getRank() == -1) {
-			return true;
-		} else if(this.pile.isEmpty()) {
+		if(this.pile.isEmpty()) {
 			pile.push(card);
+			return true;
+		}else if(this.pile.peek().getSuit() == card.getSuit() && this.pile.peek().getRank() - card.getRank() == 1) {
+			return true;
+//		} else if(this.pile.isEmpty()) {
+//			pile.push(card);
 		}
 		return false;
 	}

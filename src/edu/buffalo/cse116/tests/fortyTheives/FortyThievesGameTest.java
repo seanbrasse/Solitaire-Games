@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import edu.buffalo.cse116.code.Deck;
 import edu.buffalo.cse116.code.fortyThieves.FortyThievesGame;
+import edu.buffalo.cse116.code.fortyThieves.FortyThievesTableau;
 
 public class FortyThievesGameTest {
 
@@ -52,8 +53,13 @@ public class FortyThievesGameTest {
 	 */
 	@Test
 	public void testInitialTableauPileSize() {
-		
-	}
+			Deck d = new Deck();
+			FortyThievesTableau t = new FortyThievesTableau(d);
+			FortyThievesGame tG = new FortyThievesGame();
+			tG.getGameTableauPiles().get(0).getPileSize();
+			assertEquals(3, tG.getGameTableauPiles().get(0).getPileSize(), 0);
+			
+	} 
 	
 	
 	@Test

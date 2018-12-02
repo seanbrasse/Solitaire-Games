@@ -42,6 +42,9 @@ public class FortyThievesHomecellTest {
 	@Test
 	public void NewTopCardTest() {
 		FortyThievesHomecell gg = new FortyThievesHomecell();
-		
+		gg.getHomecellPile().push(new Card(0,3));
+		Card card = gg.getHomecellPile().peek();
+		assertEquals(1, gg.getHomecellPile().size());
+		assertEquals(card, gg.getHomecellPile().peek());
 	}
 }

@@ -21,22 +21,32 @@ public class FortyThievesWasteTest {
 		assertEquals(0,  w.getWastePile().size(), 0); //Checks that initial size is 0
 	}
 	
+//	/*
+//	 * Tests if adding a card works (Always legal when adding from the stock.) 
+//	 */
+//	@Test
+//	public void AddTest() {
+//			FortyThievesWaste w = new FortyThievesWaste();
+//			assertEquals(0, w.getWastePile().size());
+//			w.addCardFromStock(new Card(0,3));
+//			assertEquals(1, w.getWastePile().size()); //Checks if size increases
+//			assertEquals(0, w.getWastePile().peek().getSuit()); //Checks if top card is updated
+//			assertEquals(3, w.getWastePile().peek().getRank()); //Checks if top card is updated
+//			
+//			w.addCardFromStock(new Card(3,5));
+//			assertEquals(2, w.getWastePile().size()); //Checks if size increases
+//			assertEquals(3, w.getWastePile().peek().getSuit()); //Checks if top card is updated
+//			assertEquals(5, w.getWastePile().peek().getRank()); //Checks if top card is updated
+//	}
+//	
 	/*
-	 * Tests if adding a card works (Always legal when adding from the stock.) 
+	 * Tests if adding a card from anywhere other than the stock is legal (illegal)
 	 */
+	
 	@Test
-	public void AddTest() {
-			FortyThievesWaste w = new FortyThievesWaste();
-			assertEquals(0, w.getWastePile().size());
-			w.addCardFromStock(new Card(0,3));
-			assertEquals(1, w.getWastePile().size()); //Checks if size increases
-			assertEquals(0, w.getWastePile().peek().getSuit()); //Checks if top card is updated
-			assertEquals(3, w.getWastePile().peek().getRank()); //Checks if top card is updated
-			
-			w.addCardFromStock(new Card(3,5));
-			assertEquals(2, w.getWastePile().size()); //Checks if size increases
-			assertEquals(3, w.getWastePile().peek().getSuit()); //Checks if top card is updated
-			assertEquals(5, w.getWastePile().peek().getRank()); //Checks if top card is updated
+	public void addFromNotStockLegalTest() {
+		FortyThievesWaste w = new FortyThievesWaste();
+		assertFalse(w.isAddingFromNotStockLegal());
 	}
 	
 	/*

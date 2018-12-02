@@ -34,6 +34,10 @@ public class FortyThievesWaste {
 		return null;
 	}
 	
+	/*
+	 *Returns if removing from the waste pile is legal (Always unless pile is empty) 
+	 */
+	
 	public boolean isRemoveLegal() {
 		if(!wastePile.isEmpty()) {
 			return true;
@@ -42,14 +46,30 @@ public class FortyThievesWaste {
 		}
 	}
 	
+	/*
+	 *Returns a waste pile 
+	 */
 	
 	public Stack<Card> getWastePile(){
 		return wastePile;
 	}
 	
-	public void addCardFromStock(Card card)
-	{
-		wastePile.push(card);
+/*
+ * 	Might not need this method because Stock's remove method handles adding to the waste pile 
+ * (See project test requirements)
+ */
+	
+//	public void addCardFromStock(Card card)
+//	{
+//		wastePile.push(card);
+//	}
+	
+	/*
+	 *Returns if adding from a pile other than the stock pile is legal (illegal) 
+	 */
+	
+	public boolean isAddingFromNotStockLegal(){
+		return false;
 	}
 	
 }
